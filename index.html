@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天草市 旅費算定地点・金額検索アプリ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>天草市 旅費算定地点・金額検索アプリ</h1>
+        <p>住所の地番情報または施設名から、旅費算定の地点と金額（本渡または御所浦起点）を検索します。</p>
+
+        <div class="mode-switcher">
+            <button id="mode-address" class="active">住所から検索</button>
+            <button id="mode-facility">施設名から検索</button>
+        </div>
+
+        <div id="address-search-form" class="search-form">
+            <h2>住所（町名・地番）を入力</h2>
+            <div class="input-group">
+                <label for="town-name">町名 (例: 五和町御領 / 御所浦町御所浦)</label>
+                <input type="text" id="town-name" placeholder="町名を入力してください">
+            </div>
+            <div class="input-group">
+                <label for="house-number">地番 (例: 2943-1 / 501-1)</label>
+                <input type="text" id="house-number" placeholder="地番を入力してください">
+            </div>
+            <button onclick="searchByAddress()">検索</button>
+        </div>
+
+        <div id="facility-search-form" class="search-form hidden">
+            <h2>施設名を選択</h2>
+            <div class="input-group">
+                <label for="facility-select">施設名</label>
+                <select id="facility-select">
+                    <option value="">-- 施設を選択してください --</option>
+                </select>
+            </div>
+            <button onclick="searchByFacility()">検索</button>
+        </div>
+        
+        <div id="result-area" class="result-box">
+            <p class="result-label">検索対象</p>
+            <p id="search-input-display" class="result-input">---</p>
+            <hr>
+            <p class="result-label">特定された旅費算定地点</p>
+            <p id="travel-point-display" class="result-point">---</p>
+            <hr>
+            <p class="result-label">旅費 (往復金額 / 片道距離)</p>
+            <p id="travel-cost-display" class="result-cost">---</p>
+            <p id="note-display" class="result-note">※ 特定された地点が旅費算定の基準となります。</p>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
