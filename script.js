@@ -1,0 +1,872 @@
+// --- 施設データ (一覧表.rtfから) ---
+// 施設名と住所
+const FACILITY_DATA = [
+    {"name": "天草市役所", "address": "天草市東浜町８番１号"},
+    {"name": "牛深支所", "address": "天草市牛深町２２８６番地１０３"},
+    {"name": "有明支所", "address": "天草市有明町赤崎３３８３番地"},
+    {"name": "御所浦支所", "address": "天草市御所浦町御所浦３５２７番地"},
+    {"name": "倉岳支所", "address": "天草市倉岳町棚底１９１９番地"},
+    {"name": "栖本支所", "address": "天草市栖本町馬場１７９番地"},
+    {"name": "新和支所", "address": "天草市新和町小宮地６６９番地１"},
+    {"name": "五和支所", "address": "天草市五和町御領２９４３番地"},
+    {"name": "天草支所", "address": "天草市天草町高浜南４８８番地１"},
+    {"name": "河浦支所", "address": "天草市河浦町河浦５２５３番地"},
+    {"name": "天草市新和B＆G海洋センター", "address": "天草市新和町大多尾２１３８番地３"},
+    {"name": "地域交流センターおおくす", "address": "天草市五和町手野一丁目３６７番地１"},
+    {"name": "天草市複合施設ここらす", "address": "天草市浄南町４番１５号"},
+    {"name": "本渡南地区コミュニティセンター", "address": "天草市港町１３番５号"},
+    {"name": "本渡北地区コミュニティセンター", "address": "天草市今釜町１０番４３号"},
+    {"name": "亀場地区コミュニティセンター", "address": "天草市亀場町亀川１６９８番地"},
+    {"name": "枦宇土地区コミュニティセンター", "address": "天草市枦宇土町１７１１番地"},
+    {"name": "志柿地区コミュニティセンター", "address": "天草市志柿町３３９０番地１０"},
+    {"name": "志柿町瀬戸地区コミュニティセンター", "address": "天草市志柿町６６２３番地１"},
+    {"name": "下浦地区コミュニティセンター", "address": "天草市下浦町１２８２番地"},
+    {"name": "楠浦地区コミュニティセンター", "address": "天草市楠浦町２３６６番地"},
+    {"name": "本町地区コミュニティセンター", "address": "天草市本町本８３２番地"},
+    {"name": "佐伊津地区コミュニティセンター", "address": "天草市佐伊津町２２５８番地"},
+    {"name": "宮地岳地区コミュニティセンター", "address": "天草市宮地岳町５６１６番地２"},
+    {"name": "牛深地区コミュニティセンター", "address": "天草市牛深町１２２番地２"},
+    {"name": "久玉地区コミュニティセンター", "address": "天草市久玉町１４１２番地１２"},
+    {"name": "魚貫地区コミュニティセンター", "address": "天草市魚貫町２１２９番地"},
+    {"name": "深海地区コミュニティセンター", "address": "天草市深海町１８４２番地４２"},
+    {"name": "二浦地区コミュニティセンター", "address": "天草市二浦町亀浦１０３５番地１１"},
+    {"name": "楠甫地区コミュニティセンター", "address": "天草市有明町楠甫４６２９番地７"},
+    {"name": "大浦地区コミュニティセンター", "address": "天草市有明町大浦１７２３番地１"},
+    {"name": "須子地区コミュニティセンター", "address": "天草市有明町須子２０８２番地３"},
+    {"name": "赤崎地区コミュニティセンター", "address": "天草市有明町赤崎１８０１番地１"},
+    {"name": "上津浦地区コミュニティセンター", "address": "天草市有明町上津浦３７０６番地４"},
+    {"name": "下津浦地区コミュニティセンター", "address": "天草市有明町下津浦２５０５番地２"},
+    {"name": "島子地区コミュニティセンター", "address": "天草市有明町大島子２６６９番地"},
+    {"name": "御所浦地区コミュニティセンター", "address": "天草市御所浦町御所浦４３１０番地５"},
+    {"name": "御所浦南地区コミュニティセンター", "address": "天草市御所浦町御所浦６１９６番地２"},
+    {"name": "牧島地区コミュニティセンター", "address": "天草市御所浦町牧島６２５番地７"},
+    {"name": "御所浦北地区コミュニティセンター", "address": "天草市御所浦町横浦３８３番地６"},
+    {"name": "嵐口地区コミュニティセンター", "address": "天草市御所浦町御所浦２８９５番地１４"},
+    {"name": "浦地区コミュニティセンター", "address": "天草市倉岳町浦３０８９番地１"},
+    {"name": "棚底地区コミュニティセンター", "address": "天草市倉岳町棚底１７８６番地４"},
+    {"name": "宮田地区コミュニティセンター", "address": "天草市倉岳町宮田１３２７番地１"},
+    {"name": "栖本地区コミュニティセンター", "address": "天草市栖本町河内４４１４番地１"},
+    {"name": "小宮地地区コミュニティセンター", "address": "天草市新和町小宮地６６９番地１"},
+    {"name": "宮南地区コミュニティセンター", "address": "天草市新和町小宮地１０８２１番地１"},
+    {"name": "大宮地地区コミュニティセンター", "address": "天草市新和町大宮地４２７５番地１"},
+    {"name": "大多尾地区コミュニティセンター", "address": "天草市新和町大多尾２８５２番地１"},
+    {"name": "中田地区コミュニティセンター", "address": "天草市新和町中田２２７０番地５"},
+    {"name": "碇石地区コミュニティセンター", "address": "天草市新和町碇石９５９番地１"},
+    {"name": "御領地区コミュニティセンター", "address": "天草市五和町御領６６９２番地１"},
+    {"name": "大島地区コミュニティセンター", "address": "天草市五和町御領９７６１番地"},
+    {"name": "鬼池地区コミュニティセンター", "address": "天草市五和町鬼池１１８４番地"},
+    {"name": "二江地区コミュニティセンター", "address": "天草市五和町二江３０６６番地"},
+    {"name": "手野地区コミュニティセンター", "address": "天草市五和町手野一丁目３７６８番地３"},
+    {"name": "城河原地区コミュニティセンター", "address": "天草市五和町城河原一丁目１７番地１"},
+    {"name": "福連木地区コミュニティセンター", "address": "天草市天草町福連木３６４５番地２"},
+    {"name": "下田北地区コミュニティセンター", "address": "天草市天草町下田北５３４番地１"},
+    {"name": "下田南地区コミュニティセンター", "address": "天草市天草町下田南３０４０番地１"},
+    {"name": "高浜地区コミュニティセンター", "address": "天草市天草町高浜南５０１番地１"},
+    {"name": "大江地区コミュニティセンター", "address": "天草市天草町大江７４８０番地５"},
+    {"name": "新合地区コミュニティセンター", "address": "天草市河浦町新合２００８番地４"},
+    {"name": "一町田地区コミュニティセンター", "address": "天草市河浦町河浦５２２３番地"},
+    {"name": "富津地区コミュニティセンター", "address": "天草市河浦町富津１１１７番地２"},
+    {"name": "宮野河内地区コミュニティセンター", "address": "天草市河浦町宮野河内３３７番地６"},
+    {"name": "天草市立本渡学校給食センター", "address": "天草市東町７番地４１"},
+    {"name": "天草市立牛深学校給食センター", "address": "天草市久玉町１２１６番地１２"},
+    {"name": "天草市立御所浦学校給食センター", "address": "天草市御所浦町御所浦３２１５番地４"},
+    {"name": "天草市立栖本学校給食センター", "address": "天草市栖本町打田１８番地１"},
+    {"name": "天草市立五和学校給食センター", "address": "天草市五和町御領６６８９番地６"},
+    {"name": "天草市立天草学校給食センター", "address": "天草市天草町高浜南４８８番地１"},
+    {"name": "牛深総合センター", "address": "天草市牛深町１６０番地"},
+    {"name": "天草市立本渡南小学校", "address": "天草市川原町４番２１号"},
+    {"name": "天草市立本渡北小学校", "address": "天草市浜崎町３番５５号"},
+    {"name": "天草市立亀川小学校", "address": "天草市亀場町亀川１６２０番地"},
+    {"name": "天草市立本渡東小学校", "address": "天草市志柿町５０２９番地５"},
+    {"name": "天草市立楠浦小学校", "address": "天草市楠浦町２８０５番地"},
+    {"name": "天草市立本町小学校", "address": "天草市本町本８１５番地"},
+    {"name": "天草市立佐伊津小学校", "address": "天草市佐伊津町２３１２番地"},
+    {"name": "天草市立牛深小学校", "address": "天草市牛深町１９８５番地"},
+    {"name": "天草市立牛深東小学校", "address": "天草市久玉町２３６４番地"},
+    {"name": "天草市立有明小学校", "address": "天草市有明町赤崎３２９１番地"},
+    {"name": "天草市立御所浦小学校", "address": "天草市御所浦町御所浦３５２７番地５"},
+    {"name": "天草市立倉岳小学校", "address": "天草市倉岳町棚底２０９１番地"},
+    {"name": "天草市立栖本小学校", "address": "天草市栖本町馬場２５番地"},
+    {"name": "天草市立新和小学校", "address": "天草市新和町小宮地６２０番地"},
+    {"name": "天草市立五和小学校", "address": "天草市五和町御領９６０８番地１"},
+    {"name": "天草市立天草小学校", "address": "天草市天草町高浜南２７１４番地"},
+    {"name": "天草市立河浦小学校", "address": "天草市河浦町河浦４９３２番地２"},
+    {"name": "天草市立本渡中学校", "address": "天草市本渡町広瀬５番地１１０"},
+    {"name": "天草市立本渡東中学校", "address": "天草市志柿町５０３１番地"},
+    {"name": "天草市立稜南中学校", "address": "天草市亀場町亀川１４２５番地"},
+    {"name": "天草市立牛深中学校", "address": "天草市牛深町１２１１番地２５"},
+    {"name": "天草市立牛深東中学校", "address": "天草市久玉町２３６４番地"},
+    {"name": "天草市立有明中学校", "address": "天草市有明町赤崎３３８３番地"},
+    {"name": "天草市立御所浦中学校", "address": "天草市御所浦町御所浦３２１５番地２"},
+    {"name": "天草市立倉岳中学校", "address": "天草市倉岳町棚底２６91番地"},
+    {"name": "天草市立栖本中学校", "address": "天草市栖本町湯船原６９０番地４"},
+    {"name": "天草市立新和中学校", "address": "天草市新和町小宮地１３０４番地"},
+    {"name": "天草市立五和中学校", "address": "天草市五和町御領９６０７番地２"},
+    {"name": "天草市立天草中学校", "address": "天草市天草町高浜南４８８番地１"},
+    {"name": "天草市立河浦中学校", "address": "天草市河浦町河浦３５番地２４"},
+    {"name": "中央生涯学習センター", "address": "天草市浄南町４番１５号"},
+    {"name": "生涯学習センター", "address": "天草市久玉町５７１６番地４"},
+    {"name": "天草市本町体育館", "address": "天草市本町新休２７番地７"},
+    {"name": "天草市佐伊津体育館", "address": "天草市佐伊津町５７９６番地"},
+    {"name": "天草市瀬戸体育館", "address": "天草市志柿町６３４８番地"},
+    {"name": "天草市金焼体育館", "address": "天草市下浦町９４７５番地"},
+    {"name": "天草市枦宇土体育館", "address": "天草市枦宇土町１９０１番地３"},
+    {"name": "天草市茂串体育館", "address": "天草市牛深町５99番地"},
+    {"name": "天草市天附体育館", "address": "天草市牛深町３２７５番地１１"},
+    {"name": "天草市魚貫体育館", "address": "天草市魚貫町１４４３番地"},
+    {"name": "天草市深海体育館", "address": "天草市深海町４４６２番地３"},
+    {"name": "天草市二浦体育館", "address": "天草市二浦町亀浦４４０３番地８"},
+    {"name": "天草市楠甫体育館", "address": "天草市有明町楠甫７５６番地"},
+    {"name": "天草市大楠体育館", "address": "天草市有明町大浦５３３番地１"},
+    {"name": "天草市須子体育館", "address": "天草市有明町須子１２２６番地２"},
+    {"name": "天草市赤崎体育館", "address": "天草市有明町赤崎１７６４番地"},
+    {"name": "天草市浦和体育館", "address": "天草市有明町上津浦５５１番地"},
+    {"name": "天草市島子体育館", "address": "天草市有明町大島子２６６９番地"},
+    {"name": "天草市御所浦北体育館", "address": "天草市御所浦町横浦５３６番地"},
+    {"name": "天草市倉岳体育館", "address": "天草市倉岳町棚底２５５６番地"},
+    {"name": "天草市浦体育館", "address": "天草市倉岳町浦３０６４番地１"},
+    {"name": "天草市宮田体育館", "address": "天草市倉岳町宮田１３２７番地１"},
+    {"name": "天草市栖本河内体育館", "address": "天草市栖本町河内４４１７番地１"},
+    {"name": "天草市栖本体育館", "address": "天草市栖本町古江１５３番地４"},
+    {"name": "天草市新和体育館", "address": "天草市新和町小宮地７２２番地"},
+    {"name": "天草市宮南体育館", "address": "天草市新和町小宮地１０８１６番地２"},
+    {"name": "天草市大宮地体育館", "address": "天草市新和町大宮地４２７７番地１"},
+    {"name": "天草市五和体育館", "address": "天草市五和町御領６８１６番地"},
+    {"name": "天草市鬼池体育館", "address": "天草市五和町鬼池１３１０番地"},
+    {"name": "天草市手野体育館", "address": "天草市五和町手野一丁目３７６１番地１"},
+    {"name": "天草市城河原体育館", "address": "天草市五和町城河原三丁目６９番地"},
+    {"name": "天草市福連木体育館", "address": "天草市天草町福連木３５０５番地１"},
+    {"name": "天草市天草勤労者体育館", "address": "天草市天草町高浜南４７２番地３"},
+    {"name": "天草市河浦中央体育館", "address": "天草市河浦町白木河内１７５番地４"},
+    {"name": "天草市一町田体育館", "address": "天草市河浦町久留２１８番地１"},
+    {"name": "天草市新合体育館", "address": "天草市河浦町新合２０１３番地１"},
+    {"name": "天草市宮野河内体育館", "address": "天草市河浦町宮野河内１１６１番地１"},
+    {"name": "天草市乙女蛇運動広場", "address": "天草市南町１２９５番地"},
+    {"name": "天草市山口運動広場", "address": "天草市本渡町本渡３３５５番地"},
+    {"name": "天草市亀場運動広場", "address": "天草市亀場町亀川２２３８番地２"},
+    {"name": "天草市枦宇土運動広場", "address": "天草市枦宇土町１８００番地"},
+    {"name": "天草市志柿運動広場", "address": "天草市志柿町３３９０番地１０"},
+    {"name": "天草市瀬戸運動広場", "address": "天草市志柿町６３２５番地５"},
+    {"name": "天草市下浦運動広場", "address": "天草市下浦町５１番地"},
+    {"name": "天草市下浦運動広場アーチェリー場", "address": "天草市下浦町５１番地"},
+    {"name": "天草市錦島運動広場", "address": "天草市楠浦町２３番地１"},
+    {"name": "天草市本町運動広場", "address": "天草市本町新休２７番地７"},
+    {"name": "天草市佐伊津運動広場", "address": "天草市佐伊津町５７９６番地"},
+    {"name": "天草市宮地岳運動広場", "address": "天草市宮地岳町５６３５番地２"},
+    {"name": "天草市牛深グラウンド", "address": "天草市牛深町１２１１番地２５"},
+    {"name": "天草市天附グラウンド", "address": "天草市牛深町３２７５番地８"},
+    {"name": "天草市深海グラウンド", "address": "天草市深海町２８０１番地１４"},
+    {"name": "天草市魚浦グラウンド", "address": "天草市二浦町亀浦３４４３番地１"},
+    {"name": "天草市楠甫グラウンド", "address": "天草市有明町楠甫４６２９番地１"},
+    {"name": "天草市大楠グラウンド", "address": "天草市有明町大浦５３３番地１"},
+    {"name": "天草市須子グラウンド", "address": "天草市有明町須子１２２６番地２"},
+    {"name": "天草市赤崎グラウンド", "address": "天草市有明町赤崎１７６４番地"},
+    {"name": "天草市上津浦グラウンド", "address": "天草市有明町上津浦３６９８番地"},
+    {"name": "天草市有明グラウンド", "address": "天草市有明町下津浦３００１番地９"},
+    {"name": "天草市島子グラウンド", "address": "天草市有明町大島子２６６９番地"},
+    {"name": "天草市倉岳総合グラウンド", "address": "天草市倉岳町棚底２６７６番地１"},
+    {"name": "天草市浦グラウンド", "address": "天草市倉岳町浦３０６４番地１"},
+    {"name": "天草市宮田グラウンド", "address": "天草市倉岳町宮田１３２７番地１"},
+    {"name": "天草市栖本河内グラウンド", "address": "天草市栖本町河内４４１４番地１"},
+    {"name": "天草市栖本総合グラウンド", "address": "天草市栖本町古江１５３番地５"},
+    {"name": "天草市栖本総合グラウンドテニスコート", "address": "天草市栖本町古江１５３番地５"},
+    {"name": "天草市栖本相撲場", "address": "天草市栖本町古江１５３番地５"},
+    {"name": "天草市新和グラウンド", "address": "天草市新和町小宮地７１３番地"},
+    {"name": "天草市大宮地運動広場", "address": "天草市新和町大宮地４２７７番地１"},
+    {"name": "天草市中田運動広場", "address": "天草市新和町中田２２７０番地１１"},
+    {"name": "天草市大多尾運動広場", "address": "天草市新和町大多尾３５２０番地１"},
+    {"name": "天草市碇石運動広場", "address": "天草市新和町碇石９５７番地１"},
+    {"name": "天草市新和相撲場", "address": "天草市新和町碇石９５７番地１"},
+    {"name": "天草市五和グラウンド", "address": "天草市五和町御領２９４０番地１"},
+    {"name": "天草市五和テニスコート", "address": "天草市五和町御領２９４０番地１"},
+    {"name": "天草市鬼池運動広場", "address": "天草市五和町鬼池１２９２番地"},
+    {"name": "天草市二江運動広場", "address": "天草市五和町二江３２４２番地１"},
+    {"name": "天草市手野運動広場", "address": "天草市五和町手野一丁目３５８８番地１"},
+    {"name": "天草市城河原運動広場", "address": "天草市五和町城河原三丁目５０番地"},
+    {"name": "天草市下田北運動広場", "address": "天草市天草町下田北１５０１番地"},
+    {"name": "天草市天草総合運動公園", "address": "天草市天草町高浜北１６７５番地１"},
+    {"name": "天草市天草総合運動公園テニスコート", "address": "天草市天草町高浜北１６７５番地１"},
+    {"name": "天草市大江農村広場", "address": "天草市天草町大江１００３番地"},
+    {"name": "天草市河浦さざんか公園運動広場", "address": "天草市河浦町新合２１４４番地１"},
+    {"name": "天草市河浦総合運動場", "address": "天草市河浦町白木河内１７５番地２１"},
+    {"name": "天草市河浦総合運動場テニスコート", "address": "天草市河浦町白木河内１７５番地２１"},
+    {"name": "天草市富津運動場", "address": "天草市河浦町崎津１１１７番地４"}, // 住所修正
+    {"name": "天草市宮野河内運動場", "address": "天草市河浦町宮野河内３３７番地６"},
+    {"name": "天草市陸上競技場", "address": "天草市本渡町広瀬５番地１１３"},
+    {"name": "御所浦交流センター", "address": "天草市御所浦町御所浦５８７５番地２"},
+    {"name": "本渡地区公民館", "address": "天草市浄南町４番１５号"},
+    {"name": "牛深地区公民館", "address": "天草市牛深町２２８６番地１０３"},
+    {"name": "有明地区公民館", "address": "天草市有明町赤崎３３８３番地"},
+    {"name": "御所浦地区公民館", "address": "天草市御所浦町御所浦３５２７番地"},
+    {"name": "倉岳地区公民館", "address": "天草市倉岳町棚底１９１９番地"},
+    {"name": "栖本地区公民館", "address": "天草市栖本町馬場１７９番地"},
+    {"name": "新和地区公民館", "address": "天草市新和町小宮地６６９番地１"},
+    {"name": "五和地区公民館", "address": "天草市五和町御領２９４３番地"},
+    {"name": "天草地区公民館", "address": "天草市天草町高浜南４８８番地１"},
+    {"name": "河浦地区公民館", "address": "天草市河浦町河浦５２５３番地"},
+    {"name": "天草市今富地域交流施設", "address": "天草市河浦町今富９５６番地"},
+    {"name": "天草交流センターブルーアイランド天草", "address": "天草市天草町大江５０４番地２"},
+    {"name": "天草市民センター", "address": "天草市東町３番地"},
+    {"name": "天草市立御所浦恐竜の島博物館", "address": "天草市御所浦町御所浦４３１０番地５"},
+    {"name": "天草市立中央図書館", "address": "天草市浄南町４番１５号"},
+    {"name": "天草市立牛深図書館", "address": "天草市牛深町１６０番地"},
+    {"name": "天草市立御所浦図書館", "address": "天草市御所浦町御所浦３５２５番地２"},
+    {"name": "天草市立河浦図書館", "address": "天草市河浦町河浦５２５３番地"},
+    {"name": "天草市立天草アーカイブズ", "address": "天草市志柿町６３３５番地"},
+    {"name": "天草市立本渡歴史民俗資料館", "address": "天草市今釜新町３７０６番地"},
+    {"name": "天草市立有明歴史民俗資料館", "address": "天草市有明町下津浦３００１番地９"},
+    {"name": "天草市立倉岳歴史民俗資料館", "address": "天草市倉岳町棚底１７８６番地４"},
+    {"name": "天草市立新和歴史民俗資料館", "address": "天草市新和町小宮地８９１８番地２"},
+    {"name": "天草市立五和歴史民俗資料館", "address": "天草市五和町二江３８４番地"},
+    {"name": "天草文化交流館", "address": "天草市船之尾町８番２５号"},
+    {"name": "天草市立本渡南幼稚園", "address": "天草市川原町４番７号"},
+    {"name": "天草市立本渡北幼稚園", "address": "天草市浜崎町４番９号"},
+    {"name": "天草市立亀場幼稚園", "address": "天草市亀場町亀川１５３８番地１"},
+];
+
+// --- 旅費地点判定データ (地点目安.csvから、ロジック反映済) ---
+const TRAVEL_POINTS_DATA = [
+    { "town": "東町", "ranges": [{"start": 0.0, "end": 99999.0, "location": "本渡or亀場"}] },
+    { "town": "浄南町", "ranges": [
+        {"start": 5.0, "end": 99999.0, "location": "本渡or亀場" /* 5.0以上 */}, 
+        {"start": 0.0, "end": 5.0, "location": "本渡" /* 5.0未満 */ }
+    ]},
+    { "town": "太田町", "ranges": [
+        {"start": 19.0, "end": 21.0, "location": "本渡or亀場"}, 
+        {"start": 0.0, "end": 19.0, "location": "本渡"}, 
+        {"start": 21.0, "end": 99999.0, "location": "本渡"}
+    ]},
+    { "town": "東・浄南・太田町以外", "ranges": [{"start": 0.0, "end": 99999.0, "location": "本渡" /* 上記以外 */}] }, 
+    { "town": "旭町", "ranges": [{"start": 0.0, "end": 99999.0, "location": "佐伊津"}] },
+    { "town": "瀬戸町", "ranges": [{"start": 0.0, "end": 99999.0, "location": "亀場"}] },
+    { "town": "本渡町本渡", "ranges": [{"start": 0.0, "end": 99999.0, "location": "本渡"}] },
+    { "town": "本渡町広瀬", "ranges": [
+        {"start": 1.0, "end": 1470.0, "location": "本渡"},
+        {"start": 1470.0, "end": 2080.0, "location": "佐伊津"}, 
+        {"start": 2080.0, "end": 99999.0, "location": "本渡"}
+    ]},
+    { "town": "本渡町本戸馬場", "ranges": [{"start": 0.0, "end": 99999.0, "location": "本渡"}] },
+    { "town": "本渡町本泉", "ranges": [{"start": 0.0, "end": 99999.0, "location": "本渡"}] },
+    { "town": "佐伊津町", "ranges": [{"start": 0.0, "end": 99999.0, "location": "佐伊津"}] },
+    { "town": "本町本", "ranges": [{"start": 0.0, "end": 99999.0, "location": "本町"}] },
+    { "town": "本町新休", "ranges": [{"start": 0.0, "end": 99999.0, "location": "本町"}] },
+    { "town": "本町下河内", "ranges": [
+        {"start": 1.0, "end": 1200.0, "location": "本町"},
+        {"start": 1200.0, "end": 2000.0, "location": "城河原"}, 
+        {"start": 2000.0, "end": 99999.0, "location": "本町"}
+    ]},
+    { "town": "亀場町亀川", "ranges": [{"start": 0.0, "end": 99999.0, "location": "亀場"}] },
+    { "town": "亀場町食場", "ranges": [
+        {"start": 1.0, "end": 340.0, "location": "枦宇土"},
+        {"start": 340.0, "end": 700.0, "location": "亀場"},
+        {"start": 700.0, "end": 800.0, "location": "枦宇土"}, 
+        {"start": 800.0, "end": 900.0, "location": "亀場or枦宇土"},
+        {"start": 900.0, "end": 1200.0, "location": "亀場"},
+        {"start": 1200.0, "end": 99999.0, "location": "枦宇土"}
+    ]},
+    { "town": "枦宇土町", "ranges": [
+        {"start": 1.0, "end": 1030.0, "location": "枦宇土 OR 福連木"},
+        {"start": 1030.0, "end": 1130.0, "location": "枦宇土 OR 宮地岳"}, 
+        {"start": 1130.0, "end": 99999.0, "location": "枦宇土"}
+    ]},
+    { "town": "楠浦町", "ranges": [
+        {"start": 1.0, "end": 900.0, "location": "楠浦"},
+        {"start": 900.0, "end": 1200.0, "location": "亀場or楠浦"}, 
+        {"start": 1200.0, "end": 6400.0, "location": "楠浦"},
+        {"start": 6400.0, "end": 6800.0, "location": "宮地岳"},
+        {"start": 6800.0, "end": 10000.0, "location": "楠浦"},
+        {"start": 10000.0, "end": 99999.0, "location": "亀場"}
+    ]},
+    { "town": "宮地岳町", "ranges": [{"start": 0.0, "end": 99999.0, "location": "宮地岳"}] },
+    { "town": "志柿町", "ranges": [
+        {"start": 1.0, "end": 400.0, "location": "島子"},
+        {"start": 400.0, "end": 4700.0, "location": "志柿"}, 
+        {"start": 4700.0, "end": 5320.0, "location": "下浦"},
+        {"start": 5320.0, "end": 7000.0, "location": "亀場"},
+        {"start": 7000.0, "end": 99999.0, "location": "志柿"}
+    ]},
+    { "town": "下浦町", "ranges": [{"start": 0.0, "end": 99999.0, "location": "下浦"}] },
+    { "town": "牛深町", "ranges": [
+        {"start": 1.0, "end": 90.0, "location": "牛深 OR 魚貫"},
+        {"start": 90.0, "end": 300.0, "location": "牛深 OR 久玉"}, 
+        {"start": 300.0, "end": 1600.0, "location": "牛深 OR 魚貫"},
+        {"start": 1600.0, "end": 99999.0, "location": "牛深"}
+    ]},
+    { "town": "魚貫町", "ranges": [
+        {"start": 1.0, "end": 3400.0, "location": "魚貫"},
+        {"start": 3400.0, "end": 99999.0, "location": "魚貫崎"}
+    ]},
+    { "town": "二浦町早浦", "ranges": [{"start": 0.0, "end": 99999.0, "location": "亀浦"}] },
+    { "town": "二浦町亀浦", "ranges": [
+        {"start": 1.0, "end": 2200.0, "location": "亀浦"},
+        {"start": 2200.0, "end": 2600.0, "location": "向辺田"}, 
+        {"start": 2600.0, "end": 99999.0, "location": "亀浦"}
+    ]},
+    { "town": "久玉町", "ranges": [
+        {"start": 1.0, "end": 40.0, "location": "牛深 OR 山の浦"},
+        {"start": 40.0, "end": 1000.0, "location": "久玉 OR 山の浦"}, 
+        {"start": 1000.0, "end": 2000.0, "location": "久玉 OR 山の浦 OR 古江"},
+        {"start": 2000.0, "end": 5345.0, "location": "久玉 OR 山の浦"},
+        {"start": 5345.0, "end": 5705.0, "location": "久玉"},
+        {"start": 5705.0, "end": 5706.0, "location": "牛深"},
+        {"start": 5706.0, "end": 99999.0, "location": "久玉"}
+    ]},
+    { "town": "深海町", "ranges": [
+        {"start": 1.0, "end": 4800.0, "location": "深海"},
+        {"start": 4800.0, "end": 5000.0, "location": "深海 OR 山の浦"}, 
+        {"start": 5000.0, "end": 99999.0, "location": "深海"}
+    ]},
+    { "town": "有明町赤崎", "ranges": [
+        {"start": 1.0, "end": 2999.0, "location": "赤崎"},
+        {"start": 2999.0, "end": 3039.0, "location": "上津浦"},
+        {"start": 3039.0, "end": 99999.0, "location": "赤崎"}
+    ]},
+    { "town": "有明町須子", "ranges": [{"start": 0.0, "end": 99999.0, "location": "大浦"}] },
+    { "town": "有明町大浦", "ranges": [
+        {"start": 1.0, "end": 58.0, "location": "楠甫"},
+        {"start": 58.0, "end": 4000.0, "location": "大浦"}, 
+        {"start": 4000.0, "end": 99999.0, "location": "楠甫"}
+    ]},
+    { "town": "有明町楠甫", "ranges": [{"start": 0.0, "end": 99999.0, "location": "楠甫"}] },
+    { "town": "有明町上津浦", "ranges": [
+        {"start": 1.0, "end": 1880.0, "location": "上津浦"},
+        {"start": 1880.0, "end": 3200.0, "location": "赤崎"}, 
+        {"start": 3200.0, "end": 5000.0, "location": "上津浦"},
+        {"start": 5000.0, "end": 99999.0, "location": "河内"}
+    ]},
+    { "town": "有明町下津浦", "ranges": [
+        {"start": 1.0, "end": 1712.0, "location": "上津浦"},
+        {"start": 1712.0, "end": 1719.0, "location": "河内"},
+        {"start": 1719.0, "end": 1893.0, "location": "上津浦"},
+        {"start": 1893.0, "end": 1894.0, "location": "河内"},
+        {"start": 1894.0, "end": 3721.0, "location": "上津浦"},
+        {"start": 3721.0, "end": 3881.0, "location": "河内"},
+        {"start": 3881.0, "end": 4639.0, "location": "上津浦"},
+        {"start": 4639.0, "end": 4640.0, "location": "河内"},
+        {"start": 4640.0, "end": 99999.0, "location": "上津浦"}
+    ]},
+    { "town": "有明町大島子", "ranges": [{"start": 0.0, "end": 99999.0, "location": "島子"}] },
+    { "town": "有明町小島子", "ranges": [
+        {"start": 1.0, "end": 800.0, "location": "上津浦"},
+        {"start": 800.0, "end": 1320.0, "location": "島子"}, 
+        {"start": 1320.0, "end": 1326.0, "location": "上津浦"},
+        {"start": 1326.0, "end": 99999.0, "location": "島子"}
+    ]},
+    { "town": "御所浦町御所浦", "ranges": [
+        {"start": 1.0, "end": 1200.0, "location": "外平"},
+        {"start": 1200.0, "end": 3101.0, "location": "嵐口"},
+        {"start": 3101.0, "end": 4960.0, "location": "御所浦"}, 
+        {"start": 4960.0, "end": 5679.0, "location": "元浦"},
+        {"start": 5679.0, "end": 99999.0, "location": "大浦"}
+    ]},
+    { "town": "御所浦町牧島", "ranges": [
+        {"start": 1.0, "end": 1010.0, "location": "牧本"},
+        {"start": 1010.0, "end": 2000.0, "location": "長浦"}, 
+        {"start": 2000.0, "end": 99999.0, "location": "椛の木"}
+    ]},
+    { "town": "御所浦町横浦", "ranges": [
+        {"start": 1.0, "end": 600.0, "location": "(横浦港)船のみ"},
+        {"start": 600.0, "end": 99999.0, "location": "(与一ヶ浦港)船のみ"}
+    ]},
+    { "town": "倉岳町棚底", "ranges": [{"start": 0.0, "end": 99999.0, "location": "棚底"}] },
+    { "town": "倉岳町宮田", "ranges": [
+        {"start": 1.0, "end": 1533.0, "location": "宮田"},
+        {"start": 1533.0, "end": 1534.0, "location": "棚底"},
+        {"start": 1534.0, "end": 3260.0, "location": "宮田"}, 
+        {"start": 3260.0, "end": 3600.0, "location": "棚底 OR 宮田"},
+        {"start": 3600.0, "end": 3820.0, "location": "宮田"},
+        {"start": 3820.0, "end": 3880.0, "location": "棚底 OR 宮田"},
+        {"start": 3880.0, "end": 99999.0, "location": "宮田"}
+    ]},
+    { "town": "倉岳町浦", "ranges": [
+        {"start": 1.0, "end": 400.0, "location": "棚底"},
+        {"start": 400.0, "end": 99999.0, "location": "浦"}
+    ]},
+    { "town": "栖本町馬場", "ranges": [{"start": 0.0, "end": 99999.0, "location": "馬場"}] },
+    { "town": "栖本町打田", "ranges": [{"start": 0.0, "end": 99999.0, "location": "馬場"}] },
+    { "town": "栖本町湯船原", "ranges": [{"start": 0.0, "end": 99999.0, "location": "馬場"}] },
+    { "town": "栖本町古江", "ranges": [
+        {"start": 1.0, "end": 800.0, "location": "馬場"},
+        {"start": 800.0, "end": 1400.0, "location": "宮田"}, 
+        {"start": 1400.0, "end": 99999.0, "location": "馬場"}
+    ]},
+    { "town": "栖本町河内", "ranges": [{"start": 0.0, "end": 99999.0, "location": "河内"}] },
+    { "town": "新和町小宮地", "ranges": [
+        {"start": 1.0, "end": 8700.0, "location": "小宮地"},
+        {"start": 8700.0, "end": 9500.0, "location": "中田"}, 
+        {"start": 9500.0, "end": 99999.0, "location": "立"}
+    ]},
+    { "town": "新和町大宮地", "ranges": [
+        {"start": 1.0, "end": 2100.0, "location": "小宮地"},
+        {"start": 2100.0, "end": 4007.0, "location": "宮地岳"}, 
+        {"start": 4007.0, "end": 5000.0, "location": "小宮地"},
+        {"start": 5000.0, "end": 99999.0, "location": "宮地岳"}
+    ]},
+    { "town": "新和町大多尾", "ranges": [
+        {"start": 1.0, "end": 4560.0, "location": "大多尾"},
+        {"start": 4560.0, "end": 5000.0, "location": "小宮地"}, 
+        {"start": 5000.0, "end": 99999.0, "location": "大多尾"}
+    ]},
+    {"town": "新和町碇石", "ranges": [
+        {"start": 1.0, "end": 1030.0, "location": "小宮地"},
+        {"start": 1030.0, "end": 99999.0, "location": "宮地岳"}
+    ]},
+    {"town": "新和町中田", "ranges": [{"start": 0.0, "end": 99999.0, "location": "中田"}] },
+    { "town": "五和町御領", "ranges": [
+        {"start": 1.0, "end": 8720.0, "location": "御領"},
+        {"start": 8720.0, "end": 10800.0, "location": "鬼池"}, 
+        {"start": 10800.0, "end": 12134.0, "location": "御領"},
+        {"start": 12134.0, "end": 12135.0, "location": "鬼池"},
+        {"start": 12135.0, "end": 99999.0, "location": "御領"}
+    ]},
+    { "town": "五和町鬼池", "ranges": [{"start": 0.0, "end": 99999.0, "location": "鬼池"}] },
+    { "town": "五和町二江", "ranges": [{"start": 0.0, "end": 99999.0, "location": "二江"}] },
+    { "town": "五和町手野一丁目", "ranges": [
+        {"start": 1.0, "end": 410.0, "location": "城河原"},
+        {"start": 410.0, "end": 99999.0, "location": "手野"}
+    ]},
+    { "town": "五和町手野二丁目", "ranges": [
+        {"start": 1.0, "end": 1081.0, "location": "手野"},
+        {"start": 1081.0, "end": 1410.0, "location": "二江"}, 
+        {"start": 1410.0, "end": 99999.0, "location": "手野"}
+    ]},
+    { "town": "五和町城河原一丁目", "ranges": [
+        {"start": 0.0, "end": 4106.0, "location": "城河原"},
+        {"start": 4106.0, "end": 4107.0, "location": "手野"},
+        {"start": 4107.0, "end": 4182.0, "location": "城河原"}, 
+        {"start": 4182.0, "end": 4183.0, "location": "手野"},
+        {"start": 4183.0, "end": 99999.0, "location": "城河原"}
+    ]},
+    { "town": "五和町城河原二丁目", "ranges": [
+        {"start": 0.0, "end": 99999.0, "location": "城河原"}
+    ]},
+    { "town": "五和町城河原三丁目", "ranges": [
+        {"start": 0.0, "end": 99999.0, "location": "城河原"}
+    ]},
+    { "town": "天草町高浜北", "ranges": [{"start": 0.0, "end": 99999.0, "location": "高浜"}] },
+    { "town": "天草町高浜南", "ranges": [{"start": 0.0, "end": 99999.0, "location": "高浜"}] },
+    { "town": "天草町大江", "ranges": [{"start": 0.0, "end": 99999.0, "location": "大江"}] },
+    { "town": "天草町大江軍ヶ浦", "ranges": [{"start": 0.0, "end": 99999.0, "location": "大江"}] },
+    { "town": "天草町下田北", "ranges": [
+        {"start": 1.0, "end": 40.0, "location": "福連木"},
+        {"start": 40.0, "end": 99999.0, "location": "下田"}
+    ]},
+    { "town": "天草町下田南", "ranges": [
+        {"start": 1.0, "end": 400.0, "location": "高浜"},
+        {"start": 400.0, "end": 99999.0, "location": "下田"}
+    ]},
+    { "town": "天草町福連木", "ranges": [{"start": 0.0, "end": 99999.0, "location": "福連木"}] },
+    { "town": "天草町大江向", "ranges": [
+        {"start": 1.0, "end": 100.0, "location": "亀浦"},
+        {"start": 100.0, "end": 99999.0, "location": "向辺田"}
+    ]},
+    { "town": "河浦町河浦", "ranges": [
+        {"start": 1.0, "end": 1150.0, "location": "河浦 OR 板之河内"},
+        {"start": 1150.0, "end": 99999.0, "location": "河浦"}
+    ]},
+    { "town": "河浦町崎津", "ranges": [{"start": 0.0, "end": 99999.0, "location": "崎津"}] },
+    { "town": "河浦町今富", "ranges": [
+        {"start": 1.0, "end": 1930.0, "location": "崎津"},
+        {"start": 1930.0, "end": 2060.0, "location": "崎津 OR 亀浦"}, 
+        {"start": 2060.0, "end": 99999.0, "location": "崎津"}
+    ]},
+    { "town": "河浦町新合", "ranges": [
+        {"start": 1.0, "end": 530.0, "location": "新合"},
+        {"start": 530.0, "end": 640.0, "location": "新合 OR 河浦"}, 
+        {"start": 640.0, "end": 99999.0, "location": "新合"}
+    ]},
+    { "town": "河浦町立原", "ranges": [{"start": 0.0, "end": 99999.0, "location": "新合"}] },
+    { "town": "河浦町今田", "ranges": [{"start": 0.0, "end": 99999.0, "location": "河浦 OR 板之河内"}] },
+    { "town": "河浦町白木河内", "ranges": [
+        {"start": 1.0, "end": 90.0, "location": "古江"},
+        {"start": 90.0, "end": 1000.0, "location": "河浦"}, 
+        {"start": 1000.0, "end": 1851.0, "location": "新合"},
+        {"start": 1851.0, "end": 2168.0, "location": "河浦"}, 
+        {"start": 2168.0, "end": 99999.0, "location": "古江"}
+    ]},
+    { "town": "河浦町久留", "ranges": [{"start": 0.0, "end": 99999.0, "location": "古江"}] },
+    { "town": "河浦町路木", "ranges": [{"start": 0.0, "end": 99999.0, "location": "古江"}] },
+    { "town": "河浦町宮野河内", "ranges": [
+        {"start": 1.0, "end": 1150.0, "location": "宮野河内 OR 中田"},
+        {"start": 1150.0, "end": 99999.0, "location": "宮野河内"}
+    ]}
+];
+
+// --- 旅費の距離と金額データ (旅費の距離・金額.csv から抽出) ---
+// 【仮定】旅費の起点は「本渡」（御所浦島内は「御所浦」）として定義
+const TRAVEL_COST_MATRIX = {
+    // 本渡起点 (目的地: 地点名)
+    "本渡": { "distance": 0.0, "amount": 0 },
+    "佐伊津": { "distance": 4.7, "amount": 360 },
+    "本町": { "distance": 6.7, "amount": 500 },
+    "亀場": { "distance": 2.0, "amount": 260 },
+    "枦宇土": { "distance": 6.0, "amount": 500 },
+    "楠浦": { "distance": 5.8, "amount": 420 },
+    "宮地岳": { "distance": 16.0, "amount": 1060 },
+    "志柿": { "distance": 6.1, "amount": 500 },
+    "下浦": { "distance": 7.6, "amount": 560 },
+    "牛深": { "distance": 44.4, "amount": 2380 },
+    "魚貫": { "distance": 41.7, "amount": 2260 },
+    "亀浦": { "distance": 35.9, "amount": 2000 },
+    "久玉": { "distance": 41.0, "amount": 2260 },
+    "山の浦": { "distance": 41.8, "amount": 2260 },
+    "深海": { "distance": 38.5, "amount": 2120 },
+    "魚貫崎": { "distance": 43.9, "amount": 2340 },
+    "赤崎": { "distance": 16.6, "amount": 1060 },
+    "大浦": { "distance": 22.5, "amount": 1380 },
+    "楠甫": { "distance": 25.9, "amount": 1540 },
+    "上津浦": { "distance": 13.2, "amount": 900 },
+    "島子": { "distance": 9.0, "amount": 680 },
+    "棚底": { "distance": 20.0, "amount": 1280 },
+    "宮田": { "distance": 15.9, "amount": 1020 },
+    "浦": { "distance": 22.9, "amount": 1380 },
+    "馬場": { "distance": 11.7, "amount": 800 },
+    "河内": { "distance": 16.5, "amount": 1060 },
+    "小宮地": { "distance": 12.5, "amount": 840 },
+    "大多尾": { "distance": 14.8, "amount": 960 },
+    "中田": { "distance": 18.6, "amount": 1180 },
+    "立": { "distance": 18.8, "amount": 1180 },
+    "御領": { "distance": 7.1, "amount": 560 },
+    "鬼池": { "distance": 11.6, "amount": 800 },
+    "二江": { "distance": 14.1, "amount": 960 },
+    "手野": { "distance": 9.5, "amount": 680 },
+    "城河原": { "distance": 7.1, "amount": 560 },
+    "高浜": { "distance": 31.9, "amount": 1820 },
+    "大江": { "distance": 38.1, "amount": 2120 },
+    "下田": { "distance": 25.7, "amount": 1540 },
+    "福連木": { "distance": 16.7, "amount": 1060 },
+    "向辺田": { "distance": 40.7, "amount": 2220 },
+    "河浦": { "distance": 29.0, "amount": 1740 },
+    "崎津": { "distance": 35.7, "amount": 2000 },
+    "新合": { "distance": 22.6, "amount": 1380 },
+    "板之河内": { "distance": 24.0, "amount": 1480 },
+    "古江": { "distance": 31.0, "amount": 1820 },
+    "宮野河内": { "distance": 25.6, "amount": 1540 },
+    // 御所浦島内の地点 (御所浦起点)
+    "御所浦": { "distance": 0.0, "amount": 0 },
+    "椛の木": { "distance": 5.3, "amount": 420 },
+    "長浦": { "distance": 4.1, "amount": 360 },
+    "牧本": { "distance": 2.7, "amount": 260 },
+    "嵐口": { "distance": 2.5, "amount": 260 },
+    "外平": { "distance": 8.3, "amount": 620 },
+    "大浦": { "distance": 4.0, "amount": 360 },
+    "元浦": { "distance": 3.0, "amount": 300 }
+};
+
+// --- ユーティリティ関数 ---
+
+/**
+ * 住所文字列から数値化された地番を抽出する
+ */
+function parseToNumeric(houseNumberStr) {
+    if (!houseNumberStr) return 0;
+    
+    // 全角数字を半角に変換
+    let cleanStr = houseNumberStr.replace(/[０-９]/g, s => String.fromCharCode(s.charCodeAt(0) - 0xFEE0));
+    
+    // 「番地」「番」「号」を統一的にピリオドに変換（順序重要）
+    cleanStr = cleanStr.replace(/番地/g, '.');
+    cleanStr = cleanStr.replace(/番/g, '.');
+    cleanStr = cleanStr.replace(/号/g, '.');
+    cleanStr = cleanStr.replace(/の/g, '.');
+    
+    // ハイフンもピリオドに変換
+    cleanStr = cleanStr.replace(/[-ー]/g, '.');
+    
+    // 複数のピリオドを整理（最初の2つまで残す）
+    const parts = cleanStr.split('.').filter(p => p.length > 0);
+    if (parts.length >= 2) {
+        cleanStr = parts[0] + '.' + parts[1];
+    } else if (parts.length === 1) {
+        cleanStr = parts[0];
+    }
+    
+    return parseFloat(cleanStr.trim());
+}
+
+/**
+ * 完全な住所文字列から町名と地番を抽出する
+ */
+function parseAddress(fullAddress) {
+    const parts = fullAddress.split('天草市');
+    if (parts.length < 2) return { townName: "", houseNumber: "" };
+    
+    const address = parts[1].trim();
+    
+    // 数字（半角/全角）が最初に出現する位置を探す
+    const match = address.match(/^(.+?)([0-9０-９]+.*)$/);
+    
+    if (match && match[1] && match[2]) {
+        return { 
+            townName: match[1].trim(), 
+            houseNumber: match[2].trim() 
+        };
+    } else {
+        return { 
+            townName: address.trim(), 
+            houseNumber: "" 
+        };
+    }
+}
+
+
+// --- 旅費地点検索ロジック (コアロジック) ---
+
+/**
+ * 町名と地番から旅費地点を特定する
+ */
+function getTravelPoint(townName, numericHouseNumber) {
+    try {
+        const cleanInputTown = townName.replace(/町$/, '').trim();
+
+        // 1. データ内で町名を探す (厳格な町名照合ロジック)
+        let targetEntry = TRAVEL_POINTS_DATA.find(entry => {
+            // 優先度1: 完全一致
+            if (entry.town === townName) return true;
+            // 優先度2: クリーン名でのマッチ (例: 五和町御領 vs 御領)
+            if (entry.town.replace(/町$/, '').trim() === cleanInputTown) return true;
+            // 優先度3: 入力町名がデータキーに含まれる (最も柔軟な部分一致)
+            if (entry.town.includes(cleanInputTown) && cleanInputTown.length > 1) return true;
+            return false;
+        });
+
+        // 2. 東浜町などの「東・浄南・太田町以外は本渡」ルールを適用
+        if (!targetEntry && !['東町', '浄南町', '太田町'].some(ex => townName.includes(ex))) {
+            const catchAllEntry = TRAVEL_POINTS_DATA.find(entry => entry.town === '東・浄南・太田町以外');
+            if (catchAllEntry) {
+                targetEntry = catchAllEntry;
+            }
+        }
+        
+        if (!targetEntry) {
+            return `エラー: 入力された町名「${townName}」に該当する旅費データが見つかりません。`;
+        }
+
+        // 3. 範囲を順番にチェック (地番境界値の厳格な適用)
+        // data.jsの定義: start以上、end未満 (start <= x < end)
+        for (let i = 0; i < targetEntry.ranges.length; i++) {
+            const range = targetEntry.ranges[i];
+            const rangeStart = range.start;
+            const rangeEnd = range.end;
+            
+            // 基本の範囲判定: 開始地番以上 (>=) かつ 終了地番未満 (<)
+            if (numericHouseNumber >= rangeStart && numericHouseNumber < rangeEnd) {
+                return range.location;
+            }
+        }
+        
+        return "エラー: 入力された地番の範囲を特定できませんでした。";
+        
+    } catch (e) {
+        console.error("検索処理中に致命的なエラーが発生しました:", e);
+        return "エラー: 検索ロジック処理中に例外が発生しました。";
+    }
+}
+
+/**
+ * 目的地地点名から、旅費の距離と金額を取得する
+ * (本渡または御所浦を起点とする)
+ */
+function getTravelCost(destinationPoint) {
+    const cleanPoint = destinationPoint.replace("OR", "").trim();
+
+    // 御所浦島内の地点判定
+    if (["椛の木", "長浦", "牧本", "嵐口", "外平", "大浦", "元浦", "御所浦"].includes(cleanPoint)) {
+        // 御所浦島内のデータとして TRAVEL_COST_MATRIX から検索
+        return {
+            ...TRAVEL_COST_MATRIX[cleanPoint],
+            basePoint: "御所浦"
+        } || { distance: null, amount: null, basePoint: "御所浦" };
+    }
+    
+    // それ以外の地点の場合 (本渡起点)
+    return {
+        ...TRAVEL_COST_MATRIX[cleanPoint],
+        basePoint: "本渡"
+    } || { distance: null, amount: null, basePoint: "本渡" };
+}
+
+
+// --- UI操作関数 ---
+
+function displayResult(input, point, costData, isAmbiguous) {
+    const resultArea = document.getElementById('result-area');
+    const inputDisplay = document.getElementById('search-input-display');
+    const pointDisplay = document.getElementById('travel-point-display');
+    const costDisplay = document.getElementById('travel-cost-display'); 
+    const noteDisplay = document.getElementById('note-display');
+
+    inputDisplay.textContent = `検索対象: ${input}`;
+    pointDisplay.textContent = point;
+    
+    // --- 旅費情報の表示 ---
+    let costText = "";
+    const basePoint = costData.basePoint || "本渡"; 
+    
+    if (costData && costData.distance !== null && costData.amount !== null) {
+        if (costData.distance === 0.0) {
+            costText = `【${point.replace("OR", "または")}】旅費起点の地点のため、金額は発生しません。`;
+        }
+        else if (isAmbiguous) {
+             // 複数地点が含まれる場合は最初の地点の概算を表示
+             costText = `【概算(${point.split(" ")[0].replace("OR", "または").trim()}から${basePoint})】片道 ${costData.distance} km / 往復 ¥${costData.amount.toLocaleString()}`;
+        } else {
+             costText = `【${point}から${basePoint}】片道 ${costData.distance} km / 往復 ¥${costData.amount.toLocaleString()}`;
+        }
+    } else {
+        costText = "旅費データが未登録または特定できませんでした。";
+    }
+    costDisplay.textContent = costText; 
+    // ----------------------
+    
+    if (point.startsWith("エラー:")) {
+        resultArea.style.borderColor = '#dc3545';
+        resultArea.style.backgroundColor = '#f8d7da';
+        noteDisplay.textContent = "※ 地点特定に失敗しました。入力内容を確認するか、市役所にご確認ください。";
+        costDisplay.textContent = ""; 
+        return;
+    }
+
+    resultArea.style.borderColor = isAmbiguous ? '#ffc107' : '#28a745'; 
+    
+    if (isAmbiguous) {
+        noteDisplay.textContent = `※「or」を含む結果は、旅費規定の運用に基づき、いずれかの地点を適用してください。旅費は（）内の最初の地点の値を概算として「${basePoint}」を起点に表示しています。`;
+        resultArea.style.backgroundColor = '#fff3cd';
+    } else {
+        noteDisplay.textContent = `※ 特定された地点が旅費算定の基準となります。表示された金額は「${basePoint}」を起点とした往復金額です。`;
+        resultArea.style.backgroundColor = '#e9f7ff';
+    }
+}
+
+function searchByAddress() {
+    const town = document.getElementById('town-name').value.trim();
+    const houseNumStr = document.getElementById('house-number').value.trim();
+    
+    if (!town || !houseNumStr) {
+        alert("町名と地番を入力してください。");
+        return;
+    }
+    
+    const numericHouseNum = parseToNumeric(houseNumStr);
+    const result = getTravelPoint(town, numericHouseNum);
+    
+    const inputStr = `住所: ${town} ${houseNumStr}`;
+    const isAmbiguous = result.includes("or") || result.includes("OR");
+    
+    // 旅費地点名を取得 (ORが含まれる場合は最初の地点を使用し、ORを削除)
+    const destinationPoint = isAmbiguous ? result.split(" ")[0].replace("OR", "").trim() : result;
+    
+    // 旅費の検索
+    const costData = getTravelCost(destinationPoint); 
+    
+    // displayResultに旅費データを追加
+    displayResult(inputStr, result, costData, isAmbiguous);
+}
+
+function searchByFacility() {
+    const selectElement = document.getElementById('facility-select');
+    const facilityName = selectElement.value;
+    
+    if (!facilityName) {
+        alert("施設を選択してください。");
+        return;
+    }
+    
+    const facility = FACILITY_DATA.find(f => f.name === facilityName);
+    const addressParts = parseAddress(facility.address);
+    
+    const numericHouseNum = parseToNumeric(addressParts.houseNumber);
+
+    const result = getTravelPoint(addressParts.townName, numericHouseNum);
+    
+    const inputStr = `施設名: ${facilityName} (${facility.address})`;
+    const isAmbiguous = result.includes("or") || result.includes("OR");
+
+    // 旅費地点名を取得 (ORが含まれる場合は最初の地点を使用し、ORを削除)
+    const destinationPoint = isAmbiguous ? result.split(" ")[0].replace("OR", "").trim() : result;
+    
+    // 旅費の検索
+    const costData = getTravelCost(destinationPoint);
+    
+    // displayResultに旅費データを追加
+    displayResult(inputStr, result, costData, isAmbiguous);
+}
+
+// --- 初期化 ---
+
+function getFacilityType(name) {
+    if (name.includes('市役所') || name.includes('支所')) return 1; 
+    if (name.includes('公民館') || name.includes('コミュニティセンター') || name.includes('交流センター')) return 2; 
+    if (name.includes('中学校')) return 3; 
+    if (name.includes('小学校')) return 4; 
+    if (name.includes('幼稚園')) return 5; 
+    if (name.includes('体育館') || name.includes('グラウンド') || name.includes('運動広場') || name.includes('テニスコート') || name.includes('相撲場')) return 6; 
+    if (name.includes('図書館') || name.includes('博物館') || name.includes('資料館') || name.includes('アーカイブズ') || name.includes('生涯学習センター') || name.includes('市民センター')) return 7; 
+    if (name.includes('給食センター')) return 8; 
+    return 9; 
+}
+
+function initializeApp() {
+    const select = document.getElementById('facility-select');
+    
+    // 1. 重複を排除したリストを作成 
+    const uniqueFacilities = [];
+    const seen = new Set();
+
+    FACILITY_DATA.forEach(facility => {
+        const key = facility.name + '|' + facility.address;
+        if (!seen.has(key)) {
+            seen.add(key);
+            uniqueFacilities.push(facility);
+        }
+    });
+
+    // 2. 施設リストを種別コードでソートし、同種別内は名前順でソート
+    const sortedFacilities = uniqueFacilities.sort((a, b) => {
+        const typeA = getFacilityType(a.name);
+        const typeB = getFacilityType(b.name);
+
+        if (typeA !== typeB) {
+            return typeA - typeB; 
+        }
+        return a.name.localeCompare(b.name, 'ja'); 
+    });
+
+    // 3. ソート済みリストをドロップリストに追加
+    sortedFacilities.forEach(facility => {
+        const option = document.createElement('option');
+        option.value = facility.name;
+        option.textContent = facility.name;
+        select.appendChild(option);
+    });
+
+    // 検索モード切り替え
+    const modeAddressBtn = document.getElementById('mode-address');
+    const modeFacilityBtn = document.getElementById('mode-facility');
+    const formAddress = document.getElementById('address-search-form');
+    const formFacility = document.getElementById('facility-search-form');
+
+    modeAddressBtn.addEventListener('click', () => {
+        modeAddressBtn.classList.add('active');
+        modeFacilityBtn.classList.remove('active');
+        formAddress.classList.remove('hidden');
+        formFacility.classList.add('hidden');
+        document.getElementById('result-area').style.borderColor = '#ccc';
+        document.getElementById('result-area').style.backgroundColor = '#f9f9f9';
+    });
+
+    modeFacilityBtn.addEventListener('click', () => {
+        modeFacilityBtn.classList.add('active');
+        modeAddressBtn.classList.remove('active');
+        formFacility.classList.remove('hidden');
+        formAddress.classList.add('hidden');
+        document.getElementById('result-area').style.borderColor = '#ccc';
+        document.getElementById('result-area').style.backgroundColor = '#f9f9f9';
+    });
+}
+
+// グローバルスコープに関数を公開
+window.searchByAddress = searchByAddress;
+window.searchByFacility = searchByFacility;
+
+window.onload = initializeApp;
