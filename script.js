@@ -1,255 +1,22 @@
-// script.js (データ構造を削除したロジックのみのファイル)
+// script.js (データ構造は data.js から読み込まれます)
 
 // ALL_POINTS, MAIN_AREA_POINTS, GOSHOURA_POINTS, TRAVEL_MATRIX, 
 // FACILITY_DATA, TRAVEL_POINTS_DATA は data.js から読み込まれます。
 
 
-// --- UI操作関数 ---
+// --- 共通ユーティリティ関数 ---
 
 /**
- * 検索モードとフォーム入力を取得
- * @param {'start' | 'end'} type - 起点か終点か
- * @returns {{mode: string, town: string, houseNumber: string, facilityName: string, isFacility: boolean}}
+ * 特定の地点名が御所浦地区に含まれるか判定する
+ * GOSHOURA_POINTSはdata.jsで定義され、グローバルにアクセス可能であることを前提とする
+ * @param {string} point - 地点名 (曖昧さ解消済み)
+ * @returns {boolean} - 御所浦地区の地点であれば true
  */
-function getPointInput(type) {
-    const isAddressMode = document.getElementById(`${type}-mode-address`).classList.contains('active');
-    
-    if (isAddressMode) {
-        return {
-            mode: 'address',
-            town: document.getElementById(`${type}-town-name`).value.trim(),
-            houseNumber: document.getElementById(`${type}-house-number`).value.trim(),
-            facilityName: null,
-            isFacility: false
-        };
-    } else {
-        const facilitySelect = document.getElementById(`${type}-facility-select`);
-        return {
-            mode: 'facility',
-            town: null,
-            houseNumber: null,
-            facilityName: facilitySelect.value,
-            isFacility: true
-        };
-    }
+function isGoshouraPoint(point) {
+    // data.jsからGOSHOURA_POINTSが読み込まれていることを前提とする
+    // GOSHOURA_POINTSは ["御所浦", "椛の木", "長浦", "牧本", "嵐口", "外平", "大浦(御所浦)", "元浦"] の配列
+    return GOSHOURA_POINTS.includes(point);
 }
-
-/**
- * 検索ロジックの中核。起点と終点の両方を特定し、旅費を検索する。
- */
-function searchTravelCost() {
-    const startInput = getPointInput('start');
-    const endInput = getPointInput('end');
-
-    let startTown, startHouseNum, startFacility, startInputDisplay;
-    let endTown, endHouseNum, endFacility, endInputDisplay;
-    
-    // 1. 入力チェックと地番情報の準備（起点）
-    if (startInput.mode === 'address') {
-        if (!startInput.town || !startInput.houseNumber) {
-            alert("起点の町名と地番を入力してください。");
-            return;
-        }
-        startTown = startInput.town;
-        startHouseNum = parseToNumeric(startInput.houseNumber);
-        startInputDisplay = `起点住所: ${startTown} ${startInput.houseNumber}`;
-    } else {
-        if (!startInput.facilityName) {
-            alert("起点の施設を選択してください。");
-            return;
-        }
-        startFacility = FACILITY_DATA.find(f => f.name === startInput.facilityName);
-        const parts = parseAddress(startFacility.address);
-        startTown = parts.townName;
-        startHouseNum = parseToNumeric(parts.houseNumber);
-        startInputDisplay = `起点施設: ${startFacility.name} (${startFacility.address})`;
-    }
-
-    // 2. 入力チェックと地番情報の準備（終点）
-    if (endInput.mode === 'address') {
-        if (!endInput.town || !endInput.houseNumber) {
-            alert("終点の町名と地番を入力してください。");
-            return;
-        }
-        endTown = endInput.town;
-        endHouseNum = parseToNumeric(endInput.houseNumber);
-        endInputDisplay = `終点住所: ${endTown} ${endInput.houseNumber}`;
-    } else {
-        if (!endInput.facilityName) {
-            alert("終点の施設を選択してください。");
-            return;
-        }
-        endFacility = FACILITY_DATA.find(f => f.name === endInput.facilityName);
-        const parts = parseAddress(endFacility.address);
-        endTown = parts.townName;
-        endHouseNum = parseToNumeric(parts.houseNumber);
-        endInputDisplay = `終点施設: ${endFacility.name} (${endFacility.address})`;
-    }
-
-    // 3. 地点の特定
-    const startPointRaw = getTravelPoint(startTown, startHouseNum);
-    const endPointRaw = getTravelPoint(endTown, endHouseNum);
-
-    // 4. 地点特定エラーの処理
-    if (startPointRaw.startsWith("エラー:") || endPointRaw.startsWith("エラー:")) {
-        const errorPoint = startPointRaw.startsWith("エラー:") ? "起点" : "終点";
-        const errorMessage = startPointRaw.startsWith("エラー:") ? startPointRaw : endPointRaw;
-        displayError(`エラー: ${errorPoint}の特定に失敗しました。`, `${startInputDisplay}\n${endInputDisplay}`, errorMessage);
-        return;
-    }
-
-    // 5. 旅費計算に使用する地点名（曖昧さを解消）
-    const startPoint = resolveAmbiguousPoint(startPointRaw);
-    const endPoint = resolveAmbiguousPoint(endPointRaw);
-
-    const costData = getTravelCost(startPoint, endPoint); 
-
-    const isAmbiguous = startPointRaw.includes("OR") || startPointRaw.includes("or") || endPointRaw.includes("OR") || endPointRaw.includes("or");
-
-    displayResult(
-        `${startInputDisplay}\n${endInputDisplay}`,
-        `${startPointRaw} → ${endPointRaw}`,
-        endPointRaw, // 終点特定地点
-        startPoint, // 計算に使った起点
-        endPoint, // 計算に使った終点
-        costData, 
-        isAmbiguous
-    );
-}
-
-// --- displayResult 関数の修正（引数と表示内容の変更） ---
-function displayResult(input, segmentRaw, endPointRaw, startPointUsed, endPointUsed, costData, isAmbiguous) {
-    const resultArea = document.getElementById('result-area');
-    const inputDisplay = document.getElementById('search-input-display');
-    const segmentDisplay = document.getElementById('travel-segment-display');
-    const pointDisplay = document.getElementById('travel-point-display');
-    const costDisplay = document.getElementById('travel-cost-display'); 
-    const noteDisplay = document.getElementById('note-display');
-
-    inputDisplay.textContent = input;
-    segmentDisplay.textContent = `${startPointUsed} → ${endPointUsed}`;
-    pointDisplay.textContent = endPointRaw;
-    
-    // --- 旅費情報の表示 ---
-    if (costData.error) {
-        return displayError(`旅費データ検索失敗`, input, costData.error);
-    }
-    
-    costDisplay.textContent = `片道 ${costData.distance} km / 往復 ¥${costData.amount.toLocaleString()}`; 
-    // ----------------------
-    
-    resultArea.style.borderColor = isAmbiguous ? '#ffc107' : '#28a745'; 
-    
-    if (isAmbiguous) {
-        segmentDisplay.textContent = `${startPointRaw.replace(" OR ", " or ").replace(" or ", " → ")} → ${endPointRaw.replace(" OR ", " or ").replace(" or ", " → ")}`;
-        pointDisplay.textContent = `${endPointRaw} (計算には「${endPointUsed}」を使用)`;
-        noteDisplay.textContent = `※「or」を含む結果は、旅費規定の運用に基づき、いずれかの地点を適用してください。旅費は概算として、「${startPointUsed}」を起点に「${endPointUsed}」の値を表示しています。`;
-        resultArea.style.backgroundColor = '#fff3cd';
-    } else {
-        segmentDisplay.textContent = `${startPointUsed} → ${endPointUsed}`;
-        pointDisplay.textContent = endPointRaw;
-        noteDisplay.textContent = "※ 特定された地点が旅費算定の基準となります。";
-        resultArea.style.backgroundColor = '#e9f7ff';
-    }
-}
-
-function displayError(title, input, message) {
-    const resultArea = document.getElementById('result-area');
-    resultArea.style.borderColor = '#dc3545';
-    resultArea.style.backgroundColor = '#f8d7da';
-    document.getElementById('search-input-display').textContent = input;
-    document.getElementById('travel-segment-display').textContent = title;
-    document.getElementById('travel-point-display').textContent = '---';
-    document.getElementById('travel-cost-display').textContent = message;
-    document.getElementById('note-display').textContent = "※ 地点特定または旅費データ検索に失敗しました。入力内容を確認してください。";
-}
-
-// --- 初期化ロジックとイベントリスナーの追加（変更なし） ---
-
-function setupModeSwitcher(type) {
-    const addressBtn = document.getElementById(`${type}-mode-address`);
-    const facilityBtn = document.getElementById(`${type}-mode-facility`);
-    const addressForm = document.getElementById(`${type}-address-form`);
-    const facilityForm = document.getElementById(`${type}-facility-form`);
-    
-    addressBtn.addEventListener('click', () => {
-        addressBtn.classList.add('active');
-        facilityBtn.classList.remove('active');
-        addressForm.classList.remove('hidden');
-        facilityForm.classList.add('hidden');
-    });
-
-    facilityBtn.addEventListener('click', () => {
-        facilityBtn.classList.add('active');
-        addressBtn.classList.remove('active');
-        facilityForm.classList.remove('hidden');
-        addressForm.classList.add('hidden');
-    });
-}
-
-function initializeApp() {
-    // FACILITY_DATAがdata.jsから読み込まれていることを前提とする
-    const facilitySelectStart = document.getElementById('start-facility-select');
-    const facilitySelectEnd = document.getElementById('end-facility-select');
-
-    // 施設選択ドロップダウンの準備
-    const uniqueFacilities = [];
-    const seen = new Set();
-    FACILITY_DATA.forEach(facility => {
-        const key = facility.name + '|' + facility.address;
-        if (!seen.has(key)) {
-            seen.add(key);
-            uniqueFacilities.push(facility);
-        }
-    });
-
-    const getFacilityType = (name) => {
-        if (name.includes('市役所') || name.includes('支所')) return 1; 
-        if (name.includes('公民館') || name.includes('コミュニティセンター') || name.includes('交流センター')) return 2; 
-        if (name.includes('中学校')) return 3; 
-        if (name.includes('小学校')) return 4; 
-        if (name.includes('幼稚園')) return 5; 
-        if (name.includes('体育館') || name.includes('グラウンド') || name.includes('運動広場') || name.includes('テニスコート') || name.includes('相撲場')) return 6; 
-        if (name.includes('図書館') || name.includes('博物館') || name.includes('資料館') || name.includes('アーカイブズ') || name.includes('生涯学習センター') || name.includes('市民センター')) return 7; 
-        if (name.includes('給食センター')) return 8; 
-        return 9; 
-    };
-    
-    const sortedFacilities = uniqueFacilities.sort((a, b) => {
-        const typeA = getFacilityType(a.name);
-        const typeB = getFacilityType(b.name);
-        if (typeA !== typeB) {
-            return typeA - typeB; 
-        }
-        return a.name.localeCompare(b.name, 'ja'); 
-    });
-
-    sortedFacilities.forEach(facility => {
-        const option = document.createElement('option');
-        option.value = facility.name;
-        option.textContent = facility.name;
-        facilitySelectStart.appendChild(option.cloneNode(true));
-        facilitySelectEnd.appendChild(option.cloneNode(true));
-    });
-
-    // モードスイッチャーのセットアップ
-    setupModeSwitcher('start');
-    setupModeSwitcher('end');
-
-    // ページロード時の初期リセット
-    const resultArea = document.getElementById('result-area');
-    resultArea.style.borderColor = '#ccc';
-    resultArea.style.backgroundColor = '#f9f9f9';
-}
-
-// グローバルスコープに関数を公開
-window.searchTravelCost = searchTravelCost;
-
-window.onload = initializeApp;
-
-// =========================================================================
-// === 共通ユーティリティ関数 ===
-// =========================================================================
 
 /**
  * 住所文字列から数値化された地番を抽出する
@@ -365,11 +132,21 @@ function getTravelCost(startPoint, endPoint) {
     // TRAVEL_MATRIXがdata.jsからグローバルスコープで利用可能であることを前提とする
     const matrix = TRAVEL_MATRIX[startPoint];
     if (!matrix) {
+        // 御所浦地区内（御所浦↔御所浦）の検索でデータがない場合
+        if (isGoshouraPoint(startPoint) && isGoshouraPoint(endPoint)) {
+             // データの不備なので、より詳細なエラーを出す
+             return { distance: null, amount: null, error: `エラー: 御所浦地区内の地点「${startPoint}」のデータが見つかりません。` };
+        }
         return { distance: null, amount: null, error: `エラー: 起点「${startPoint}」のデータが見つかりません。` };
     }
     
     const cost = matrix[endPoint];
     if (!cost) {
+        // 御所浦地区内（御所浦↔御所浦）の検索でデータがない場合
+        if (isGoshouraPoint(startPoint) && isGoshouraPoint(endPoint)) {
+             // データの不備なので、より詳細なエラーを出す
+             return { distance: null, amount: null, error: `エラー: 御所浦地区内の「${startPoint}」から「${endPoint}」への旅費データが見つかりません。` };
+        }
         return { distance: null, amount: null, error: `エラー: 「${startPoint}」から「${endPoint}」への旅費データが見つかりません。` };
     }
     
@@ -394,3 +171,265 @@ function resolveAmbiguousPoint(pointName) {
     }
     return pointName;
 }
+
+// --- UI操作関数 ---
+
+/**
+ * 検索モードとフォーム入力を取得
+ * @param {'start' | 'end'} type - 起点か終点か
+ * @returns {{mode: string, town: string, houseNumber: string, facilityName: string, isFacility: boolean}}
+ */
+function getPointInput(type) {
+    const isAddressMode = document.getElementById(`${type}-mode-address`).classList.contains('active');
+    
+    if (isAddressMode) {
+        return {
+            mode: 'address',
+            town: document.getElementById(`${type}-town-name`).value.trim(),
+            houseNumber: document.getElementById(`${type}-house-number`).value.trim(),
+            facilityName: null,
+            isFacility: false
+        };
+    } else {
+        const facilitySelect = document.getElementById(`${type}-facility-select`);
+        return {
+            mode: 'facility',
+            town: null,
+            houseNumber: null,
+            facilityName: facilitySelect.value,
+            isFacility: true
+        };
+    }
+}
+
+/**
+ * 検索ロジックの中核。起点と終点の両方を特定し、旅費を検索する。
+ */
+function searchTravelCost() {
+    const startInput = getPointInput('start');
+    const endInput = getPointInput('end');
+
+    let startTown, startHouseNum, startFacility, startInputDisplay;
+    let endTown, endHouseNum, endFacility, endInputDisplay;
+    
+    // 1. 入力チェックと地番情報の準備（起点）
+    if (startInput.mode === 'address') {
+        if (!startInput.town || !startInput.houseNumber) {
+            alert("起点の町名と地番を入力してください。");
+            return;
+        }
+        startTown = startInput.town;
+        startHouseNum = parseToNumeric(startInput.houseNumber);
+        startInputDisplay = `起点住所: ${startTown} ${startInput.houseNumber}`;
+    } else {
+        if (!startInput.facilityName) {
+            alert("起点の施設を選択してください。");
+            return;
+        }
+        startFacility = FACILITY_DATA.find(f => f.name === startInput.facilityName);
+        const parts = parseAddress(startFacility.address);
+        startTown = parts.townName;
+        startHouseNum = parseToNumeric(parts.houseNumber);
+        startInputDisplay = `起点施設: ${startFacility.name} (${startFacility.address})`;
+    }
+
+    // 2. 入力チェックと地番情報の準備（終点）
+    if (endInput.mode === 'address') {
+        if (!endInput.town || !endInput.houseNumber) {
+            alert("終点の町名と地番を入力してください。");
+            return;
+        }
+        endTown = endInput.town;
+        endHouseNum = parseToNumeric(endInput.houseNumber);
+        endInputDisplay = `終点住所: ${endTown} ${endInput.houseNumber}`;
+    } else {
+        if (!endInput.facilityName) {
+            alert("終点の施設を選択してください。");
+            return;
+        }
+        endFacility = FACILITY_DATA.find(f => f.name === endInput.facilityName);
+        const parts = parseAddress(endFacility.address);
+        endTown = parts.townName;
+        endHouseNum = parseToNumeric(parts.houseNumber);
+        endInputDisplay = `終点施設: ${endFacility.name} (${endFacility.address})`;
+    }
+
+    // 3. 地点の特定
+    const startPointRaw = getTravelPoint(startTown, startHouseNum);
+    const endPointRaw = getTravelPoint(endTown, endHouseNum);
+
+    // 4. 地点特定エラーの処理
+    if (startPointRaw.startsWith("エラー:") || endPointRaw.startsWith("エラー:")) {
+        const errorPoint = startPointRaw.startsWith("エラー:") ? "起点" : "終点";
+        const errorMessage = startPointRaw.startsWith("エラー:") ? startPointRaw : endPointRaw;
+        displayError(`エラー: ${errorPoint}の特定に失敗しました。`, `${startInputDisplay}\n${endInputDisplay}`, errorMessage);
+        return;
+    }
+
+    // 5. 旅費計算に使用する地点名（曖昧さを解消）
+    const startPoint = resolveAmbiguousPoint(startPointRaw);
+    const endPoint = resolveAmbiguousPoint(endPointRaw);
+
+    // --- 【御所浦地区の制限チェック】 ---
+    const isStartGoshoura = isGoshouraPoint(startPoint);
+    const isEndGoshoura = isGoshouraPoint(endPoint);
+
+    if (isStartGoshoura !== isEndGoshoura) {
+        // 御所浦地区とメインエリアの地点が混ざっている場合
+        const startArea = isStartGoshoura ? '御所浦地区' : 'メインエリア';
+        const endArea = isEndGoshoura ? '御所浦地区' : 'メインエリア';
+        
+        displayError(
+            `エラー: 地区外の旅行は算定不可`, 
+            `${startInputDisplay}\n${endInputDisplay}`, 
+            `御所浦地区とメインエリア（本島地区）をまたぐ旅行（${startArea} → ${endArea}）の旅費は、このアプリでは算定できません。各地区内で完結する旅行のみを検索してください。`
+        );
+        return;
+    }
+    // ------------------------------------
+
+    const costData = getTravelCost(startPoint, endPoint); 
+
+    const isAmbiguous = startPointRaw.includes("OR") || startPointRaw.includes("or") || endPointRaw.includes("OR") || endPointRaw.includes("or");
+
+    displayResult(
+        `${startInputDisplay}\n${endInputDisplay}`,
+        `${startPointRaw} → ${endPointRaw}`,
+        endPointRaw, // 終点特定地点
+        startPoint, // 計算に使った起点
+        endPoint, // 計算に使った終点
+        costData, 
+        isAmbiguous
+    );
+}
+
+// --- displayResult, displayError 関数の修正（変更なし） ---
+function displayResult(input, segmentRaw, endPointRaw, startPointUsed, endPointUsed, costData, isAmbiguous) {
+    const resultArea = document.getElementById('result-area');
+    const inputDisplay = document.getElementById('search-input-display');
+    const segmentDisplay = document.getElementById('travel-segment-display');
+    const pointDisplay = document.getElementById('travel-point-display');
+    const costDisplay = document.getElementById('travel-cost-display'); 
+    const noteDisplay = document.getElementById('note-display');
+
+    inputDisplay.textContent = input;
+    segmentDisplay.textContent = `${startPointUsed} → ${endPointUsed}`;
+    pointDisplay.textContent = endPointRaw;
+    
+    // --- 旅費情報の表示 ---
+    if (costData.error) {
+        return displayError(`旅費データ検索失敗`, input, costData.error);
+    }
+    
+    costDisplay.textContent = `片道 ${costData.distance} km / 往復 ¥${costData.amount.toLocaleString()}`; 
+    // ----------------------
+    
+    resultArea.style.borderColor = isAmbiguous ? '#ffc107' : '#28a745'; 
+    
+    if (isAmbiguous) {
+        segmentDisplay.textContent = `${startPointRaw.replace(" OR ", " or ").replace(" or ", " → ")} → ${endPointRaw.replace(" OR ", " or ").replace(" or ", " → ")}`;
+        pointDisplay.textContent = `${endPointRaw} (計算には「${endPointUsed}」を使用)`;
+        noteDisplay.textContent = `※「or」を含む結果は、旅費規定の運用に基づき、いずれかの地点を適用してください。旅費は概算として、「${startPointUsed}」を起点に「${endPointUsed}」の値を表示しています。`;
+        resultArea.style.backgroundColor = '#fff3cd';
+    } else {
+        segmentDisplay.textContent = `${startPointUsed} → ${endPointUsed}`;
+        pointDisplay.textContent = endPointRaw;
+        noteDisplay.textContent = "※ 特定された地点が旅費算定の基準となります。";
+        resultArea.style.backgroundColor = '#e9f7ff';
+    }
+}
+
+function displayError(title, input, message) {
+    const resultArea = document.getElementById('result-area');
+    resultArea.style.borderColor = '#dc3545';
+    resultArea.style.backgroundColor = '#f8d7da';
+    document.getElementById('search-input-display').textContent = input;
+    document.getElementById('travel-segment-display').textContent = title;
+    document.getElementById('travel-point-display').textContent = '---';
+    document.getElementById('travel-cost-display').textContent = message;
+    document.getElementById('note-display').textContent = "※ 地点特定または旅費データ検索に失敗しました。入力内容を確認してください。";
+}
+
+// --- 初期化ロジックとイベントリスナーの追加（変更なし） ---
+
+function setupModeSwitcher(type) {
+    const addressBtn = document.getElementById(`${type}-mode-address`);
+    const facilityBtn = document.getElementById(`${type}-mode-facility`);
+    const addressForm = document.getElementById(`${type}-address-form`);
+    const facilityForm = document.getElementById(`${type}-facility-form`);
+    
+    addressBtn.addEventListener('click', () => {
+        addressBtn.classList.add('active');
+        facilityBtn.classList.remove('active');
+        addressForm.classList.remove('hidden');
+        facilityForm.classList.add('hidden');
+    });
+
+    facilityBtn.addEventListener('click', () => {
+        facilityBtn.classList.add('active');
+        addressBtn.classList.remove('active');
+        facilityForm.classList.remove('hidden');
+        addressForm.classList.add('hidden');
+    });
+}
+
+function initializeApp() {
+    // FACILITY_DATAがdata.jsから読み込まれていることを前提とする
+    const facilitySelectStart = document.getElementById('start-facility-select');
+    const facilitySelectEnd = document.getElementById('end-facility-select');
+
+    // 施設選択ドロップダウンの準備
+    const uniqueFacilities = [];
+    const seen = new Set();
+    // FACILITY_DATAはdata.jsからグローバルスコープで利用可能であることを前提とする
+    FACILITY_DATA.forEach(facility => {
+        const key = facility.name + '|' + facility.address;
+        if (!seen.has(key)) {
+            seen.add(key);
+            uniqueFacilities.push(facility);
+        }
+    });
+
+    const getFacilityType = (name) => {
+        if (name.includes('市役所') || name.includes('支所')) return 1; 
+        if (name.includes('公民館') || name.includes('コミュニティセンター') || name.includes('交流センター')) return 2; 
+        if (name.includes('中学校')) return 3; 
+        if (name.includes('小学校')) return 4; 
+        if (name.includes('幼稚園')) return 5; 
+        if (name.includes('体育館') || name.includes('グラウンド') || name.includes('運動広場') || name.includes('テニスコート') || name.includes('相撲場')) return 6; 
+        if (name.includes('図書館') || name.includes('博物館') || name.includes('資料館') || name.includes('アーカイブズ') || name.includes('生涯学習センター') || name.includes('市民センター')) return 7; 
+        if (name.includes('給食センター')) return 8; 
+        return 9; 
+    };
+    
+    const sortedFacilities = uniqueFacilities.sort((a, b) => {
+        const typeA = getFacilityType(a.name);
+        const typeB = getFacilityType(b.name);
+        if (typeA !== typeB) {
+            return typeA - typeB; 
+        }
+        return a.name.localeCompare(b.name, 'ja'); 
+    });
+
+    sortedFacilities.forEach(facility => {
+        const option = document.createElement('option');
+        option.value = facility.name;
+        option.textContent = facility.name;
+        facilitySelectStart.appendChild(option.cloneNode(true));
+        facilitySelectEnd.appendChild(option.cloneNode(true));
+    });
+
+    // モードスイッチャーのセットアップ
+    setupModeSwitcher('start');
+    setupModeSwitcher('end');
+
+    // ページロード時の初期リセット
+    const resultArea = document.getElementById('result-area');
+    resultArea.style.borderColor = '#ccc';
+    resultArea.style.backgroundColor = '#f9f9f9';
+}
+
+// グローバルスコープに関数を公開
+window.searchTravelCost = searchTravelCost;
+
+window.onload = initializeApp;
