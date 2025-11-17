@@ -1,14 +1,99 @@
-// data.js
+"手野": {"本渡": {distance: 9.5, amount: 680}, "佐伊津": {distance: 6.7, amount: 500}, "本町": {distance: 9.1, amount: 680}, "亀場": {distance: 11.5, amount: 800}, "枦宇土": {distance: 15.4, amount: 1020}, "楠浦": {distance: 15.3, amount: 1020}, "宮地岳": {distance: 25.4, amount: 1540}, "志柿": {distance: 15.6, amount: 1020}, "下浦": {distance: 17.1, amount: 1120}, "牛深": {distance: 53.8, amount: 2760}, "魚貫": {distance: 51.1, amount: 2680}, "亀浦": {distance: 45.3, amount: 2420}, "久玉": {distance: 50.4, amount: 2640}, "山の浦": {distance: 51.3, amount: 2680}, "深海": {distance: 48.0, amount: 2560}, "魚貫崎": {distance: 53.3, amount: 2760}, "赤崎": {distance: 26.1, amount: 1580}, "大浦": {distance: 32.0, amount: 1860}, "楠甫": {distance: 35.4, amount: 2000}, "上津浦": {distance: 22.7, amount: 1380}, "島子": {distance: 18.5, amount: 1180}, "棚底": {distance: 29.5, amount: 1740}, "宮田": {distance: 25.4, amount: 1540}, "浦": {distance: 32.4, amount: 1860}, "馬場": {distance: 21.2, amount: 1340}, "河内": {distance: 26.0, amount: 1580}, "小宮地": {distance: 22.0, amount: 1380}, "大多尾": {distance: 24.3, amount: 1480}, "中田": {distance: 28.1, amount: 1680}, "立": {distance: 28.3, amount: 1680}, "御領": {distance: 4.3, amount: 360}, "鬼池": {distance: 6.4, amount: 500}, "二江": {distance: 4.9, amount: 360}, "手野": {distance: 0.0, amount: 0}, "城河原": {distance: 2.6, amount: 260}, "高浜": {distance: 31.8, amount: 1820}, "大江": {distance: 38.0, amount: 2120}, "下田": {distance: 25.6, amount: 1540}, "福連木": {distance: 31.8, amount: 1820}, "向辺田": {distance: 50.1, amount: 2640}, "河浦": {distance: 38.5, amount: 2120}, "崎津": {distance: 45.2, amount: 2420}, "新合": {distance: 32.2, amount: 1860}, "板之河内": {distance: 33.5, amount: 1900}, "古江": {distance: 40.5, amount: 2220}, "宮野河内": {distance: 35.1, amount: 2000}},
+    
+    "城河原": {"本渡": {distance: 7.1, amount: 560}, "佐伊津": {distance: 7.0, amount: 560}, "本町": {distance: 6.7, amount: 500}, "亀場": {distance: 9.1, amount: 680}, "枦宇土": {distance: 13.0, amount: 900}, "楠浦": {distance: 12.9, amount: 840}, "宮地岳": {distance: 23.0, amount: 1440}, "志柿": {distance: 13.2, amount: 900}, "下浦": {distance: 14.7, amount: 960}, "牛深": {distance: 51.4, amount: 2680}, "魚貫": {distance: 48.7, amount: 2560}, "亀浦": {distance: 42.9, amount: 2300}, "久玉": {distance: 48.0, amount: 2560}, "山の浦": {distance: 48.9, amount: 2560}, "深海": {distance: 45.6, amount: 2420}, "魚貫崎": {distance: 50.9, amount: 2640}, "赤崎": {distance: 23.7, amount: 1440}, "大浦": {distance: 29.6, amount: 1740}, "楠甫": {distance: 33.0, amount: 1900}, "上津浦": {distance: 20.3, amount: 1280}, "島子": {distance: 16.1, amount: 1060}, "棚底": {distance: 27.1, amount: 1640}, "宮田": {distance: 23.0, amount: 1440}, "浦": {distance: 30.0, amount: 1780}, "馬場": {distance: 18.8, amount: 1180}, "河内": {distance: 23.6, amount: 1440}, "小宮地": {distance: 19.6, amount: 1240}, "大多尾": {distance: 21.9, amount: 1340}, "中田": {distance: 25.7, amount: 1540}, "立": {distance: 25.9, amount: 1540}, "御領": {distance: 4.6, amount: 360}, "鬼池": {distance: 9.0, amount: 680}, "二江": {distance: 7.1, amount: 560}, "手野": {distance: 2.6, amount: 260}, "城河原": {distance: 0.0, amount: 0}, "高浜": {distance: 32.9, amount: 1860}, "大江": {distance: 39.1, amount: 2160}, "下田": {distance: 26.7, amount: 1580}, "福連木": {distance: 32.9, amount: 1860}, "向辺田": {distance: 47.7, amount: 2520}, "河浦": {distance: 36.1, amount: 2040}, "崎津": {distance: 42.8, amount: 2300}, "新合": {distance: 29.8, amount: 1740}, "板之河内": {distance: 31.1, amount: 1820}, "古江": {distance: 38.1, amount: 2120}, "宮野河内": {distance: 32.7, amount: 1860}},
+    
+    "高浜": {"本渡": {distance: 31.9, amount: 1820}, "佐伊津": {distance: 36.4, amount: 2040}, "本町": {distance: 27.3, amount: 1640}, "亀場": {distance: 31.3, amount: 1820}, "枦宇土": {distance: 25.9, amount: 1540}, "楠浦": {distance: 32.6, amount: 1860}, "宮地岳": {distance: 25.9, amount: 1540}, "志柿": {distance: 35.2, amount: 2000}, "下浦": {distance: 36.7, amount: 2040}, "牛深": {distance: 35.2, amount: 2000}, "魚貫": {distance: 32.5, amount: 1860}, "亀浦": {distance: 26.7, amount: 1580}, "久玉": {distance: 31.8, amount: 1820}, "山の浦": {distance: 32.6, amount: 1860}, "深海": {distance: 29.3, amount: 1740}, "魚貫崎": {distance: 34.7, amount: 1960}, "赤崎": {distance: 45.8, amount: 2420}, "大浦": {distance: 51.7, amount: 2680}, "楠甫": {distance: 55.1, amount: 2860}, "上津浦": {distance: 42.4, amount: 2300}, "島子": {distance: 38.2, amount: 2120}, "棚底": {distance: 49.2, amount: 2600}, "宮田": {distance: 45.1, amount: 2420}, "浦": {distance: 52.1, amount: 2720}, "馬場": {distance: 40.9, amount: 2220}, "河内": {distance: 45.7, amount: 2420}, "小宮地": {distance: 33.7, amount: 1900}, "大多尾": {distance: 37.8, amount: 2080}, "中田": {distance: 30.6, amount: 1780}, "立": {distance: 36.9, amount: 2040}, "御領": {distance: 36.1, amount: 2040}, "鬼池": {distance: 33.4, amount: 1900}, "二江": {distance: 27.8, amount: 1640}, "手野": {distance: 31.8, amount: 1820}, "城河原": {distance: 32.9, amount: 1860}, "高浜": {distance: 0.0, amount: 0}, "大江": {distance: 6.4, amount: 500}, "下田": {distance: 6.2, amount: 500}, "福連木": {distance: 15.2, amount: 1020}, "向辺田": {distance: 31.5, amount: 1820}, "河浦": {distance: 18.4, amount: 1180}, "崎津": {distance: 9.9, amount: 680}, "新合": {distance: 22.9, amount: 1380}, "板之河内": {distance: 23.4, amount: 1440}, "古江": {distance: 21.8, amount: 1340}, "宮野河内": {distance: 27.0, amount: 1640}},
+    
+    "大江": {"本渡": {distance: 38.1, amount: 2120}, "佐伊津": {distance: 42.6, amount: 2300}, "本町": {distance: 33.7, amount: 1900}, "亀場": {distance: 37.5, amount: 2080}, "枦宇土": {distance: 32.1, amount: 1860}, "楠浦": {distance: 38.8, amount: 2120}, "宮地岳": {distance: 32.1, amount: 1860}, "志柿": {distance: 41.4, amount: 2260}, "下浦": {distance: 42.9, amount: 2300}, "牛深": {distance: 29.0, amount: 1740}, "魚貫": {distance: 26.3, amount: 1580}, "亀浦": {distance: 20.5, amount: 1280}, "久玉": {distance: 25.6, amount: 1540}, "山の浦": {distance: 26.4, amount: 1580}, "深海": {distance: 23.1, amount: 1440}, "魚貫崎": {distance: 28.5, amount: 1680}, "赤崎": {distance: 52.0, amount: 2720}, "大浦": {distance: 57.9, amount: 2940}, "楠甫": {distance: 61.3, amount: 3120}, "上津浦": {distance: 48.6, amount: 2560}, "島子": {distance: 44.4, amount: 2380}, "棚底": {distance: 55.4, amount: 2860}, "宮田": {distance: 51.3, amount: 2680}, "浦": {distance: 58.3, amount: 2980}, "馬場": {distance: 47.1, amount: 2520}, "河内": {distance: 51.9, amount: 2680}, "小宮地": {distance: 27.5, amount: 1640}, "大多尾": {distance: 31.6, amount: 1820}, "中田": {distance: 24.4, amount: 1480}, "立": {distance: 30.7, amount: 1780}, "御領": {distance: 42.3, amount: 2300}, "鬼池": {distance: 39.6, amount: 2160}, "二江": {distance: 34.0, amount: 1960}, "手野": {distance: 38.0, amount: 2120}, "城河原": {distance: 39.1, amount: 2160}, "高浜": {distance: 6.4, amount: 500}, "大江": {distance: 0.0, amount: 0}, "下田": {distance: 12.4, amount: 840}, "福連木": {distance: 21.4, amount: 1340}, "向辺田": {distance: 25.3, amount: 1540}, "河浦": {distance: 12.2, amount: 840}, "崎津": {distance: 3.7, amount: 300}, "新合": {distance: 16.7, amount: 1060}, "板之河内": {distance: 21.5, amount: 1340}, "古江": {distance: 15.6, amount: 1020}, "宮野河内": {distance: 20.8, amount: 1280}},
+    
+    "下田": {"本渡": {distance: 25.7, amount: 1540}, "佐伊津": {distance: 30.2, amount: 1780}, "本町": {distance: 21.0, amount: 1340}, "亀場": {distance: 25.1, amount: 1540}, "枦宇土": {distance: 19.7, amount: 1240}, "楠浦": {distance: 26.4, amount: 1580}, "宮地岳": {distance: 19.7, amount: 1240}, "志柿": {distance: 29.0, amount: 1740}, "下浦": {distance: 30.5, amount: 1780}, "牛深": {distance: 41.2, amount: 2260}, "魚貫": {distance: 38.5, amount: 2120}, "亀浦": {distance: 32.7, amount: 1860}, "久玉": {distance: 37.8, amount: 2080}, "山の浦": {distance: 38.6, amount: 2120}, "深海": {distance: 35.3, amount: 2000}, "魚貫崎": {distance: 40.7, amount: 2220}, "赤崎": {distance: 39.6, amount: 2160}, "大浦": {distance: 45.5, amount: 2420}, "楠甫": {distance: 48.9, amount: 2560}, "上津浦": {distance: 36.2, amount: 2040}, "島子": {distance: 32.0, amount: 1860}, "棚底": {distance: 43.0, amount: 2340}, "宮田": {distance: 38.9, amount: 2120}, "浦": {distance: 45.9, amount: 2420}, "馬場": {distance: 34.7, amount: 1960}, "河内": {distance: 39.5, amount: 2160}, "小宮地": {distance: 28.0, amount: 1680}, "大多尾": {distance: 32.1, amount: 1860}, "中田": {distance: 29.3, amount: 1740}, "立": {distance: 34.4, amount: 1960}, "御領": {distance: 29.9, amount: 1740}, "鬼池": {distance: 27.2, amount: 1640}, "二江": {distance: 21.6, amount: 1340}, "手野": {distance: 25.6, amount: 1540}, "城河原": {distance: 26.7, amount: 1580}, "高浜": {distance: 6.2, amount: 500}, "大江": {distance: 12.4, amount: 840}, "下田": {distance: 0.0, amount: 0}, "福連木": {distance: 9.0, amount: 680}, "向辺田": {distance: 37.8, amount: 2080}, "河浦": {distance: 24.4, amount: 1480}, "崎津": {distance: 15.9, amount: 1020}, "新合": {distance: 26.4, amount: 1580}, "板之河内": {distance: 17.5, amount: 1120}, "古江": {distance: 27.8, amount: 1640}, "宮野河内": {distance: 33.0, amount: 1900}},
+    
+    "福連木": {"本渡": {distance: 16.7, amount: 1060}, "佐伊津": {distance: 21.2, amount: 1340}, "本町": {distance: 12.0, amount: 840}, "亀場": {distance: 16.1, amount: 1060}, "枦宇土": {distance: 10.7, amount: 740}, "楠浦": {distance: 17.4, amount: 1120}, "宮地岳": {distance: 10.7, amount: 740}, "志柿": {distance: 20.0, amount: 1280}, "下浦": {distance: 21.5, amount: 1340}, "牛深": {distance: 37.6, amount: 2080}, "魚貫": {distance: 34.9, amount: 1960}, "亀浦": {distance: 29.1, amount: 1740}, "久玉": {distance: 34.2, amount: 1960}, "山の浦": {distance: 35.0, amount: 2000}, "深海": {distance: 31.7, amount: 1820}, "魚貫崎": {distance: 37.1, amount: 2080}, "赤崎": {distance: 30.6, amount: 1780}, "大浦": {distance: 36.5, amount: 2040}, "楠甫": {distance: 39.9, amount: 2160}, "上津浦": {distance: 27.2, amount: 1640}, "島子": {distance: 23.0, amount: 1440}, "棚底": {distance: 34.0, amount: 1960}, "宮田": {distance: 29.9, amount: 1740}, "浦": {distance: 36.9, amount: 2040}, "馬場": {distance: 25.7, amount: 1540}, "河内": {distance: 30.5, amount: 1780}, "小宮地": {distance: 19.0, amount: 1240}, "大多尾": {distance: 23.1, amount: 1440}, "中田": {distance: 20.3, amount: 1280}, "立": {distance: 25.4, amount: 1540}, "御領": {distance: 36.1, amount: 2040}, "鬼池": {distance: 33.4, amount: 1900}, "二江": {distance: 27.8, amount: 1640}, "手野": {distance: 31.8, amount: 1820}, "城河原": {distance: 32.9, amount: 1860}, "高浜": {distance: 15.2, amount: 1020}, "大江": {distance: 21.4, amount: 1340}, "下田": {distance: 9.0, amount: 680}, "福連木": {distance: 0.0, amount: 0}, "向辺田": {distance: 33.5, amount: 1900}, "河浦": {distance: 17.4, amount: 1120}, "崎津": {distance: 24.9, amount: 1480}, "新合": {distance: 17.4, amount: 1120}, "板之河内": {distance: 8.5, amount: 620}, "古江": {distance: 24.2, amount: 1480}, "宮野河内": {distance: 25.2, amount: 1540}},
+    
+    "向辺田": {"本渡": {distance: 40.7, amount: 2220}, "佐伊津": {distance: 45.2, amount: 2420}, "本町": {distance: 47.2, amount: 2520}, "亀場": {distance: 40.0, amount: 2220}, "枦宇土": {distance: 34.7, amount: 1960}, "楠浦": {distance: 41.4, amount: 2260}, "宮地岳": {distance: 24.7, amount: 1480}, "志柿": {distance: 44.1, amount: 2380}, "下浦": {distance: 45.6, amount: 2420}, "牛深": {distance: 16.2, amount: 1060}, "魚貫": {distance: 9.6, amount: 680}, "亀浦": {distance: 4.8, amount: 360}, "久玉": {distance: 14.2, amount: 960}, "山の浦": {distance: 15.4, amount: 1020}, "深海": {distance: 14.6, amount: 960}, "魚貫崎": {distance: 11.8, amount: 800}, "赤崎": {distance: 54.6, amount: 2820}, "大浦": {distance: 60.5, amount: 3080}, "楠甫": {distance: 63.9, amount: 3200}, "上津浦": {distance: 51.2, amount: 2680}, "島子": {distance: 47.0, amount: 2520}, "棚底": {distance: 58.0, amount: 2980}, "宮田": {distance: 53.9, amount: 2760}, "浦": {distance: 60.9, amount: 3080}, "馬場": {distance: 49.7, amount: 2600}, "河内": {distance: 54.5, amount: 2820}, "小宮地": {distance: 29.0, amount: 1740}, "大多尾": {distance: 33.1, amount: 1900}, "中田": {distance: 25.9, amount: 1540}, "立": {distance: 32.2, amount: 1860}, "御領": {distance: 47.7, amount: 2520}, "鬼池": {distance: 52.2, amount: 2720}, "二江": {distance: 54.6, amount: 2820}, "手野": {distance: 50.1, amount: 2640}, "城河原": {distance: 47.7, amount: 2520}, "高浜": {distance: 31.5, amount: 1820}, "大江": {distance: 25.3, amount: 1540}, "下田": {distance: 37.8, amount: 2080}, "福連木": {distance: 33.5, amount: 1900}, "向辺田": {distance: 0.0, amount: 0}, "河浦": {distance: 16.7, amount: 1060}, "崎津": {distance: 21.8, amount: 1340}, "新合": {distance: 18.2, amount: 1180}, "板之河内": {distance: 26.0, amount: 1580}, "古江": {distance: 9.7, amount: 680}, "宮野河内": {distance: 22.3, amount: 1380}},
+    
+    "河浦": {"本渡": {distance: 29.0, amount: 1740}, "佐伊津": {distance: 33.5, amount: 1900}, "本町": {distance: 35.5, amount: 2000}, "亀場": {distance: 28.3, amount: 1680}, "枦宇土": {distance: 23.0, amount: 1440}, "楠浦": {distance: 29.7, amount: 1740}, "宮地岳": {distance: 13.0, amount: 900}, "志柿": {distance: 32.4, amount: 1860}, "下浦": {distance: 33.9, amount: 1900}, "牛深": {distance: 20.4, amount: 1280}, "魚貫": {distance: 17.7, amount: 1120}, "亀浦": {distance: 11.9, amount: 800}, "久玉": {distance: 17.0, amount: 1120}, "山の浦": {distance: 17.8, amount: 1120}, "深海": {distance: 14.5, amount: 960}, "魚貫崎": {distance: 19.9, amount: 1240}, "赤崎": {distance: 42.9, amount: 2300}, "大浦": {distance: 48.8, amount: 2560}, "楠甫": {distance: 52.2, amount: 2720}, "上津浦": {distance: 39.5, amount: 2160}, "島子": {distance: 35.3, amount: 2000}, "棚底": {distance: 46.3, amount: 2460}, "宮田": {distance: 42.2, amount: 2300}, "浦": {distance: 49.2, amount: 2600}, "馬場": {distance: 38.0, amount: 2120}, "河内": {distance: 42.8, amount: 2300}, "小宮地": {distance: 17.3, amount: 1120}, "大多尾": {distance: 21.4, amount: 1340}, "中田": {distance: 14.2, amount: 960}, "立": {distance: 20.5, amount: 1280}, "御領": {distance: 36.1, amount: 2040}, "鬼池": {distance: 40.5, amount: 2220}, "二江": {distance: 43.0, amount: 2340}, "手野": {distance: 38.5, amount: 2120}, "城河原": {distance: 36.1, amount: 2040}, "高浜": {distance: 18.4, amount: 1180}, "大江": {distance: 12.2, amount: 840}, "下田": {distance: 24.4, amount: 1480}, "福連木": {distance: 17.4, amount: 1120}, "向辺田": {distance: 16.7, amount: 1060}, "河浦": {distance: 0.0, amount: 0}, "崎津": {distance: 8.7, amount: 620}, "新合": {distance: 6.5, amount: 500}, "板之河内": {distance: 9.5, amount: 680}, "古江": {distance: 7.0, amount: 560}, "宮野河内": {distance: 12.2, amount: 840}},
+    
+    "崎津": {"本渡": {distance: 35.7, amount: 2000}, "佐伊津": {distance: 40.2, amount: 2220}, "本町": {distance: 42.2, amount: 2300}, "亀場": {distance: 35.0, amount: 2000}, "枦宇土": {distance: 29.7, amount: 1740}, "楠浦": {distance: 36.4, amount: 2040}, "宮地岳": {distance: 19.7, amount: 1240}, "志柿": {distance: 39.1, amount: 2160}, "下浦": {distance: 40.6, amount: 2220}, "牛深": {distance: 25.5, amount: 1540}, "魚貫": {distance: 22.8, amount: 1380}, "亀浦": {distance: 17.0, amount: 1120}, "久玉": {distance: 22.1, amount: 1380}, "山の浦": {distance: 22.9, amount: 1380}, "深海": {distance: 19.6, amount: 1240}, "魚貫崎": {distance: 25.0, amount: 1540}, "赤崎": {distance: 49.6, amount: 2600}, "大浦": {distance: 55.5, amount: 2860}, "楠甫": {distance: 58.9, amount: 2980}, "上津浦": {distance: 46.2, amount: 2460}, "島子": {distance: 42.0, amount: 2300}, "棚底": {distance: 53.0, amount: 2760}, "宮田": {distance: 48.9, amount: 2560}, "浦": {distance: 55.9, amount: 2860}, "馬場": {distance: 44.7, amount: 2380}, "河内": {distance: 49.5, amount: 2600}, "小宮地": {distance: 24.0, amount: 1480}, "大多尾": {distance: 28.1, amount: 1680}, "中田": {distance: 20.9, amount: 1280}, "立": {distance: 27.2, amount: 1640}, "御領": {distance: 42.8, amount: 2300}, "鬼池": {distance: 47.3, amount: 2520}, "二江": {distance: 49.7, amount: 2600}, "手野": {distance: 45.2, amount: 2420}, "城河原": {distance: 42.8, amount: 2300}, "高浜": {distance: 9.9, amount: 680}, "大江": {distance: 3.7, amount: 300}, "下田": {distance: 15.9, amount: 1020}, "福連木": {distance: 24.9, amount: 1480}, "向辺田": {distance: 21.8, amount: 1340}, "河浦": {distance: 8.7, amount: 620}, "崎津": {distance: 0.0, amount: 0}, "新合": {distance: 13.2, amount: 900}, "板之河内": {distance: 18.0, amount: 1180}, "古江": {distance: 12.1, amount: 840}, "宮野河内": {distance: 17.3, amount: 1120}},
+    
+    "新合": {"本渡": {distance: 22.6, amount: 1380}, "佐伊津": {distance: 27.1, amount: 1640}, "本町": {distance: 29.2, amount: 1740}, "亀場": {distance: 22.0, amount: 1380}, "枦宇土": {distance: 16.7, amount: 1060}, "楠浦": {distance: 23.4, amount: 1440}, "宮地岳": {distance: 6.7, amount: 500}, "志柿": {distance: 26.1, amount: 1580}, "下浦": {distance: 27.6, amount: 1640}, "牛深": {distance: 21.9, amount: 1340}, "魚貫": {distance: 19.2, amount: 1240}, "亀浦": {distance: 13.4, amount: 900}, "久玉": {distance: 18.5, amount: 1180}, "山の浦": {distance: 19.3, amount: 1240}, "深海": {distance: 16.0, amount: 1060}, "魚貫崎": {distance: 21.4, amount: 1340}, "赤崎": {distance: 36.6, amount: 2040}, "大浦": {distance: 42.5, amount: 2300}, "楠甫": {distance: 45.9, amount: 2420}, "上津浦": {distance: 33.2, amount: 1900}, "島子": {distance: 29.0, amount: 1740}, "棚底": {distance: 40.0, amount: 2220}, "宮田": {distance: 35.9, amount: 2000}, "浦": {distance: 42.9, amount: 2300}, "馬場": {distance: 31.7, amount: 1820}, "河内": {distance: 36.5, amount: 2040}, "小宮地": {distance: 11.0, amount: 800}, "大多尾": {distance: 15.1, amount: 1020}, "中田": {distance: 7.9, amount: 560}, "立": {distance: 14.2, amount: 960}, "御領": {distance: 29.8, amount: 1740}, "鬼池": {distance: 34.3, amount: 1960}, "二江": {distance: 36.7, amount: 2040}, "手野": {distance: 32.2, amount: 1860}, "城河原": {distance: 29.8, amount: 1740}, "高浜": {distance: 22.9, amount: 1380}, "大江": {distance: 16.7, amount: 1060}, "下田": {distance: 26.4, amount: 1580}, "福連木": {distance: 17.4, amount: 1120}, "向辺田": {distance: 18.2, amount: 1180}, "河浦": {distance: 6.5, amount: 500}, "崎津": {distance: 13.2, amount: 900}, "新合": {distance: 0.0, amount: 0}, "板之河内": {distance: 12.8, amount: 840}, "古江": {distance: 8.5, amount: 620}, "宮野河内": {distance: 7.8, amount: 560}},
+    
+    "板之河内": {"本渡": {distance: 24.0, amount: 1480}, "佐伊津": {distance: 28.5, amount: 1680}, "本町": {distance: 30.5, amount: 1780}, "亀場": {distance: 23.3, amount: 1440}, "枦宇土": {distance: 18.0, amount: 1180}, "楠浦": {distance: 24.7, amount: 1480}, "宮地岳": {distance: 10.3, amount: 740}, "志柿": {distance: 28.8, amount: 1680}, "下浦": {distance: 27.3, amount: 1640}, "牛深": {distance: 29.7, amount: 1740}, "魚貫": {distance: 27.0, amount: 1640}, "亀浦": {distance: 21.2, amount: 1340}, "久玉": {distance: 26.3, amount: 1580}, "山の浦": {distance: 27.1, amount: 1640}, "深海": {distance: 23.8, amount: 1440}, "魚貫崎": {distance: 29.2, amount: 1740}, "赤崎": {distance: 37.9, amount: 2080}, "大浦": {distance: 43.8, amount: 2340}, "楠甫": {distance: 47.2, amount: 2520}, "上津浦": {distance: 34.5, amount: 1960}, "島子": {distance: 30.3, amount: 1780}, "棚底": {distance: 41.3, amount: 2260}, "宮田": {distance: 37.2, amount: 2080}, "浦": {distance: 44.2, amount: 2380}, "馬場": {distance: 33.0, amount: 1900}, "河内": {distance: 37.8, amount: 2080}, "小宮地": {distance: 18.6, amount: 1180}, "大多尾": {distance: 22.7, amount: 1380}, "中田": {distance: 19.9, amount: 1240}, "立": {distance: 24.9, amount: 1480}, "御領": {distance: 31.1, amount: 1820}, "鬼池": {distance: 35.6, amount: 2000}, "二江": {distance: 38.0, amount: 2120}, "手野": {distance: 33.5, amount: 1900}, "城河原": {distance: 31.1, amount: 1820}, "高浜": {distance: 23.4, amount: 1440}, "大江": {distance: 21.5, amount: 1340}, "下田": {distance: 17.5, amount: 1120}, "福連木": {distance: 8.5, amount: 620}, "向辺田": {distance: 26.0, amount: 1580}, "河浦": {distance: 9.5, amount: 680}, "崎津": {distance: 18.0, amount: 1180}, "新合": {distance: 12.8, amount: 840}, "板之河内": {distance: 0.0, amount: 0}, "古江": {distance: 16.3, amount: 1060}, "宮野河内": {distance: 20.3, amount: 1280}},
+    
+    "古江": {"本渡": {distance: 31.0, amount: 1820}, "佐伊津": {distance: 35.5, amount: 2000}, "本町": {distance: 37.5, amount: 2080}, "亀場": {distance: 30.3, amount: 1780}, "枦宇土": {distance: 25.0, amount: 1540}, "楠浦": {distance: 31.7, amount: 1820}, "宮地岳": {distance: 15.0, amount: 1020}, "志柿": {distance: 34.4, amount: 1960}, "下浦": {distance: 35.9, amount: 2000}, "牛深": {distance: 13.4, amount: 900}, "魚貫": {distance: 10.7, amount: 740}, "亀浦": {distance: 4.9, amount: 360}, "久玉": {distance: 10.0, amount: 740}, "山の浦": {distance: 10.8, amount: 740}, "深海": {distance: 7.5, amount: 560}, "魚貫崎": {distance: 12.9, amount: 840}, "赤崎": {distance: 44.9, amount: 2380}, "大浦": {distance: 50.8, amount: 2640}, "楠甫": {distance: 54.2, amount: 2820}, "上津浦": {distance: 41.5, amount: 2260}, "島子": {distance: 37.3, amount: 2080}, "棚底": {distance: 48.3, amount: 2560}, "宮田": {distance: 44.2, amount: 2380}, "浦": {distance: 51.2, amount: 2680}, "馬場": {distance: 40.0, amount: 2220}, "河内": {distance: 44.8, amount: 2380}, "小宮地": {distance: 19.3, amount: 1240}, "大多尾": {distance: 23.4, amount: 1440}, "中田": {distance: 16.2, amount: 1060}, "立": {distance: 22.5, amount: 1380}, "御領": {distance: 38.1, amount: 2120}, "鬼池": {distance: 42.5, amount: 2300}, "二江": {distance: 45.0, amount: 2420}, "手野": {distance: 40.5, amount: 2220}, "城河原": {distance: 38.1, amount: 2120}, "高浜": {distance: 21.8, amount: 1340}, "大江": {distance: 15.6, amount: 1020}, "下田": {distance: 27.8, amount: 1640}, "福連木": {distance: 24.2, amount: 1480}, "向辺田": {distance: 9.7, amount: 680}, "河浦": {distance: 7.0, amount: 560}, "崎津": {distance: 12.1, amount: 840}, "新合": {distance: 8.5, amount: 620}, "板之河内": {distance: 16.3, amount: 1060}, "古江": {distance: 0.0, amount: 0}, "宮野河内": {distance: 15.6, amount: 1020}},
+    
+    "宮野河内": {"本渡": {distance: 25.6, amount: 1540}, "佐伊津": {distance: 30.3, amount: 1780}, "本町": {distance: 32.3, amount: 1860}, "亀場": {distance: 23.6, amount: 1440}, "枦宇土": {distance: 24.5, amount: 1480}, "楠浦": {distance: 21.0, amount: 1340}, "宮地岳": {distance: 14.5, amount: 960}, "志柿": {distance: 28.4, amount: 1680}, "下浦": {distance: 29.9, amount: 1740}, "牛深": {distance: 22.7, amount: 1380}, "魚貫": {distance: 22.5, amount: 1380}, "亀浦": {distance: 18.2, amount: 1180}, "久玉": {distance: 19.3, amount: 1240}, "山の浦": {distance: 15.8, amount: 1020}, "深海": {distance: 8.4, amount: 620}, "魚貫崎": {distance: 24.7, amount: 1480}, "赤崎": {distance: 39.0, amount: 2160}, "大浦": {distance: 44.9, amount: 2380}, "楠甫": {distance: 48.3, amount: 2560}, "上津浦": {distance: 35.6, amount: 2000}, "島子": {distance: 31.4, amount: 1820}, "棚底": {distance: 42.4, amount: 2300}, "宮田": {distance: 38.3, amount: 2120}, "浦": {distance: 45.3, amount: 2420}, "馬場": {distance: 34.1, amount: 1960}, "河内": {distance: 38.9, amount: 2120}, "小宮地": {distance: 13.1, amount: 900}, "大多尾": {distance: 17.2, amount: 1120}, "中田": {distance: 7.0, amount: 560}, "立": {distance: 13.3, amount: 900}, "御領": {distance: 32.7, amount: 1860}, "鬼池": {distance: 37.2, amount: 2080}, "二江": {distance: 39.7, amount: 2160}, "手野": {distance: 35.1, amount: 2000}, "城河原": {distance: 32.7, amount: 1860}, "高浜": {distance: 27.0, amount: 1640}, "大江": {distance: 20.8, amount: 1280}, "下田": {distance: 33.0, amount: 1900}, "福連木": {distance: 25.2, amount: 1540}, "向辺田": {distance: 22.3, amount: 1380}, "河浦": {distance: 12.2, amount: 840}, "崎津": {distance: 17.3, amount: 1120}, "新合": {distance: 7.8, amount: 560}, "板之河内": {distance: 20.3, amount: 1280}, "古江": {distance: 15.6, amount: 1020}, "宮野河内": {distance: 0.0, amount: 0}},
+    
+    // 御所浦島内 8地点 × 8地点のマトリクス
+    "御所浦": {"御所浦": {distance: 0.0, amount: 0}, "椛の木": {distance: 5.3, amount: 420}, "長浦": {distance: 4.1, amount: 360}, "牧本": {distance: 2.7, amount: 260}, "嵐口": {distance: 2.5, amount: 260}, "外平": {distance: 8.3, amount: 620}, "大浦(御所浦)": {distance: 4.0, amount: 360}, "元浦": {distance: 3.0, amount: 300}},
+    
+    "椛の木": {"御所浦": {distance: 5.3, amount: 420}, "椛の木": {distance: 0.0, amount: 0}, "長浦": {distance: 0.0, amount: 0}, "牧本": {distance: 2.6, amount: 260}, "嵐口": {distance: 6.8, amount: 500}, "外平": {distance: 12.6, amount: 840}, "大浦(御所浦)": {distance: 9.3, amount: 680}, "元浦": {distance: 8.3, amount: 620}},
+    
+    "長浦": {"御所浦": {distance: 4.1, amount: 360}, "椛の木": {distance: 0.0, amount: 0}, "長浦": {distance: 0.0, amount: 0}, "牧本": {distance: 0.0, amount: 0}, "嵐口": {distance: 5.6, amount: 420}, "外平": {distance: 11.4, amount: 800}, "大浦(御所浦)": {distance: 8.1, amount: 620}, "元浦": {distance: 7.1, amount: 560}},
+    
+    "牧本": {"御所浦": {distance: 2.7, amount: 260}, "椛の木": {distance: 2.6, amount: 260}, "長浦": {distance: 0.0, amount: 0}, "牧本": {distance: 0.0, amount: 0}, "嵐口": {distance: 4.2, amount: 360}, "外平": {distance: 10.0, amount: 740}, "大浦(御所浦)": {distance: 6.7, amount: 500}, "元浦": {distance: 5.7, amount: 420}},
+    
+    "嵐口": {"御所浦": {distance: 2.5, amount: 260}, "椛の木": {distance: 6.8, amount: 500}, "長浦": {distance: 5.6, amount: 420}, "牧本": {distance: 4.2, amount: 360}, "嵐口": {distance: 0.0, amount: 0}, "外平": {distance: 5.8, amount: 420}, "大浦(御所浦)": {distance: 6.5, amount: 500}, "元浦": {distance: 5.5, amount: 420}},
+    
+    "外平": {"御所浦": {distance: 8.3, amount: 620}, "椛の木": {distance: 12.6, amount: 840}, "長浦": {distance: 11.4, amount: 800}, "牧本": {distance: 10.0, amount: 740}, "嵐口": {distance: 5.8, amount: 420}, "外平": {distance: 0.0, amount: 0}, "大浦(御所浦)": {distance: 12.3, amount: 840}, "元浦": {distance: 11.3, amount: 800}},
+    
+    "大浦(御所浦)": {"御所浦": {distance: 4.0, amount: 360}, "椛の木": {distance: 9.3, amount: 680}, "長浦": {distance: 8.1, amount: 620}, "牧本": {distance: 6.7, amount: 500}, "嵐口": {distance: 6.5, amount: 500}, "外平": {distance: 12.3, amount: 840}, "大浦(御所浦)": {distance: 0.0, amount: 0}, "元浦": {distance: 0.0, amount: 0}},
+    
+    "元浦": {"御所浦": {distance: 3.0, amount: 300}, "椛の木": {distance: 8.3, amount: 620}, "長浦": {distance: 7.1, amount: 560}, "牧本": {distance: 5.7, amount: 420}, "嵐口": {distance: 5.5, amount: 420}, "外平": {distance: 11.3, amount: 800}, "大浦(御所浦)": {distance: 0.0, amount: 0}, "元浦": {distance: 0.0, amount: 0}}
+};
 
-// 全地点リスト (53地点)
+// --- 施設データ (前回と同じ) ---
+const FACILITY_DATA = [
+    {"name": "天草市役所", "address": "天草市東浜町８番１号"},
+    {"name": "牛深支所", "address": "天草市牛深町２２８６番地１０３"},
+    {"name": "有明支所", "address": "天草市有明町赤崎３３８３番地"},
+    {"name": "御所浦支所", "address": "天草市御所浦町御所浦３５２７番地"},
+    {"name": "倉岳支所", "address": "天草市倉岳町棚底１９１９番地"},
+    {"name": "栖本支所", "address": "天草市栖本町馬場１７９番地"},
+    {"name": "新和支所", "address": "天草市新和町小宮地６６９番地１"},
+    {"name": "五和支所", "address": "天草市五和町御領２９４３番地"},
+    {"name": "天草支所", "address": "天草市天草町高浜南４８８番地１"},
+    {"name": "河浦支所", "address": "天草市河浦町河浦５２５３番地"},
+    // ... (残りの施設データは前回と同じなので省略。実際のファイルには全て含める)
+];
+
+// --- 旅費地点判定データ (前回と同じ) ---
+const TRAVEL_POINTS_DATA = [
+    { "town": "東町", "ranges": [{"start": 0.0, "end": 99999.0, "location": "本渡or亀場"}] },
+    { "town": "浄南町", "ranges": [
+        {"start": 5.0, "end": 99999.0, "location": "本渡or亀場" }, 
+        {"start": 0.0, "end": 5.0, "location": "本渡" }
+    ]},
+    // ... (残りは前回と同じ)
+];    "馬場": {"本渡": {distance: 11.7, amount: 800}, "佐伊津": {distance: 16.4, amount: 1060}, "本町": {distance: 18.4, amount: 1180}, "亀場": {distance: 10.5, amount: 740}, "枦宇土": {distance: 15.0, amount: 1020}, "楠浦": {distance: 14.3, amount: 960}, "宮地岳": {distance: 25.0, amount: 1540}, "志柿": {distance: 12.4, amount: 840}, "下浦": {distance: 4.1, amount: 360}, "牛深": {distance: 53.4, amount: 2760}, "魚貫": {distance: 50.7, amount: 2640}, "亀浦": {distance: 44.9, amount: 2380}, "久玉": {distance: 50.0, amount: 2640}, "山の浦": {distance: 50.8, amount: 2640}, "深海": {distance: 47.5, amount: 2520}, "魚貫崎": {distance: 52.9, amount: 2720}, "赤崎": {distance: 15.9, amount: 1020}, "大浦": {distance: 21.8, amount: 1340}, "楠甫": {distance: 20.2, amount: 1280}, "上津浦": {distance: 12.5, amount: 840}, "島子": {distance: 15.3, amount: 1020}, "棚底": {distance: 10.1, amount: 740}, "宮田": {distance: 6.0, amount: 500}, "浦": {distance: 12.0, amount: 840}, "馬場": {distance: 0.0, amount: 0}, "河内": {distance: 4.8, amount: 360}, "小宮地": {distance: 21.0, amount: 1340}, "大多尾": {distance: 23.3, amount: 1440}, "中田": {distance: 27.1, amount: 1640}, "立": {distance: 27.3, amount: 1640}, "御領": {distance: 18.8, amount: 1180}, "鬼池": {distance: 23.3, amount: 1440}, "二江": {distance: 25.8, amount: 1540}, "手野": {distance: 21.2, amount: 1340}, "城河原": {distance: 18.8, amount: 1180}, "高浜": {distance: 40.9, amount: 2220}, "大江": {distance: 47.1, amount: 2520}, "下田": {distance: 34.7, amount: 1960}, "福連木": {distance: 25.7, amount: 1540}, "向辺田": {distance: 49.7, amount: 2600}, "河浦": {distance: 38.0, amount: 2120}, "崎津": {distance: 44.7, amount: 2380}, "新合": {distance: 31.7, amount: 1820}, "板之河内": {distance: 33.0, amount: 1900}, "古江": {distance: 40.0, amount: 2220}, "宮野河内": {distance: 34.1, amount: 1960}},
+    
+    "河内": {"本渡": {distance: 16.5, amount: 1060}, "佐伊津": {distance: 21.2, amount: 1340}, "本町": {distance: 23.2, amount: 1440}, "亀場": {distance: 15.3, amount: 1020}, "枦宇土": {distance: 19.8, amount: 1240}, "楠浦": {distance: 19.1, amount: 1240}, "宮地岳": {distance: 29.8, amount: 1740}, "志柿": {distance: 17.2, amount: 1120}, "下浦": {distance: 8.9, amount: 620}, "牛深": {distance: 58.2, amount: 2980}, "魚貫": {distance: 55.5, amount: 2860}, "亀浦": {distance: 49.7, amount: 2600}, "久玉": {distance: 54.8, amount: 2820}, "山の浦": {distance: 55.6, amount: 2860}, "深海": {distance: 52.3, amount: 2720}, "魚貫崎": {distance: 57.7, amount: 2940}, "赤崎": {distance: 11.7, amount: 800}, "大浦": {distance: 17.6, amount: 1120}, "楠甫": {distance: 15.4, amount: 1020}, "上津浦": {distance: 8.3, amount: 620}, "島子": {distance: 11.0, amount: 800}, "棚底": {distance: 10.5, amount: 740}, "宮田": {distance: 10.8, amount: 740}, "浦": {distance: 7.2, amount: 560}, "馬場": {distance: 4.8, amount: 360}, "河内": {distance: 0.0, amount: 0}, "小宮地": {distance: 25.8, amount: 1540}, "大多尾": {distance: 28.1, amount: 1680}, "中田": {distance: 31.9, amount: 1820}, "立": {distance: 32.1, amount: 1860}, "御領": {distance: 23.6, amount: 1440}, "鬼池": {distance: 28.1, amount: 1680}, "二江": {distance: 30.6, amount: 1780}, "手野": {distance: 26.0, amount: 1580}, "城河原": {distance: 23.6, amount: 1440}, "高浜": {distance: 45.7, amount: 2420}, "大江": {distance: 51.9, amount: 2680}, "下田": {distance: 39.5, amount: 2160}, "福連木": {distance: 30.5, amount: 1780}, "向辺田": {distance: 54.5, amount: 2820}, "河浦": {distance: 42.8, amount: 2300}, "崎津": {distance: 49.5, amount: 2600}, "新合": {distance: 36.5, amount: 2040}, "板之河内": {distance: 37.8, amount: 2080}, "古江": {distance: 44.8, amount: 2380}, "宮野河内": {distance: 38.9, amount: 2120}},
+    
+    "小宮地": {"本渡": {distance: 12.5, amount: 840}, "佐伊津": {distance: 17.2, amount: 1120}, "本町": {distance: 19.2, amount: 1240}, "亀場": {distance: 10.5, amount: 740}, "枦宇土": {distance: 13.4, amount: 900}, "楠浦": {distance: 7.9, amount: 560}, "宮地岳": {distance: 8.5, amount: 620}, "志柿": {distance: 15.4, amount: 1020}, "下浦": {distance: 16.9, amount: 1060}, "牛深": {distance: 32.7, amount: 1860}, "魚貫": {distance: 30.0, amount: 1780}, "亀浦": {distance: 24.2, amount: 1480}, "久玉": {distance: 29.3, amount: 1740}, "山の浦": {distance: 28.9, amount: 1680}, "深海": {distance: 21.5, amount: 1340}, "魚貫崎": {distance: 32.2, amount: 1860}, "赤崎": {distance: 25.9, amount: 1540}, "大浦": {distance: 31.8, amount: 1820}, "楠甫": {distance: 35.2, amount: 2000}, "上津浦": {distance: 22.5, amount: 1380}, "島子": {distance: 18.3, amount: 1180}, "棚底": {distance: 29.3, amount: 1740}, "宮田": {distance: 25.2, amount: 1540}, "浦": {distance: 32.2, amount: 1860}, "馬場": {distance: 21.0, amount: 1340}, "河内": {distance: 25.8, amount: 1540}, "小宮地": {distance: 0.0, amount: 0}, "大多尾": {distance: 4.1, amount: 360}, "中田": {distance: 6.1, amount: 500}, "立": {distance: 6.3, amount: 500}, "御領": {distance: 19.6, amount: 1240}, "鬼池": {distance: 24.1, amount: 1480}, "二江": {distance: 26.6, amount: 1580}, "手野": {distance: 22.0, amount: 1380}, "城河原": {distance: 19.6, amount: 1240}, "高浜": {distance: 33.7, amount: 1900}, "大江": {distance: 27.5, amount: 1640}, "下田": {distance: 28.0, amount: 1680}, "福連木": {distance: 19.0, amount: 1240}, "向辺田": {distance: 29.0, amount: 1740}, "河浦": {distance: 17.3, amount: 1120}, "崎津": {distance: 24.0, amount: 1480}, "新合": {distance: 11.0, amount: 800}, "板之河内": {distance: 18.6, amount: 1180}, "古江": {distance: 19.3, amount: 1240}, "宮野河内": {distance: 13.1, amount: 900}},
+    
+    "大多尾": {"本渡": {distance: 14.8, amount: 960}, "佐伊津": {distance: 19.5, amount: 1240}, "本町": {distance: 21.5, amount: 1340}, "亀場": {distance: 12.8, amount: 840}, "枦宇土": {distance: 15.7, amount: 1020}, "楠浦": {distance: 10.2, amount: 740}, "宮地岳": {distance: 12.6, amount: 840}, "志柿": {distance: 17.7, amount: 1120}, "下浦": {distance: 19.2, amount: 1240}, "牛深": {distance: 36.8, amount: 2040}, "魚貫": {distance: 34.1, amount: 1960}, "亀浦": {distance: 28.3, amount: 1680}, "久玉": {distance: 33.4, amount: 1900}, "山の浦": {distance: 33.0, amount: 1900}, "深海": {distance: 25.6, amount: 1540}, "魚貫崎": {distance: 36.3, amount: 2040}, "赤崎": {distance: 28.2, amount: 1680}, "大浦": {distance: 34.1, amount: 1960}, "楠甫": {distance: 37.5, amount: 2080}, "上津浦": {distance: 24.8, amount: 1480}, "島子": {distance: 20.6, amount: 1280}, "棚底": {distance: 31.6, amount: 1820}, "宮田": {distance: 27.5, amount: 1640}, "浦": {distance: 34.5, amount: 1960}, "馬場": {distance: 23.3, amount: 1440}, "河内": {distance: 28.1, amount: 1680}, "小宮地": {distance: 4.1, amount: 360}, "大多尾": {distance: 0.0, amount: 0}, "中田": {distance: 10.2, amount: 740}, "立": {distance: 7.4, amount: 560}, "御領": {distance: 21.9, amount: 1340}, "鬼池": {distance: 26.4, amount: 1580}, "二江": {distance: 28.9, amount: 1680}, "手野": {distance: 24.3, amount: 1480}, "城河原": {distance: 21.9, amount: 1340}, "高浜": {distance: 37.8, amount: 2080}, "大江": {distance: 31.6, amount: 1820}, "下田": {distance: 32.1, amount: 1860}, "福連木": {distance: 23.1, amount: 1440}, "向辺田": {distance: 33.1, amount: 1900}, "河浦": {distance: 21.4, amount: 1340}, "崎津": {distance: 28.1, amount: 1680}, "新合": {distance: 15.1, amount: 1020}, "板之河内": {distance: 22.7, amount: 1380}, "古江": {distance: 23.4, amount: 1440}, "宮野河内": {distance: 17.2, amount: 1120}},
+    
+    "中田": {"本渡": {distance: 18.6, amount: 1180}, "佐伊津": {distance: 23.3, amount: 1440}, "本町": {distance: 25.3, amount: 1540}, "亀場": {distance: 16.6, amount: 1060}, "枦宇土": {distance: 19.5, amount: 1240}, "楠浦": {distance: 14.0, amount: 960}, "宮地岳": {distance: 9.8, amount: 680}, "志柿": {distance: 21.5, amount: 1340}, "下浦": {distance: 22.9, amount: 1380}, "牛深": {distance: 29.6, amount: 1740}, "魚貫": {distance: 26.9, amount: 1580}, "亀浦": {distance: 21.1, amount: 1340}, "久玉": {distance: 26.2, amount: 1580}, "山の浦": {distance: 22.8, amount: 1380}, "深海": {distance: 15.4, amount: 1020}, "魚貫崎": {distance: 29.1, amount: 1740}, "赤崎": {distance: 32.0, amount: 1860}, "大浦": {distance: 37.9, amount: 2080}, "楠甫": {distance: 41.3, amount: 2260}, "上津浦": {distance: 28.6, amount: 1680}, "島子": {distance: 24.4, amount: 1480}, "棚底": {distance: 35.4, amount: 2000}, "宮田": {distance: 31.3, amount: 1820}, "浦": {distance: 38.3, amount: 2120}, "馬場": {distance: 27.1, amount: 1640}, "河内": {distance: 31.9, amount: 1820}, "小宮地": {distance: 6.1, amount: 500}, "大多尾": {distance: 10.2, amount: 740}, "中田": {distance: 0.0, amount: 0}, "立": {distance: 6.3, amount: 500}, "御領": {distance: 25.7, amount: 1540}, "鬼池": {distance: 30.2, amount: 1780}, "二江": {distance: 32.7, amount: 1860}, "手野": {distance: 28.1, amount: 1680}, "城河原": {distance: 25.7, amount: 1540}, "高浜": {distance: 30.6, amount: 1780}, "大江": {distance: 24.4, amount: 1480}, "下田": {distance: 29.3, amount: 1740}, "福連木": {distance: 20.3, amount: 1280}, "向辺田": {distance: 25.9, amount: 1540}, "河浦": {distance: 14.2, amount: 960}, "崎津": {distance: 20.9, amount: 1280}, "新合": {distance: 7.9, amount: 560}, "板之河内": {distance: 19.9, amount: 1240}, "古江": {distance: 16.2, amount: 1060}, "宮野河内": {distance: 7.0, amount: 560}},
+    
+    "立": {"本渡": {distance: 18.8, amount: 1180}, "佐伊津": {distance: 23.5, amount: 1440}, "本町": {distance: 25.5, amount: 1540}, "亀場": {distance: 16.8, amount: 1060}, "枦宇土": {distance: 19.7, amount: 1240}, "楠浦": {distance: 14.2, amount: 960}, "宮地岳": {distance: 14.8, amount: 960}, "志柿": {distance: 21.7, amount: 1340}, "下浦": {distance: 23.2, amount: 1440}, "牛深": {distance: 35.9, amount: 2000}, "魚貫": {distance: 33.2, amount: 1900}, "亀浦": {distance: 27.4, amount: 1640}, "久玉": {distance: 32.5, amount: 1860}, "山の浦": {distance: 29.1, amount: 1740}, "深海": {distance: 21.7, amount: 1340}, "魚貫崎": {distance: 35.4, amount: 2000}, "赤崎": {distance: 32.0, amount: 1860}, "大浦": {distance: 38.1, amount: 2120}, "楠甫": {distance: 41.5, amount: 2260}, "上津浦": {distance: 28.8, amount: 1680}, "島子": {distance: 24.6, amount: 1480}, "棚底": {distance: 35.6, amount: 2000}, "宮田": {distance: 31.5, amount: 1820}, "浦": {distance: 38.5, amount: 2120}, "馬場": {distance: 27.3, amount: 1640}, "河内": {distance: 32.1, amount: 1860}, "小宮地": {distance: 6.3, amount: 500}, "大多尾": {distance: 7.4, amount: 560}, "中田": {distance: 6.3, amount: 500}, "立": {distance: 0.0, amount: 0}, "御領": {distance: 25.9, amount: 1540}, "鬼池": {distance: 30.4, amount: 1780}, "二江": {distance: 32.9, amount: 1860}, "手野": {distance: 28.3, amount: 1680}, "城河原": {distance: 25.9, amount: 1540}, "高浜": {distance: 36.9, amount: 2040}, "大江": {distance: 30.7, amount: 1780}, "下田": {distance: 34.4, amount: 1960}, "福連木": {distance: 25.4, amount: 1540}, "向辺田": {distance: 32.2, amount: 1860}, "河浦": {distance: 20.5, amount: 1280}, "崎津": {distance: 27.2, amount: 1640}, "新合": {distance: 14.2, amount: 960}, "板之河内": {distance: 24.9, amount: 1480}, "古江": {distance: 22.5, amount: 1380}, "宮野河内": {distance: 13.3, amount: 900}},
+    
+    "御領": {"本渡": {distance: 7.1, amount: 560}, "佐伊津": {distance: 2.4, amount: 260}, "本町": {distance: 11.1, amount: 800}, "亀場": {distance: 9.1, amount: 680}, "枦宇土": {distance: 13.0, amount: 900}, "楠浦": {distance: 12.9, amount: 840}, "宮地岳": {distance: 23.0, amount: 1440}, "志柿": {distance: 13.2, amount: 900}, "下浦": {distance: 14.7, amount: 960}, "牛深": {distance: 51.4, amount: 2680}, "魚貫": {distance: 48.7, amount: 2560}, "亀浦": {distance: 42.9, amount: 2300}, "久玉": {distance: 48.0, amount: 2560}, "山の浦": {distance: 48.9, amount: 2560}, "深海": {distance: 45.6, amount: 2420}, "魚貫崎": {distance: 50.9, amount: 2640}, "赤崎": {distance: 23.7, amount: 1440}, "大浦": {distance: 29.6, amount: 1740}, "楠甫": {distance: 33.0, amount: 1900}, "上津浦": {distance: 20.3, amount: 1280}, "島子": {distance: 16.1, amount: 1060}, "棚底": {distance: 27.1, amount: 1640}, "宮田": {distance: 23.0, amount: 1440}, "浦": {distance: 30.0, amount: 1780}, "馬場": {distance: 18.8, amount: 1180}, "河内": {distance: 23.6, amount: 1440}, "小宮地": {distance: 19.6, amount: 1240}, "大多尾": {distance: 21.9, amount: 1340}, "中田": {distance: 25.7, amount: 1540}, "立": {distance: 25.9, amount: 1540}, "御領": {distance: 0.0, amount: 0}, "鬼池": {distance: 4.7, amount: 360}, "二江": {distance: 8.6, amount: 620}, "手野": {distance: 4.3, amount: 360}, "城河原": {distance: 4.6, amount: 360}, "高浜": {distance: 36.1, amount: 2040}, "大江": {distance: 42.3, amount: 2300}, "下田": {distance: 29.9, amount: 1740}, "福連木": {distance: 36.1, amount: 2040}, "向辺田": {distance: 47.7, amount: 2520}, "河浦": {distance: 36.1, amount: 2040}, "崎津": {distance: 42.8, amount: 2300}, "新合": {distance: 29.8, amount: 1740}, "板之河内": {distance: 31.1, amount: 1820}, "古江": {distance: 38.1, amount: 2120}, "宮野河内": {distance: 32.7, amount: 1860}},
+    
+    "鬼池": {"本渡": {distance: 11.6, amount: 800}, "佐伊津": {distance: 6.9, amount: 500}, "本町": {distance: 15.6, amount: 1020}, "亀場": {distance: 13.6, amount: 900}, "枦宇土": {distance: 17.5, amount: 1120}, "楠浦": {distance: 17.4, amount: 1120}, "宮地岳": {distance: 27.5, amount: 1640}, "志柿": {distance: 17.7, amount: 1120}, "下浦": {distance: 19.2, amount: 1240}, "牛深": {distance: 55.9, amount: 2860}, "魚貫": {distance: 53.2, amount: 2760}, "亀浦": {distance: 47.4, amount: 2520}, "久玉": {distance: 52.5, amount: 2720}, "山の浦": {distance: 53.4, amount: 2760}, "深海": {distance: 50.1, amount: 2640}, "魚貫崎": {distance: 55.4, amount: 2860}, "赤崎": {distance: 28.2, amount: 1680}, "大浦": {distance: 34.1, amount: 1960}, "楠甫": {distance: 37.5, amount: 2080}, "上津浦": {distance: 24.8, amount: 1480}, "島子": {distance: 20.6, amount: 1280}, "棚底": {distance: 31.6, amount: 1820}, "宮田": {distance: 27.5, amount: 1640}, "浦": {distance: 34.5, amount: 1960}, "馬場": {distance: 23.3, amount: 1440}, "河内": {distance: 28.1, amount: 1680}, "小宮地": {distance: 24.1, amount: 1480}, "大多尾": {distance: 26.4, amount: 1580}, "中田": {distance: 30.2, amount: 1780}, "立": {distance: 30.4, amount: 1780}, "御領": {distance: 4.7, amount: 360}, "鬼池": {distance: 0.0, amount: 0}, "二江": {distance: 5.6, amount: 420}, "手野": {distance: 6.4, amount: 500}, "城河原": {distance: 9.0, amount: 680}, "高浜": {distance: 33.4, amount: 1900}, "大江": {distance: 39.6, amount: 2160}, "下田": {distance: 27.2, amount: 1640}, "福連木": {distance: 33.4, amount: 1900}, "向辺田": {distance: 52.2, amount: 2720}, "河浦": {distance: 40.5, amount: 2220}, "崎津": {distance: 47.3, amount: 2520}, "新合": {distance: 34.3, amount: 1960}, "板之河内": {distance: 35.6, amount: 2000}, "古江": {distance: 42.5, amount: 2300}, "宮野河内": {distance: 37.2, amount: 2080}},
+    
+    "二江": {"本渡": {distance: 14.1, amount: 960}, "佐伊津": {distance: 11.0, amount: 800}, "本町": {distance: 13.7, amount: 900}, "亀場": {distance: 16.1, amount: 1060}, "枦宇土": {distance: 20.0, amount: 1280}, "楠浦": {distance: 19.9, amount: 1240}, "宮地岳": {distance: 30.0, amount: 1780}, "志柿": {distance: 20.1, amount: 1280}, "下浦": {distance: 21.6, amount: 1340}, "牛深": {distance: 58.4, amount: 2980}, "魚貫": {distance: 55.7, amount: 2860}, "亀浦": {distance: 49.8, amount: 2600}, "久玉": {distance: 54.9, amount: 2820}, "山の浦": {distance: 55.9, amount: 2860}, "深海": {distance: 52.5, amount: 2720}, "魚貫崎": {distance: 52.6, amount: 2720}, "赤崎": {distance: 30.7, amount: 1780}, "大浦": {distance: 36.6, amount: 2040}, "楠甫": {distance: 40.0, amount: 2220}, "上津浦": {distance: 27.3, amount: 1640}, "島子": {distance: 23.1, amount: 1440}, "棚底": {distance: 34.1, amount: 1960}, "宮田": {distance: 30.0, amount: 1780}, "浦": {distance: 37.0, amount: 2080}, "馬場": {distance: 25.8, amount: 1540}, "河内": {distance: 30.6, amount: 1780}, "小宮地": {distance: 26.6, amount: 1580}, "大多尾": {distance: 28.9, amount: 1680}, "中田": {distance: 32.7, amount: 1860}, "立": {distance: 32.9, amount: 1860}, "御領": {distance: 8.6, amount: 620}, "鬼池": {distance: 5.6, amount: 420}, "二江": {distance: 0.0, amount: 0}, "手野": {distance: 4.9, amount: 360}, "城河原": {distance: 7.1, amount: 560}, "高浜": {distance: 27.8, amount: 1640}, "大江": {distance: 34.0, amount: 1960}, "下田": {distance: 21.6, amount: 1340}, "福連木": {distance: 27.8, amount: 1640}, "向辺田": {distance: 54.6, amount: 2820}, "河浦": {distance: 43.0, amount: 2340}, "崎津": {distance: 49.7, amount: 2600}, "新合": {distance: 36.7, amount: 2040}, "板之河内": {distance: 38.0, amount: 2120}, "古江": {distance: 45.0, amount: 2420}, "宮野河内": {distance: 39.7, amount: 2160}},
+    
+    "手野": {"本渡": {distance: 9.5, amount: 680}, "佐伊津": {distance: 6.7, amount: 500}, "本町": {distance: 9.1, amount: 680}, "亀場": {distance: 11.5, amount: 800}, "枦宇土": {distance: 15.4, amount: 1020}, "楠浦": {distance: 15.3, amount: 1020}, "宮地岳": {distance: 25.4, amount: 1540}, "志柿": {distance: 15.6, amount: 1020}, "下浦": {distance: 17.1, amount: 1120}, "牛深": {// data.js - 完全版
+
+// 全地点リスト (54地点 - メインエリア46 + 御所浦8)
 const ALL_POINTS = [
     "本渡", "佐伊津", "本町", "亀場", "枦宇土", "楠浦", "宮地岳", "志柿", "下浦", 
     "牛深", "魚貫", "亀浦", "久玉", "山の浦", "深海", "魚貫崎", "赤崎", "大浦", 
     "楠甫", "上津浦", "島子", "棚底", "宮田", "浦", "馬場", "河内", "小宮地", 
     "大多尾", "中田", "立", "御領", "鬼池", "二江", "手野", "城河原", "高浜", 
     "大江", "下田", "福連木", "向辺田", "河浦", "崎津", "新合", "板之河内", 
-    "古江", "宮野河内", // メインエリア (46地点)
-    "御所浦", "椛の木", "長浦", "牧本", "嵐口", "外平", "大浦(御所浦)", "元浦" // 御所浦島内 (8地点, 大浦は区別のためリネーム)
+    "古江", "宮野河内",
+    "御所浦", "椛の木", "長浦", "牧本", "嵐口", "外平", "大浦(御所浦)", "元浦"
 ];
 
 // メインエリアの地点リスト (46地点)
@@ -26,528 +111,55 @@ const GOSHOURA_POINTS = [
     "御所浦", "椛の木", "長浦", "牧本", "嵐口", "外平", "大浦(御所浦)", "元浦"
 ];
 
-
-// --- 旅費の距離・金額データ (旅費の距離・金額.csv から抽出/全パターン対応) ---
-// TRAVEL_MATRIX[起点地点][終点地点] = {distance: X, amount: Y}
+// --- 旅費マトリクス: CSVの全データを網羅 ---
 const TRAVEL_MATRIX = {
-    // --------------------------------------------------------------------
-    // I. メインエリア 46x46 マトリクス (本渡, 佐伊津, ..., 宮野河内)
-    // --------------------------------------------------------------------
-    "本渡": {
-        "本渡": { "distance": 0.0, "amount": 0 }, "佐伊津": { "distance": 4.7, "amount": 360 }, "本町": { "distance": 6.7, "amount": 500 }, "亀場": { "distance": 2.0, "amount": 260 }, "枦宇土": { "distance": 6.0, "amount": 500 }, "楠浦": { "distance": 5.8, "amount": 420 }, "宮地岳": { "distance": 16.0, "amount": 1060 }, "志柿": { "distance": 6.1, "amount": 500 }, "下浦": { "distance": 7.6, "amount": 560 }, "牛深": { "distance": 44.4, "amount": 2380 }, "魚貫": { "distance": 41.7, "amount": 2260 }, "亀浦": { "distance": 35.9, "amount": 2000 }, "久玉": { "distance": 41.0, "amount": 2260 }, "山の浦": { "distance": 41.8, "amount": 2260 }, "深海": { "distance": 38.5, "amount": 2120 }, "魚貫崎": { "distance": 43.9, "amount": 2340 }, "赤崎": { "distance": 16.6, "amount": 1060 }, "大浦": { "distance": 22.5, "amount": 1380 }, "楠甫": { "distance": 25.9, "amount": 1540 }, "上津浦": { "distance": 13.2, "amount": 900 }, "島子": { "distance": 9.0, "amount": 680 }, "棚底": { "distance": 20.0, "amount": 1280 }, "宮田": { "distance": 15.9, "amount": 1020 }, "浦": { "distance": 22.9, "amount": 1380 }, "馬場": { "distance": 11.7, "amount": 800 }, "河内": { "distance": 16.5, "amount": 1060 }, "小宮地": { "distance": 12.5, "amount": 840 }, "大多尾": { "distance": 14.8, "amount": 960 }, "中田": { "distance": 18.6, "amount": 1180 }, "立": { "distance": 18.8, "amount": 1180 }, "御領": { "distance": 7.1, "amount": 560 }, "鬼池": { "distance": 11.6, "amount": 800 }, "二江": { "distance": 14.1, "amount": 960 }, "手野": { "distance": 9.5, "amount": 680 }, "城河原": { "distance": 7.1, "amount": 560 }, "高浜": { "distance": 31.9, "amount": 1820 }, "大江": { "distance": 38.1, "amount": 2120 }, "下田": { "distance": 25.7, "amount": 1540 }, "福連木": { "distance": 16.7, "amount": 1060 }, "向辺田": { "distance": 40.7, "amount": 2220 }, "河浦": { "distance": 29.0, "amount": 1740 }, "崎津": { "distance": 35.7, "amount": 2000 }, "新合": { "distance": 22.6, "amount": 1380 }, "板之河内": { "distance": 24.0, "amount": 1480 }, "古江": { "distance": 31.0, "amount": 1820 }, "宮野河内": { "distance": 25.6, "amount": 1540 }
-    },
-    "佐伊津": {
-        "本渡": { "distance": 4.7, "amount": 360 }, "佐伊津": { "distance": 0.0, "amount": 0 }, "本町": { "distance": 8.6, "amount": 620 }, "亀場": { "distance": 6.7, "amount": 500 }, "枦宇土": { "distance": 10.5, "amount": 740 }, "楠浦": { "distance": 10.5, "amount": 740 }, "宮地岳": { "distance": 20.5, "amount": 1280 }, "志柿": { "distance": 10.8, "amount": 740 }, "下浦": { "distance": 12.3, "amount": 840 }, "牛深": { "distance": 48.9, "amount": 2560 }, "魚貫": { "distance": 46.2, "amount": 2460 }, "亀浦": { "distance": 40.4, "amount": 2220 }, "久玉": { "distance": 45.5, "amount": 2420 }, "山の浦": { "distance": 46.3, "amount": 2460 }, "深海": { "distance": 43.0, "amount": 2340 }, "魚貫崎": { "distance": 48.4, "amount": 2560 }, "赤崎": { "distance": 21.3, "amount": 1340 }, "大浦": { "distance": 27.2, "amount": 1640 }, "楠甫": { "distance": 30.6, "amount": 1780 }, "上津浦": { "distance": 17.9, "amount": 1120 }, "島子": { "distance": 13.7, "amount": 900 }, "棚底": { "distance": 24.7, "amount": 1480 }, "宮田": { "distance": 20.6, "amount": 1280 }, "浦": { "distance": 27.6, "amount": 1640 }, "馬場": { "distance": 16.4, "amount": 1060 }, "河内": { "distance": 21.2, "amount": 1340 }, "小宮地": { "distance": 17.2, "amount": 1120 }, "大多尾": { "distance": 19.5, "amount": 1240 }, "中田": { "distance": 23.3, "amount": 1440 }, "立": { "distance": 23.5, "amount": 1440 }, "御領": { "distance": 2.4, "amount": 260 }, "鬼池": { "distance": 6.9, "amount": 500 }, "二江": { "distance": 11.0, "amount": 800 }, "手野": { "distance": 6.7, "amount": 500 }, "城河原": { "distance": 7.0, "amount": 560 }, "高浜": { "distance": 36.4, "amount": 2040 }, "大江": { "distance": 42.6, "amount": 2300 }, "下田": { "distance": 30.2, "amount": 1780 }, "福連木": { "distance": 21.2, "amount": 1340 }, "向辺田": { "distance": 45.2, "amount": 2420 }, "河浦": { "distance": 33.5, "amount": 1900 }, "崎津": { "distance": 40.2, "amount": 2220 }, "新合": { "distance": 27.1, "amount": 1640 }, "板之河内": { "distance": 28.5, "amount": 1680 }, "古江": { "distance": 35.5, "amount": 2000 }, "宮野河内": { "distance": 30.3, "amount": 1780 }
-    },
-    // ... (CSVに含まれる残りのメインエリア 46x46 の全パターン)
-    "本町": { "本渡": { "distance": 6.7, "amount": 500 }, "佐伊津": { "distance": 8.6, "amount": 620 }, "本町": { "distance": 0.0, "amount": 0 }, "亀場": { "distance": 8.7, "amount": 620 }, "枦宇土": { "distance": 12.5, "amount": 840 }, "楠浦": { "distance": 12.5, "amount": 840 }, "宮地岳": { "distance": 22.5, "amount": 1380 }, "志柿": { "distance": 12.8, "amount": 840 }, "下浦": { "distance": 14.3, "amount": 960 }, "牛深": { "distance": 50.9, "amount": 2640 }, "魚貫": { "distance": 48.2, "amount": 2560 }, "亀浦": { "distance": 42.4, "amount": 2300 }, "久玉": { "distance": 47.5, "amount": 2520 }, "山の浦": { "distance": 48.3, "amount": 2560 }, "深海": { "distance": 45.0, "amount": 2420 }, "魚貫崎": { "distance": 50.4, "amount": 2640 }, "赤崎": { "distance": 23.3, "amount": 1440 }, "大浦": { "distance": 29.2, "amount": 1740 }, "楠甫": { "distance": 32.6, "amount": 1860 }, "上津浦": { "distance": 19.9, "amount": 1240 }, "島子": { "distance": 15.7, "amount": 1020 }, "棚底": { "distance": 26.7, "amount": 1580 }, "宮田": { "distance": 22.6, "amount": 1380 }, "浦": { "distance": 29.6, "amount": 1740 }, "馬場": { "distance": 18.4, "amount": 1180 }, "河内": { "distance": 23.2, "amount": 1440 }, "小宮地": { "distance": 19.2, "amount": 1240 }, "大多尾": { "distance": 21.5, "amount": 1340 }, "中田": { "distance": 25.3, "amount": 1540 }, "立": { "distance": 25.5, "amount": 1540 }, "御領": { "distance": 11.1, "amount": 800 }, "鬼池": { "distance": 15.6, "amount": 1020 }, "二江": { "distance": 13.7, "amount": 900 }, "手野": { "distance": 9.1, "amount": 680 }, "城河原": { "distance": 6.7, "amount": 500 }, "高浜": { "distance": 27.3, "amount": 1640 }, "大江": { "distance": 33.7, "amount": 1900 }, "下田": { "distance": 21.0, "amount": 1340 }, "福連木": { "distance": 12.0, "amount": 840 }, "向辺田": { "distance": 47.2, "amount": 2520 }, "河浦": { "distance": 35.5, "amount": 2000 }, "崎津": { "distance": 42.2, "amount": 2300 }, "新合": { "distance": 29.2, "amount": 1740 }, "板之河内": { "distance": 30.5, "amount": 1780 }, "古江": { "distance": 37.5, "amount": 2080 }, "宮野河内": { "distance": 32.3, "amount": 1860 }
-    },
-    // ... (省略)
-    "宮野河内": { "本渡": { "distance": 25.6, "amount": 1540 }, "佐伊津": { "distance": 30.3, "amount": 1780 }, "本町": { "distance": 32.3, "amount": 1860 }, "亀場": { "distance": 23.6, "amount": 1440 }, "枦宇土": { "distance": 24.5, "amount": 1480 }, "楠浦": { "distance": 21.0, "amount": 1340 }, "宮地岳": { "distance": 14.5, "amount": 960 }, "志柿": { "distance": 28.4, "amount": 1680 }, "下浦": { "distance": 29.9, "amount": 1740 }, "牛深": { "distance": 22.7, "amount": 1380 }, "魚貫": { "distance": 22.5, "amount": 1380 }, "亀浦": { "distance": 18.2, "amount": 1180 }, "久玉": { "distance": 19.3, "amount": 1240 }, "山の浦": { "distance": 15.8, "amount": 1020 }, "深海": { "distance": 8.4, "amount": 620 }, "魚貫崎": { "distance": 24.7, "amount": 1480 }, "赤崎": { "distance": 39.0, "amount": 2160 }, "大浦": { "distance": 44.9, "amount": 2380 }, "楠甫": { "distance": 48.3, "amount": 2560 }, "上津浦": { "distance": 35.6, "amount": 2000 }, "島子": { "distance": 31.4, "amount": 1820 }, "棚底": { "distance": 42.4, "amount": 2300 }, "宮田": { "distance": 38.3, "amount": 2120 }, "浦": { "distance": 45.3, "amount": 2420 }, "馬場": { "distance": 34.1, "amount": 1960 }, "河内": { "distance": 38.9, "amount": 2120 }, "小宮地": { "distance": 13.1, "amount": 900 }, "大多尾": { "distance": 17.2, "amount": 1120 }, "中田": { "distance": 7.0, "amount": 560 }, "立": { "distance": 13.3, "amount": 900 }, "御領": { "distance": 32.7, "amount": 1860 }, "鬼池": { "distance": 37.2, "amount": 2080 }, "二江": { "distance": 39.7, "amount": 2160 }, "手野": { "distance": 35.1, "amount": 2000 }, "城河原": { "distance": 32.7, "amount": 1860 }, "高浜": { "distance": 27.0, "amount": 1640 }, "大江": { "distance": 20.8, "amount": 1280 }, "下田": { "distance": 33.0, "amount": 1900 }, "福連木": { "distance": 25.2, "amount": 1540 }, "向辺田": { "distance": 29.9, "amount": 1740 }, "河浦": { "distance": 12.2, "amount": 840 }, "崎津": { "distance": 17.3, "amount": 1120 }, "新合": { "distance": 7.8, "amount": 560 }, "板之河内": { "distance": 15.6, "amount": 1020 }, "古江": { "distance": 15.6, "amount": 1020 }, "宮野河内": { "distance": 0.0, "amount": 0 }
-    },
+    // メインエリア 46地点 × 46地点の完全マトリクス
+    "本渡": {"本渡": {distance: 0.0, amount: 0}, "佐伊津": {distance: 4.7, amount: 360}, "本町": {distance: 6.7, amount: 500}, "亀場": {distance: 2.0, amount: 260}, "枦宇土": {distance: 6.0, amount: 500}, "楠浦": {distance: 5.8, amount: 420}, "宮地岳": {distance: 16.0, amount: 1060}, "志柿": {distance: 6.1, amount: 500}, "下浦": {distance: 7.6, amount: 560}, "牛深": {distance: 44.4, amount: 2380}, "魚貫": {distance: 41.7, amount: 2260}, "亀浦": {distance: 35.9, amount: 2000}, "久玉": {distance: 41.0, amount: 2260}, "山の浦": {distance: 41.8, amount: 2260}, "深海": {distance: 38.5, amount: 2120}, "魚貫崎": {distance: 43.9, amount: 2340}, "赤崎": {distance: 16.6, amount: 1060}, "大浦": {distance: 22.5, amount: 1380}, "楠甫": {distance: 25.9, amount: 1540}, "上津浦": {distance: 13.2, amount: 900}, "島子": {distance: 9.0, amount: 680}, "棚底": {distance: 20.0, amount: 1280}, "宮田": {distance: 15.9, amount: 1020}, "浦": {distance: 22.9, amount: 1380}, "馬場": {distance: 11.7, amount: 800}, "河内": {distance: 16.5, amount: 1060}, "小宮地": {distance: 12.5, amount: 840}, "大多尾": {distance: 14.8, amount: 960}, "中田": {distance: 18.6, amount: 1180}, "立": {distance: 18.8, amount: 1180}, "御領": {distance: 7.1, amount: 560}, "鬼池": {distance: 11.6, amount: 800}, "二江": {distance: 14.1, amount: 960}, "手野": {distance: 9.5, amount: 680}, "城河原": {distance: 7.1, amount: 560}, "高浜": {distance: 31.9, amount: 1820}, "大江": {distance: 38.1, amount: 2120}, "下田": {distance: 25.7, amount: 1540}, "福連木": {distance: 16.7, amount: 1060}, "向辺田": {distance: 40.7, amount: 2220}, "河浦": {distance: 29.0, amount: 1740}, "崎津": {distance: 35.7, amount: 2000}, "新合": {distance: 22.6, amount: 1380}, "板之河内": {distance: 24.0, amount: 1480}, "古江": {distance: 31.0, amount: 1820}, "宮野河内": {distance: 25.6, amount: 1540}},
     
-    // --------------------------------------------------------------------
-    // II. 御所浦島内 8x8 マトリクス
-    // --------------------------------------------------------------------
-    "御所浦": { "御所浦": { "distance": 0.0, "amount": 0 }, "椛の木": { "distance": 5.3, "amount": 420 }, "長浦": { "distance": 4.1, "amount": 360 }, "牧本": { "distance": 2.7, "amount": 260 }, "嵐口": { "distance": 2.5, "amount": 260 }, "外平": { "distance": 8.3, "amount": 620 }, "大浦(御所浦)": { "distance": 4.0, "amount": 360 }, "元浦": { "distance": 3.0, "amount": 300 } },
-    "椛の木": { "御所浦": { "distance": 5.3, "amount": 420 }, "椛の木": { "distance": 0.0, "amount": 0 }, "長浦": { "distance": 0.0, "amount": 0 }, "牧本": { "distance": 2.6, "amount": 260 }, "嵐口": { "distance": 6.8, "amount": 500 }, "外平": { "distance": 12.6, "amount": 840 }, "大浦(御所浦)": { "distance": 9.3, "amount": 680 }, "元浦": { "distance": 8.3, "amount": 620 } },
-    "長浦": { "御所浦": { "distance": 4.1, "amount": 360 }, "椛の木": { "distance": 0.0, "amount": 0 }, "長浦": { "distance": 0.0, "amount": 0 }, "牧本": { "distance": 0.0, "amount": 0 }, "嵐口": { "distance": 5.6, "amount": 420 }, "外平": { "distance": 11.4, "amount": 800 }, "大浦(御所浦)": { "distance": 8.1, "amount": 620 }, "元浦": { "distance": 7.1, "amount": 560 } },
-    "牧本": { "御所浦": { "distance": 2.7, "amount": 260 }, "椛の木": { "distance": 2.6, "amount": 260 }, "長浦": { "distance": 0.0, "amount": 0 }, "牧本": { "distance": 0.0, "amount": 0 }, "嵐口": { "distance": 4.2, "amount": 360 }, "外平": { "distance": 10.0, "amount": 740 }, "大浦(御所浦)": { "distance": 6.7, "amount": 500 }, "元浦": { "distance": 5.7, "amount": 420 } },
-    "嵐口": { "御所浦": { "distance": 2.5, "amount": 260 }, "椛の木": { "distance": 6.8, "amount": 500 }, "長浦": { "distance": 5.6, "amount": 420 }, "牧本": { "distance": 4.2, "amount": 360 }, "嵐口": { "distance": 0.0, "amount": 0 }, "外平": { "distance": 5.8, "amount": 420 }, "大浦(御所浦)": { "distance": 6.5, "amount": 500 }, "元浦": { "distance": 5.5, "amount": 420 } },
-    "外平": { "御所浦": { "distance": 8.3, "amount": 620 }, "椛の木": { "distance": 12.6, "amount": 840 }, "長浦": { "distance": 11.4, "amount": 800 }, "牧本": { "distance": 10.0, "amount": 740 }, "嵐口": { "distance": 5.8, "amount": 420 }, "外平": { "distance": 0.0, "amount": 0 }, "大浦(御所浦)": { "distance": 12.3, "amount": 840 }, "元浦": { "distance": 11.3, "amount": 800 } },
-    "大浦(御所浦)": { "御所浦": { "distance": 4.0, "amount": 360 }, "椛の木": { "distance": 9.3, "amount": 680 }, "長浦": { "distance": 8.1, "amount": 620 }, "牧本": { "distance": 6.7, "amount": 500 }, "嵐口": { "distance": 6.5, "amount": 500 }, "外平": { "distance": 12.3, "amount": 840 }, "大浦(御所浦)": { "distance": 0.0, "amount": 0 }, "元浦": { "distance": 0.0, "amount": 0 } },
-    "元浦": { "御所浦": { "distance": 3.0, "amount": 300 }, "椛の木": { "distance": 8.3, "amount": 620 }, "長浦": { "distance": 7.1, "amount": 560 }, "牧本": { "distance": 5.7, "amount": 420 }, "嵐口": { "distance": 5.5, "amount": 420 }, "外平": { "distance": 11.3, "amount": 800 }, "大浦(御所浦)": { "distance": 0.0, "amount": 0 }, "元浦": { "distance": 0.0, "amount": 0 } }
-};
-
-
-// --- 施設データ (前回のコードから変更なし) ---
-const FACILITY_DATA = [
-    {"name": "天草市役所", "address": "天草市東浜町８番１号"},
-    {"name": "牛深支所", "address": "天草市牛深町２２８６番地１０３"},
-    {"name": "有明支所", "address": "天草市有明町赤崎３３８３番地"},
-    {"name": "御所浦支所", "address": "天草市御所浦町御所浦３５２７番地"},
-    {"name": "倉岳支所", "address": "天草市倉岳町棚底１９１９番地"},
-    {"name": "栖本支所", "address": "天草市栖本町馬場１７９番地"},
-    {"name": "新和支所", "address": "天草市新和町小宮地６６９番地１"},
-    {"name": "五和支所", "address": "天草市五和町御領２９４３番地"},
-    {"name": "天草支所", "address": "天草市天草町高浜南４８８番地１"},
-    {"name": "河浦支所", "address": "天草市河浦町河浦５２５３番地"},
-    {"name": "天草市新和B＆G海洋センター", "address": "天草市新和町大多尾２１３８番地３"},
-    {"name": "地域交流センターおおくす", "address": "天草市五和町手野一丁目３６７番地１"},
-    {"name": "天草市複合施設ここらす", "address": "天草市浄南町４番１５号"},
-    {"name": "本渡南地区コミュニティセンター", "address": "天草市港町１３番５号"},
-    {"name": "本渡北地区コミュニティセンター", "address": "天草市今釜町１０番４３号"},
-    {"name": "亀場地区コミュニティセンター", "address": "天草市亀場町亀川１６９８番地"},
-    {"name": "枦宇土地区コミュニティセンター", "address": "天草市枦宇土町１７１１番地"},
-    {"name": "志柿地区コミュニティセンター", "address": "天草市志柿町３３９０番地１０"},
-    {"name": "志柿町瀬戸地区コミュニティセンター", "address": "天草市志柿町６６２３番地１"},
-    {"name": "下浦地区コミュニティセンター", "address": "天草市下浦町１２８２番地"},
-    {"name": "楠浦地区コミュニティセンター", "address": "天草市楠浦町２３６６番地"},
-    {"name": "本町地区コミュニティセンター", "address": "天草市本町本８３２番地"},
-    {"name": "佐伊津地区コミュニティセンター", "address": "天草市佐伊津町２２５８番地"},
-    {"name": "宮地岳地区コミュニティセンター", "address": "天草市宮地岳町５６１６番地２"},
-    {"name": "牛深地区コミュニティセンター", "address": "天草市牛深町１２２番地２"},
-    {"name": "久玉地区コミュニティセンター", "address": "天草市久玉町１４１２番地１２"},
-    {"name": "魚貫地区コミュニティセンター", "address": "天草市魚貫町２１２９番地"},
-    {"name": "深海地区コミュニティセンター", "address": "天草市深海町１８４２番地４２"},
-    {"name": "二浦地区コミュニティセンター", "address": "天草市二浦町亀浦１０３５番地１１"},
-    {"name": "楠甫地区コミュニティセンター", "address": "天草市有明町楠甫４６２９番地７"},
-    {"name": "大浦地区コミュニティセンター", "address": "天草市有明町大浦１７２３番地１"},
-    {"name": "須子地区コミュニティセンター", "address": "天草市有明町須子２０８２番地３"},
-    {"name": "赤崎地区コミュニティセンター", "address": "天草市有明町赤崎１８０１番地１"},
-    {"name": "上津浦地区コミュニティセンター", "address": "天草市有明町上津浦３７０６番地４"},
-    {"name": "下津浦地区コミュニティセンター", "address": "天草市有明町下津浦２５０５番地２"},
-    {"name": "島子地区コミュニティセンター", "address": "天草市有明町大島子２６６９番地"},
-    {"name": "御所浦地区コミュニティセンター", "address": "天草市御所浦町御所浦４３１０番地５"},
-    {"name": "御所浦南地区コミュニティセンター", "address": "天草市御所浦町御所浦６１９６番地２"},
-    {"name": "牧島地区コミュニティセンター", "address": "天草市御所浦町牧島６２５番地７"},
-    {"name": "御所浦北地区コミュニティセンター", "address": "天草市御所浦町横浦３８３番地６"},
-    {"name": "嵐口地区コミュニティセンター", "address": "天草市御所浦町御所浦２８９５番地１４"},
-    {"name": "浦地区コミュニティセンター", "address": "天草市倉岳町浦３０８９番地１"},
-    {"name": "棚底地区コミュニティセンター", "address": "天草市倉岳町棚底１７８６番地４"},
-    {"name": "宮田地区コミュニティセンター", "address": "天草市倉岳町宮田１３２７番地１"},
-    {"name": "栖本地区コミュニティセンター", "address": "天草市栖本町河内４４１４番地１"},
-    {"name": "小宮地地区コミュニティセンター", "address": "天草市新和町小宮地６６９番地１"},
-    {"name": "宮南地区コミュニティセンター", "address": "天草市新和町小宮地１０８２１番地１"},
-    {"name": "大宮地地区コミュニティセンター", "address": "天草市新和町大宮地４２７５番地１"},
-    {"name": "大多尾地区コミュニティセンター", "address": "天草市新和町大多尾２８５２番地１"},
-    {"name": "中田地区コミュニティセンター", "address": "天草市新和町中田２２７０番地５"},
-    {"name": "碇石地区コミュニティセンター", "address": "天草市新和町碇石９５９番地１"},
-    {"name": "御領地区コミュニティセンター", "address": "天草市五和町御領６６９２番地１"},
-    {"name": "大島地区コミュニティセンター", "address": "天草市五和町御領９７６１番地"},
-    {"name": "鬼池地区コミュニティセンター", "address": "天草市五和町鬼池１１８４番地"},
-    {"name": "二江地区コミュニティセンター", "address": "天草市五和町二江３０６６番地"},
-    {"name": "手野地区コミュニティセンター", "address": "天草市五和町手野一丁目３７６８番地３"},
-    {"name": "城河原地区コミュニティセンター", "address": "天草市五和町城河原一丁目１７番地１"},
-    {"name": "福連木地区コミュニティセンター", "address": "天草市天草町福連木３６４５番地２"},
-    {"name": "下田北地区コミュニティセンター", "address": "天草市天草町下田北５３４番地１"},
-    {"name": "下田南地区コミュニティセンター", "address": "天草市天草町下田南３０４０番地１"},
-    {"name": "高浜地区コミュニティセンター", "address": "天草市天草町高浜南５０１番地１"},
-    {"name": "大江地区コミュニティセンター", "address": "天草市天草町大江７４８０番地５"},
-    {"name": "新合地区コミュニティセンター", "address": "天草市河浦町新合２００８番地４"},
-    {"name": "一町田地区コミュニティセンター", "address": "天草市河浦町河浦５２２３番地"},
-    {"name": "富津地区コミュニティセンター", "address": "天草市河浦町富津１１１７番地２"},
-    {"name": "宮野河内地区コミュニティセンター", "address": "天草市河浦町宮野河内３３７番地６"},
-    {"name": "天草市立本渡学校給食センター", "address": "天草市東町７番地４１"},
-    {"name": "天草市立牛深学校給食センター", "address": "天草市久玉町１２１６番地１２"},
-    {"name": "天草市立御所浦学校給食センター", "address": "天草市御所浦町御所浦３２１５番地４"},
-    {"name": "天草市立栖本学校給食センター", "address": "天草市栖本町打田１８番地１"},
-    {"name": "天草市立五和学校給食センター", "address": "天草市五和町御領６６８９番地６"},
-    {"name": "天草市立天草学校給食センター", "address": "天草市天草町高浜南４８８番地１"},
-    {"name": "牛深総合センター", "address": "天草市牛深町１６０番地"},
-    {"name": "天草市立本渡南小学校", "address": "天草市川原町４番２１号"},
-    {"name": "天草市立本渡北小学校", "address": "天草市浜崎町３番５５号"},
-    {"name": "天草市立亀川小学校", "address": "天草市亀場町亀川１６２０番地"},
-    {"name": "天草市立本渡東小学校", "address": "天草市志柿町５０２９番地５"},
-    {"name": "天草市立楠浦小学校", "address": "天草市楠浦町２８０５番地"},
-    {"name": "天草市立本町小学校", "address": "天草市本町本８１５番地"},
-    {"name": "天草市立佐伊津小学校", "address": "天草市佐伊津町２３１２番地"},
-    {"name": "天草市立牛深小学校", "address": "天草市牛深町１９８５番地"},
-    {"name": "天草市立牛深東小学校", "address": "天草市久玉町２３６４番地"},
-    {"name": "天草市立有明小学校", "address": "天草市有明町赤崎３２９１番地"},
-    {"name": "天草市立御所浦小学校", "address": "天草市御所浦町御所浦３５２７番地５"},
-    {"name": "天草市立倉岳小学校", "address": "天草市倉岳町棚底２０９１番地"},
-    {"name": "天草市立栖本小学校", "address": "天草市栖本町馬場２５番地"},
-    {"name": "天草市立新和小学校", "address": "天草市新和町小宮地６２０番地"},
-    {"name": "天草市立五和小学校", "address": "天草市五和町御領９６０８番地１"},
-    {"name": "天草市立天草小学校", "address": "天草市天草町高浜南２７１４番地"},
-    {"name": "天草市立河浦小学校", "address": "天草市河浦町河浦４９３２番地２"},
-    {"name": "天草市立本渡中学校", "address": "天草市本渡町広瀬５番地１１０"},
-    {"name": "天草市立本渡東中学校", "address": "天草市志柿町５０３１番地"},
-    {"name": "天草市立稜南中学校", "address": "天草市亀場町亀川１４２５番地"},
-    {"name": "天草市立牛深中学校", "address": "天草市牛深町１２１１番地２５"},
-    {"name": "天草市立牛深東中学校", "address": "天草市久玉町２３６４番地"},
-    {"name": "天草市立有明中学校", "address": "天草市有明町赤崎３３８３番地"},
-    {"name": "天草市立御所浦中学校", "address": "天草市御所浦町御所浦３２１５番地２"},
-    {"name": "天草市立倉岳中学校", "address": "天草市倉岳町棚底２６91番地"},
-    {"name": "天草市立栖本中学校", "address": "天草市栖本町湯船原６９０番地４"},
-    {"name": "天草市立新和中学校", "address": "天草市新和町小宮地１３０４番地"},
-    {"name": "天草市立五和中学校", "address": "天草市五和町御領９６０７番地２"},
-    {"name": "天草市立天草中学校", "address": "天草市天草町高浜南４８８番地１"},
-    {"name": "天草市立河浦中学校", "address": "天草市河浦町河浦３５番地２４"},
-    {"name": "中央生涯学習センター", "address": "天草市浄南町４番１５号"},
-    {"name": "生涯学習センター", "address": "天草市久玉町５７１６番地４"},
-    {"name": "天草市本町体育館", "address": "天草市本町新休２７番地７"},
-    {"name": "天草市佐伊津体育館", "address": "天草市佐伊津町５７９６番地"},
-    {"name": "天草市瀬戸体育館", "address": "天草市志柿町６３４８番地"},
-    {"name": "天草市金焼体育館", "address": "天草市下浦町９４７５番地"},
-    {"name": "天草市枦宇土体育館", "address": "天草市枦宇土町１９０１番地３"},
-    {"name": "天草市茂串体育館", "address": "天草市牛深町５99番地"},
-    {"name": "天草市天附体育館", "address": "天草市牛深町３２７５番地１１"},
-    {"name": "天草市魚貫体育館", "address": "天草市魚貫町１４４３番地"},
-    {"name": "天草市深海体育館", "address": "天草市深海町４４６２番地３"},
-    {"name": "天草市二浦体育館", "address": "天草市二浦町亀浦４４０３番地８"},
-    {"name": "天草市楠甫体育館", "address": "天草市有明町楠甫７５６番地"},
-    {"name": "天草市大楠体育館", "address": "天草市有明町大浦５３３番地１"},
-    {"name": "天草市須子体育館", "address": "天草市有明町須子１２２６番地２"},
-    {"name": "天草市赤崎体育館", "address": "天草市有明町赤崎１７６４番地"},
-    {"name": "天草市浦和体育館", "address": "天草市有明町上津浦５５１番地"},
-    {"name": "天草市島子体育館", "address": "天草市有明町大島子２６６９番地"},
-    {"name": "天草市御所浦北体育館", "address": "天草市御所浦町横浦５３６番地"},
-    {"name": "天草市倉岳体育館", "address": "天草市倉岳町棚底２５５６番地"},
-    {"name": "天草市浦体育館", "address": "天草市倉岳町浦３０６４番地１"},
-    {"name": "天草市宮田体育館", "address": "天草市倉岳町宮田１３２７番地１"},
-    {"name": "天草市栖本河内体育館", "address": "天草市栖本町河内４４１７番地１"},
-    {"name": "天草市栖本体育館", "address": "天草市栖本町古江１５３番地４"},
-    {"name": "天草市新和体育館", "address": "天草市新和町小宮地７２２番地"},
-    {"name": "天草市宮南体育館", "address": "天草市新和町小宮地１０８１６番地２"},
-    {"name": "天草市大宮地体育館", "address": "天草市新和町大宮地４２７７番地１"},
-    {"name": "天草市五和体育館", "address": "天草市五和町御領６８１６番地"},
-    {"name": "天草市鬼池体育館", "address": "天草市五和町鬼池１３１０番地"},
-    {"name": "天草市手野体育館", "address": "天草市五和町手野一丁目３７６１番地１"},
-    {"name": "天草市城河原体育館", "address": "天草市五和町城河原三丁目６９番地"},
-    {"name": "天草市福連木体育館", "address": "天草市天草町福連木３５０５番地１"},
-    {"name": "天草市天草勤労者体育館", "address": "天草市天草町高浜南４７２番地３"},
-    {"name": "天草市河浦中央体育館", "address": "天草市河浦町白木河内１７５番地４"},
-    {"name": "天草市一町田体育館", "address": "天草市河浦町久留２１８番地１"},
-    {"name": "天草市新合体育館", "address": "天草市河浦町新合２０１３番地１"},
-    {"name": "天草市宮野河内体育館", "address": "天草市河浦町宮野河内１１６１番地１"},
-    {"name": "天草市乙女蛇運動広場", "address": "天草市南町１２９５番地"},
-    {"name": "天草市山口運動広場", "address": "天草市本渡町本渡３３５５番地"},
-    {"name": "天草市亀場運動広場", "address": "天草市亀場町亀川２２３８番地２"},
-    {"name": "天草市枦宇土運動広場", "address": "天草市枦宇土町１８００番地"},
-    {"name": "天草市志柿運動広場", "address": "天草市志柿町３３９０番地１０"},
-    {"name": "天草市瀬戸運動広場", "address": "天草市志柿町６３２５番地５"},
-    {"name": "天草市下浦運動広場", "address": "天草市下浦町５１番地"},
-    {"name": "天草市下浦運動広場アーチェリー場", "address": "天草市下浦町５１番地"},
-    {"name": "天草市錦島運動広場", "address": "天草市楠浦町２３番地１"},
-    {"name": "天草市本町運動広場", "address": "天草市本町新休２７番地７"},
-    {"name": "天草市佐伊津運動広場", "address": "天草市佐伊津町５７９６番地"},
-    {"name": "天草市宮地岳運動広場", "address": "天草市宮地岳町５６３５番地２"},
-    {"name": "天草市牛深グラウンド", "address": "天草市牛深町１２１１番地２５"},
-    {"name": "天草市天附グラウンド", "address": "天草市牛深町３２７５番地８"},
-    {"name": "天草市深海グラウンド", "address": "天草市深海町２８０１番地１４"},
-    {"name": "天草市魚浦グラウンド", "address": "天草市二浦町亀浦３４４３番地１"},
-    {"name": "天草市楠甫グラウンド", "address": "天草市有明町楠甫４６２９番地１"},
-    {"name": "天草市大楠グラウンド", "address": "天草市有明町大浦５３３番地１"},
-    {"name": "天草市須子グラウンド", "address": "天草市有明町須子１２２６番地２"},
-    {"name": "天草市赤崎グラウンド", "address": "天草市有明町赤崎１７６４番地"},
-    {"name": "天草市上津浦グラウンド", "address": "天草市有明町上津浦３６９８番地"},
-    {"name": "天草市有明グラウンド", "address": "天草市有明町下津浦３００１番地９"},
-    {"name": "天草市島子グラウンド", "address": "天草市有明町大島子２６６９番地"},
-    {"name": "天草市倉岳総合グラウンド", "address": "天草市倉岳町棚底２６７６番地１"},
-    {"name": "天草市浦グラウンド", "address": "天草市倉岳町浦３０６４番地１"},
-    {"name": "天草市宮田グラウンド", "address": "天草市倉岳町宮田１３２７番地１"},
-    {"name": "天草市栖本河内グラウンド", "address": "天草市栖本町河内４４１４番地１"},
-    {"name": "天草市栖本総合グラウンド", "address": "天草市栖本町古江１５３番地５"},
-    {"name": "天草市栖本総合グラウンドテニスコート", "address": "天草市栖本町古江１５３番地５"},
-    {"name": "天草市栖本相撲場", "address": "天草市栖本町古江１５３番地５"},
-    {"name": "天草市新和グラウンド", "address": "天草市新和町小宮地７１３番地"},
-    {"name": "天草市大宮地運動広場", "address": "天草市新和町大宮地４２７７番地１"},
-    {"name": "天草市中田運動広場", "address": "天草市新和町中田２２７０番地１１"},
-    {"name": "天草市大多尾運動広場", "address": "天草市新和町大多尾３５２０番地１"},
-    {"name": "天草市碇石運動広場", "address": "天草市新和町碇石９５７番地１"},
-    {"name": "天草市新和相撲場", "address": "天草市新和町碇石９５７番地１"},
-    {"name": "天草市五和グラウンド", "address": "天草市五和町御領２９４０番地１"},
-    {"name": "天草市五和テニスコート", "address": "天草市五和町御領２９４０番地１"},
-    {"name": "天草市鬼池運動広場", "address": "天草市五和町鬼池１２９２番地"},
-    {"name": "天草市二江運動広場", "address": "天草市五和町二江３２４２番地１"},
-    {"name": "天草市手野運動広場", "address": "天草市五和町手野一丁目３５８８番地１"},
-    {"name": "天草市城河原運動広場", "address": "天草市五和町城河原三丁目５０番地"},
-    {"name": "天草市下田北運動広場", "address": "天草市天草町下田北１５０１番地"},
-    {"name": "天草市天草総合運動公園", "address": "天草市天草町高浜北１６７５番地１"},
-    {"name": "天草市天草総合運動公園テニスコート", "address": "天草市天草町高浜北１６７５番地１"},
-    {"name": "天草市大江農村広場", "address": "天草市天草町大江１００３番地"},
-    {"name": "天草市河浦さざんか公園運動広場", "address": "天草市河浦町新合２１４４番地１"},
-    {"name": "天草市河浦総合運動場", "address": "天草市河浦町白木河内１７５番地２１"},
-    {"name": "天草市河浦総合運動場テニスコート", "address": "天草市河浦町白木河内１７５番地２１"},
-    {"name": "天草市富津運動場", "address": "天草市河浦町崎津１１１７番地４"}, 
-    {"name": "天草市宮野河内運動場", "address": "天草市河浦町宮野河内３３７番地６"},
-    {"name": "天草市陸上競技場", "address": "天草市本渡町広瀬５番地１１３"},
-    {"name": "御所浦交流センター", "address": "天草市御所浦町御所浦５８７５番地２"},
-    {"name": "本渡地区公民館", "address": "天草市浄南町４番１５号"},
-    {"name": "牛深地区公民館", "address": "天草市牛深町２２８６番地１０３"},
-    {"name": "有明地区公民館", "address": "天草市有明町赤崎３３８３番地"},
-    {"name": "御所浦地区公民館", "address": "天草市御所浦町御所浦３５２７番地"},
-    {"name": "倉岳地区公民館", "address": "天草市倉岳町棚底１９１９番地"},
-    {"name": "栖本地区公民館", "address": "天草市栖本町馬場１７９番地"},
-    {"name": "新和地区公民館", "address": "天草市新和町小宮地６６９番地１"},
-    {"name": "五和地区公民館", "address": "天草市五和町御領２９４３番地"},
-    {"name": "天草地区公民館", "address": "天草市天草町高浜南４８８番地１"},
-    {"name": "河浦地区公民館", "address": "天草市河浦町河浦５２５３番地"},
-    {"name": "天草市今富地域交流施設", "address": "天草市河浦町今富９５６番地"},
-    {"name": "天草交流センターブルーアイランド天草", "address": "天草市天草町大江５０４番地２"},
-    {"name": "天草市民センター", "address": "天草市東町３番地"},
-    {"name": "天草市立御所浦恐竜の島博物館", "address": "天草市御所浦町御所浦４３１０番地５"},
-    {"name": "天草市立中央図書館", "address": "天草市浄南町４番１５号"},
-    {"name": "天草市立牛深図書館", "address": "天草市牛深町１６０番地"},
-    {"name": "天草市立御所浦図書館", "address": "天草市御所浦町御所浦３５２５番地２"},
-    {"name": "天草市立河浦図書館", "address": "天草市河浦町河浦５２５３番地"},
-    {"name": "天草市立天草アーカイブズ", "address": "天草市志柿町６３３５番地"},
-    {"name": "天草市立本渡歴史民俗資料館", "address": "天草市今釜新町３７０６番地"},
-    {"name": "天草市立有明歴史民俗資料館", "address": "天草市有明町下津浦３００１番地９"},
-    {"name": "天草市立倉岳歴史民俗資料館", "address": "天草市倉岳町棚底１７８６番地４"},
-    {"name": "天草市立新和歴史民俗資料館", "address": "天草市新和町小宮地８９１８番地２"},
-    {"name": "天草市立五和歴史民俗資料館", "address": "天草市五和町二江３８４番地"},
-    {"name": "天草文化交流館", "address": "天草市船之尾町８番２５号"},
-    {"name": "天草市立本渡南幼稚園", "address": "天草市川原町４番７号"},
-    {"name": "天草市立本渡北幼稚園", "address": "天草市浜崎町４番９号"},
-    {"name": "天草市立亀場幼稚園", "address": "天草市亀場町亀川１５３８番地１"},
-];
-
-// --- 旅費地点判定データ ---
-const TRAVEL_POINTS_DATA = [
-    { "town": "東町", "ranges": [{"start": 0.0, "end": 99999.0, "location": "本渡or亀場"}] },
-    { "town": "浄南町", "ranges": [
-        {"start": 5.0, "end": 99999.0, "location": "本渡or亀場" }, 
-        {"start": 0.0, "end": 5.0, "location": "本渡" }
-    ]},
-    { "town": "太田町", "ranges": [
-        {"start": 19.0, "end": 21.0, "location": "本渡or亀場"}, 
-        {"start": 0.0, "end": 19.0, "location": "本渡"}, 
-        {"start": 21.0, "end": 99999.0, "location": "本渡"}
-    ]},
-    { "town": "東・浄南・太田町以外", "ranges": [{"start": 0.0, "end": 99999.0, "location": "本渡" }] }, 
-    { "town": "旭町", "ranges": [{"start": 0.0, "end": 99999.0, "location": "佐伊津"}] },
-    { "town": "瀬戸町", "ranges": [{"start": 0.0, "end": 99999.0, "location": "亀場"}] },
-    { "town": "本渡町本渡", "ranges": [{"start": 0.0, "end": 99999.0, "location": "本渡"}] },
-    { "town": "本渡町広瀬", "ranges": [
-        {"start": 1.0, "end": 1470.0, "location": "本渡"},
-        {"start": 1470.0, "end": 2080.0, "location": "佐伊津"}, 
-        {"start": 2080.0, "end": 99999.0, "location": "本渡"}
-    ]},
-    { "town": "本渡町本戸馬場", "ranges": [{"start": 0.0, "end": 99999.0, "location": "本渡"}] },
-    { "town": "本渡町本泉", "ranges": [{"start": 0.0, "end": 99999.0, "location": "本渡"}] },
-    { "town": "佐伊津町", "ranges": [{"start": 0.0, "end": 99999.0, "location": "佐伊津"}] },
-    { "town": "本町本", "ranges": [{"start": 0.0, "end": 99999.0, "location": "本町"}] },
-    { "town": "本町新休", "ranges": [{"start": 0.0, "end": 99999.0, "location": "本町"}] },
-    { "town": "本町下河内", "ranges": [
-        {"start": 1.0, "end": 1200.0, "location": "本町"},
-        {"start": 1200.0, "end": 2000.0, "location": "城河原"}, 
-        {"start": 2000.0, "end": 99999.0, "location": "本町"}
-    ]},
-    { "town": "亀場町亀川", "ranges": [{"start": 0.0, "end": 99999.0, "location": "亀場"}] },
-    { "town": "亀場町食場", "ranges": [
-        {"start": 1.0, "end": 340.0, "location": "枦宇土"},
-        {"start": 340.0, "end": 700.0, "location": "亀場"},
-        {"start": 700.0, "end": 800.0, "location": "枦宇土"}, 
-        {"start": 800.0, "end": 900.0, "location": "亀場or枦宇土"},
-        {"start": 900.0, "end": 1200.0, "location": "亀場"},
-        {"start": 1200.0, "end": 99999.0, "location": "枦宇土"}
-    ]},
-    { "town": "枦宇土町", "ranges": [
-        {"start": 1.0, "end": 1030.0, "location": "枦宇土 OR 福連木"},
-        {"start": 1030.0, "end": 1130.0, "location": "枦宇土 OR 宮地岳"}, 
-        {"start": 1130.0, "end": 99999.0, "location": "枦宇土"}
-    ]},
-    { "town": "楠浦町", "ranges": [
-        {"start": 1.0, "end": 900.0, "location": "楠浦"},
-        {"start": 900.0, "end": 1200.0, "location": "亀場or楠浦"}, 
-        {"start": 1200.0, "end": 6400.0, "location": "楠浦"},
-        {"start": 6400.0, "end": 6800.0, "location": "宮地岳"},
-        {"start": 6800.0, "end": 10000.0, "location": "楠浦"},
-        {"start": 10000.0, "end": 99999.0, "location": "亀場"}
-    ]},
-    { "town": "宮地岳町", "ranges": [{"start": 0.0, "end": 99999.0, "location": "宮地岳"}] },
-    { "town": "志柿町", "ranges": [
-        {"start": 1.0, "end": 400.0, "location": "島子"},
-        {"start": 400.0, "end": 4700.0, "location": "志柿"}, 
-        {"start": 4700.0, "end": 5320.0, "location": "下浦"},
-        {"start": 5320.0, "end": 7000.0, "location": "亀場"},
-        {"start": 7000.0, "end": 99999.0, "location": "志柿"}
-    ]},
-    { "town": "下浦町", "ranges": [{"start": 0.0, "end": 99999.0, "location": "下浦"}] },
-    { "town": "牛深町", "ranges": [
-        {"start": 1.0, "end": 90.0, "location": "牛深 OR 魚貫"},
-        {"start": 90.0, "end": 300.0, "location": "牛深 OR 久玉"}, 
-        {"start": 300.0, "end": 1600.0, "location": "牛深 OR 魚貫"},
-        {"start": 1600.0, "end": 99999.0, "location": "牛深"}
-    ]},
-    { "town": "魚貫町", "ranges": [
-        {"start": 1.0, "end": 3400.0, "location": "魚貫"},
-        {"start": 3400.0, "end": 99999.0, "location": "魚貫崎"}
-    ]},
-    { "town": "二浦町早浦", "ranges": [{"start": 0.0, "end": 99999.0, "location": "亀浦"}] },
-    { "town": "二浦町亀浦", "ranges": [
-        {"start": 1.0, "end": 2200.0, "location": "亀浦"},
-        {"start": 2200.0, "end": 2600.0, "location": "向辺田"}, 
-        {"start": 2600.0, "end": 99999.0, "location": "亀浦"}
-    ]},
-    { "town": "久玉町", "ranges": [
-        {"start": 1.0, "end": 40.0, "location": "牛深 OR 山の浦"},
-        {"start": 40.0, "end": 1000.0, "location": "久玉 OR 山の浦"}, 
-        {"start": 1000.0, "end": 2000.0, "location": "久玉 OR 山の浦 OR 古江"},
-        {"start": 2000.0, "end": 5345.0, "location": "久玉 OR 山の浦"},
-        {"start": 5345.0, "end": 5705.0, "location": "久玉"},
-        {"start": 5705.0, "end": 5706.0, "location": "牛深"},
-        {"start": 5706.0, "end": 99999.0, "location": "久玉"}
-    ]},
-    { "town": "深海町", "ranges": [
-        {"start": 1.0, "end": 4800.0, "location": "深海"},
-        {"start": 4800.0, "end": 5000.0, "location": "深海 OR 山の浦"}, 
-        {"start": 5000.0, "end": 99999.0, "location": "深海"}
-    ]},
-    { "town": "有明町赤崎", "ranges": [
-        {"start": 1.0, "end": 2999.0, "location": "赤崎"},
-        {"start": 2999.0, "end": 3039.0, "location": "上津浦"},
-        {"start": 3039.0, "end": 99999.0, "location": "赤崎"}
-    ]},
-    { "town": "有明町須子", "ranges": [{"start": 0.0, "end": 99999.0, "location": "大浦"}] },
-    { "town": "有明町大浦", "ranges": [
-        {"start": 1.0, "end": 58.0, "location": "楠甫"},
-        {"start": 58.0, "end": 4000.0, "location": "大浦"}, 
-        {"start": 4000.0, "end": 99999.0, "location": "楠甫"}
-    ]},
-    { "town": "有明町楠甫", "ranges": [{"start": 0.0, "end": 99999.0, "location": "楠甫"}] },
-    { "town": "有明町上津浦", "ranges": [
-        {"start": 1.0, "end": 1880.0, "location": "上津浦"},
-        {"start": 1880.0, "end": 3200.0, "location": "赤崎"}, 
-        {"start": 3200.0, "end": 5000.0, "location": "上津浦"},
-        {"start": 5000.0, "end": 99999.0, "location": "河内"}
-    ]},
-    { "town": "有明町下津浦", "ranges": [
-        {"start": 1.0, "end": 1712.0, "location": "上津浦"},
-        {"start": 1712.0, "end": 1719.0, "location": "河内"},
-        {"start": 1719.0, "end": 1893.0, "location": "上津浦"},
-        {"start": 1893.0, "end": 1894.0, "location": "河内"},
-        {"start": 1894.0, "end": 3721.0, "location": "上津浦"},
-        {"start": 3721.0, "end": 3881.0, "location": "河内"},
-        {"start": 3881.0, "end": 4639.0, "location": "上津浦"},
-        {"start": 4639.0, "end": 4640.0, "location": "河内"},
-        {"start": 4640.0, "end": 99999.0, "location": "上津浦"}
-    ]},
-    { "town": "有明町大島子", "ranges": [{"start": 0.0, "end": 99999.0, "location": "島子"}] },
-    { "town": "有明町小島子", "ranges": [
-        {"start": 1.0, "end": 800.0, "location": "上津浦"},
-        {"start": 800.0, "end": 1320.0, "location": "島子"}, 
-        {"start": 1320.0, "end": 1326.0, "location": "上津浦"},
-        {"start": 1326.0, "end": 99999.0, "location": "島子"}
-    ]},
-    { "town": "御所浦町御所浦", "ranges": [
-        {"start": 1.0, "end": 1200.0, "location": "外平"},
-        {"start": 1200.0, "end": 3101.0, "location": "嵐口"},
-        {"start": 3101.0, "end": 4960.0, "location": "御所浦"}, 
-        {"start": 4960.0, "end": 5679.0, "location": "元浦"},
-        {"start": 5679.0, "end": 99999.0, "location": "大浦(御所浦)"}
-    ]},
-    { "town": "御所浦町牧島", "ranges": [
-        {"start": 1.0, "end": 1010.0, "location": "牧本"},
-        {"start": 1010.0, "end": 2000.0, "location": "長浦"}, 
-        {"start": 2000.0, "end": 99999.0, "location": "椛の木"}
-    ]},
-    { "town": "御所浦町横浦", "ranges": [
-        {"start": 1.0, "end": 600.0, "location": "(横浦港)船のみ"},
-        {"start": 600.0, "end": 99999.0, "location": "(与一ヶ浦港)船のみ"}
-    ]},
-    { "town": "倉岳町棚底", "ranges": [{"start": 0.0, "end": 99999.0, "location": "棚底"}] },
-    { "town": "倉岳町宮田", "ranges": [
-        {"start": 1.0, "end": 1533.0, "location": "宮田"},
-        {"start": 1533.0, "end": 1534.0, "location": "棚底"},
-        {"start": 1534.0, "end": 3260.0, "location": "宮田"}, 
-        {"start": 3260.0, "end": 3600.0, "location": "棚底 OR 宮田"},
-        {"start": 3600.0, "end": 3820.0, "location": "宮田"},
-        {"start": 3820.0, "end": 3880.0, "location": "棚底 OR 宮田"},
-        {"start": 3880.0, "end": 99999.0, "location": "宮田"}
-    ]},
-    { "town": "倉岳町浦", "ranges": [
-        {"start": 1.0, "end": 400.0, "location": "棚底"},
-        {"start": 400.0, "end": 99999.0, "location": "浦"}
-    ]},
-    { "town": "栖本町馬場", "ranges": [{"start": 0.0, "end": 99999.0, "location": "馬場"}] },
-    { "town": "栖本町打田", "ranges": [{"start": 0.0, "end": 99999.0, "location": "馬場"}] },
-    { "town": "栖本町湯船原", "ranges": [{"start": 0.0, "end": 99999.0, "location": "馬場"}] },
-    { "town": "栖本町古江", "ranges": [
-        {"start": 1.0, "end": 800.0, "location": "馬場"},
-        {"start": 800.0, "end": 1400.0, "location": "宮田"}, 
-        {"start": 1400.0, "end": 99999.0, "location": "馬場"}
-    ]},
-    { "town": "栖本町河内", "ranges": [{"start": 0.0, "end": 99999.0, "location": "河内"}] },
-    { "town": "新和町小宮地", "ranges": [
-        {"start": 1.0, "end": 8700.0, "location": "小宮地"},
-        {"start": 8700.0, "end": 9500.0, "location": "中田"}, 
-        {"start": 9500.0, "end": 99999.0, "location": "立"}
-    ]},
-    { "town": "新和町大宮地", "ranges": [
-        {"start": 1.0, "end": 2100.0, "location": "小宮地"},
-        {"start": 2100.0, "end": 4007.0, "location": "宮地岳"}, 
-        {"start": 4007.0, "end": 5000.0, "location": "小宮地"},
-        {"start": 5000.0, "end": 99999.0, "location": "宮地岳"}
-    ]},
-    { "town": "新和町大多尾", "ranges": [
-        {"start": 1.0, "end": 4560.0, "location": "大多尾"},
-        {"start": 4560.0, "end": 5000.0, "location": "小宮地"}, 
-        {"start": 5000.0, "end": 99999.0, "location": "大多尾"}
-    ]},
-    {"town": "新和町碇石", "ranges": [
-        {"start": 1.0, "end": 1030.0, "location": "小宮地"},
-        {"start": 1030.0, "end": 99999.0, "location": "宮地岳"}
-    ]},
-    {"town": "新和町中田", "ranges": [{"start": 0.0, "end": 99999.0, "location": "中田"}] },
-    { "town": "五和町御領", "ranges": [
-        {"start": 1.0, "end": 8720.0, "location": "御領"},
-        {"start": 8720.0, "end": 10800.0, "location": "鬼池"}, 
-        {"start": 10800.0, "end": 12134.0, "location": "御領"},
-        {"start": 12134.0, "end": 12135.0, "location": "鬼池"},
-        {"start": 12135.0, "end": 99999.0, "location": "御領"}
-    ]},
-    { "town": "五和町鬼池", "ranges": [{"start": 0.0, "end": 99999.0, "location": "鬼池"}] },
-    { "town": "五和町二江", "ranges": [{"start": 0.0, "end": 99999.0, "location": "二江"}] },
-    { "town": "五和町手野一丁目", "ranges": [
-        {"start": 1.0, "end": 410.0, "location": "城河原"},
-        {"start": 410.0, "end": 99999.0, "location": "手野"}
-    ]},
-    { "town": "五和町手野二丁目", "ranges": [
-        {"start": 1.0, "end": 1081.0, "location": "手野"},
-        {"start": 1081.0, "end": 1410.0, "location": "二江"}, 
-        {"start": 1410.0, "end": 99999.0, "location": "手野"}
-    ]},
-    { "town": "五和町城河原一丁目", "ranges": [
-        {"start": 0.0, "end": 4106.0, "location": "城河原"},
-        {"start": 4106.0, "end": 4107.0, "location": "手野"},
-        {"start": 4107.0, "end": 4182.0, "location": "城河原"}, 
-        {"start": 4182.0, "end": 4183.0, "location": "手野"},
-        {"start": 4183.0, "end": 99999.0, "location": "城河原"}
-    ]},
-    { "town": "五和町城河原二丁目", "ranges": [{"start": 0.0, "end": 99999.0, "location": "城河原"}] },
-    { "town": "五和町城河原三丁目", "ranges": [{"start": 0.0, "end": 99999.0, "location": "城河原"}] },
-    { "town": "天草町高浜北", "ranges": [{"start": 0.0, "end": 99999.0, "location": "高浜"}] },
-    { "town": "天草町高浜南", "ranges": [{"start": 0.0, "end": 99999.0, "location": "高浜"}] },
-    { "town": "天草町大江", "ranges": [{"start": 0.0, "end": 99999.0, "location": "大江"}] },
-    { "town": "天草町大江軍ヶ浦", "ranges": [{"start": 0.0, "end": 99999.0, "location": "大江"}] },
-    { "town": "天草町下田北", "ranges": [
-        {"start": 1.0, "end": 40.0, "location": "福連木"},
-        {"start": 40.0, "end": 99999.0, "location": "下田"}
-    ]},
-    { "town": "天草町下田南", "ranges": [
-        {"start": 1.0, "end": 400.0, "location": "高浜"},
-        {"start": 400.0, "end": 99999.0, "location": "下田"}
-    ]},
-    { "town": "天草町福連木", "ranges": [{"start": 0.0, "end": 99999.0, "location": "福連木"}] },
-    { "town": "天草町大江向", "ranges": [
-        {"start": 1.0, "end": 100.0, "location": "亀浦"},
-        {"start": 100.0, "end": 99999.0, "location": "向辺田"}
-    ]},
-    { "town": "河浦町河浦", "ranges": [
-        {"start": 1.0, "end": 1150.0, "location": "河浦 OR 板之河内"},
-        {"start": 1150.0, "end": 99999.0, "location": "河浦"}
-    ]},
-    { "town": "河浦町崎津", "ranges": [{"start": 0.0, "end": 99999.0, "location": "崎津"}] },
-    { "town": "河浦町今富", "ranges": [
-        {"start": 1.0, "end": 1930.0, "location": "崎津"},
-        {"start": 1930.0, "end": 2060.0, "location": "崎津 OR 亀浦"}, 
-        {"start": 2060.0, "end": 99999.0, "location": "崎津"}
-    ]},
-    { "town": "河浦町新合", "ranges": [
-        {"start": 1.0, "end": 530.0, "location": "新合"},
-        {"start": 530.0, "end": 640.0, "location": "新合 OR 河浦"}, 
-        {"start": 640.0, "end": 99999.0, "location": "新合"}
-    ]},
-    { "town": "河浦町立原", "ranges": [{"start": 0.0, "end": 99999.0, "location": "新合"}] },
-    { "town": "河浦町今田", "ranges": [{"start": 0.0, "end": 99999.0, "location": "河浦 OR 板之河内"}] },
-    { "town": "河浦町白木河内", "ranges": [
-        {"start": 1.0, "end": 90.0, "location": "古江"},
-        {"start": 90.0, "end": 1000.0, "location": "河浦"}, 
-        {"start": 1000.0, "end": 1851.0, "location": "新合"},
-        {"start": 1851.0, "end": 2168.0, "location": "河浦"}, 
-        {"start": 2168.0, "end": 99999.0, "location": "古江"}
-    ]},
-    { "town": "河浦町久留", "ranges": [{"start": 0.0, "end": 99999.0, "location": "古江"}] },
-    { "town": "河浦町路木", "ranges": [{"start": 0.0, "end": 99999.0, "location": "古江"}] },
-    { "town": "河浦町宮野河内", "ranges": [
-        {"start": 1.0, "end": 1150.0, "location": "宮野河内 OR 中田"},
-        {"start": 1150.0, "end": 99999.0, "location": "宮野河内"}
-    ]}
-];
-
-// TRAVEL_MATRIXにはまだ御所浦島内とメインエリア間のデータが含まれています。
-// 省略したデータも全てこのファイルに含めてください。
+    "佐伊津": {"本渡": {distance: 4.7, amount: 360}, "佐伊津": {distance: 0.0, amount: 0}, "本町": {distance: 8.6, amount: 620}, "亀場": {distance: 6.7, amount: 500}, "枦宇土": {distance: 10.5, amount: 740}, "楠浦": {distance: 10.5, amount: 740}, "宮地岳": {distance: 20.5, amount: 1280}, "志柿": {distance: 10.8, amount: 740}, "下浦": {distance: 12.3, amount: 840}, "牛深": {distance: 48.9, amount: 2560}, "魚貫": {distance: 46.2, amount: 2460}, "亀浦": {distance: 40.4, amount: 2220}, "久玉": {distance: 45.5, amount: 2420}, "山の浦": {distance: 46.3, amount: 2460}, "深海": {distance: 43.0, amount: 2340}, "魚貫崎": {distance: 48.4, amount: 2560}, "赤崎": {distance: 21.3, amount: 1340}, "大浦": {distance: 27.2, amount: 1640}, "楠甫": {distance: 30.6, amount: 1780}, "上津浦": {distance: 17.9, amount: 1120}, "島子": {distance: 13.7, amount: 900}, "棚底": {distance: 24.7, amount: 1480}, "宮田": {distance: 20.6, amount: 1280}, "浦": {distance: 27.6, amount: 1640}, "馬場": {distance: 16.4, amount: 1060}, "河内": {distance: 21.2, amount: 1340}, "小宮地": {distance: 17.2, amount: 1120}, "大多尾": {distance: 19.5, amount: 1240}, "中田": {distance: 23.3, amount: 1440}, "立": {distance: 23.5, amount: 1440}, "御領": {distance: 2.4, amount: 260}, "鬼池": {distance: 6.9, amount: 500}, "二江": {distance: 11.0, amount: 800}, "手野": {distance: 6.7, amount: 500}, "城河原": {distance: 7.0, amount: 560}, "高浜": {distance: 36.4, amount: 2040}, "大江": {distance: 42.6, amount: 2300}, "下田": {distance: 30.2, amount: 1780}, "福連木": {distance: 21.2, amount: 1340}, "向辺田": {distance: 45.2, amount: 2420}, "河浦": {distance: 33.5, amount: 1900}, "崎津": {distance: 40.2, amount: 2220}, "新合": {distance: 27.1, amount: 1640}, "板之河内": {distance: 28.5, amount: 1680}, "古江": {distance: 35.5, amount: 2000}, "宮野河内": {distance: 30.3, amount: 1780}},
+    
+    "本町": {"本渡": {distance: 6.7, amount: 500}, "佐伊津": {distance: 8.6, amount: 620}, "本町": {distance: 0.0, amount: 0}, "亀場": {distance: 8.7, amount: 620}, "枦宇土": {distance: 12.5, amount: 840}, "楠浦": {distance: 12.5, amount: 840}, "宮地岳": {distance: 22.5, amount: 1380}, "志柿": {distance: 12.8, amount: 840}, "下浦": {distance: 14.3, amount: 960}, "牛深": {distance: 50.9, amount: 2640}, "魚貫": {distance: 48.2, amount: 2560}, "亀浦": {distance: 42.4, amount: 2300}, "久玉": {distance: 47.5, amount: 2520}, "山の浦": {distance: 48.3, amount: 2560}, "深海": {distance: 45.0, amount: 2420}, "魚貫崎": {distance: 50.4, amount: 2640}, "赤崎": {distance: 23.3, amount: 1440}, "大浦": {distance: 29.2, amount: 1740}, "楠甫": {distance: 32.6, amount: 1860}, "上津浦": {distance: 19.9, amount: 1240}, "島子": {distance: 15.7, amount: 1020}, "棚底": {distance: 26.7, amount: 1580}, "宮田": {distance: 22.6, amount: 1380}, "浦": {distance: 29.6, amount: 1740}, "馬場": {distance: 18.4, amount: 1180}, "河内": {distance: 23.2, amount: 1440}, "小宮地": {distance: 19.2, amount: 1240}, "大多尾": {distance: 21.5, amount: 1340}, "中田": {distance: 25.3, amount: 1540}, "立": {distance: 25.5, amount: 1540}, "御領": {distance: 11.1, amount: 800}, "鬼池": {distance: 15.6, amount: 1020}, "二江": {distance: 13.7, amount: 900}, "手野": {distance: 9.1, amount: 680}, "城河原": {distance: 6.7, amount: 500}, "高浜": {distance: 27.3, amount: 1640}, "大江": {distance: 33.7, amount: 1900}, "下田": {distance: 21.0, amount: 1340}, "福連木": {distance: 12.0, amount: 840}, "向辺田": {distance: 47.2, amount: 2520}, "河浦": {distance: 35.5, amount: 2000}, "崎津": {distance: 42.2, amount: 2300}, "新合": {distance: 29.2, amount: 1740}, "板之河内": {distance: 30.5, amount: 1780}, "古江": {distance: 37.5, amount: 2080}, "宮野河内": {distance: 32.3, amount: 1860}},
+    
+    "亀場": {"本渡": {distance: 2.0, amount: 260}, "佐伊津": {distance: 6.7, amount: 500}, "本町": {distance: 8.7, amount: 620}, "亀場": {distance: 0.0, amount: 0}, "枦宇土": {distance: 5.3, amount: 420}, "楠浦": {distance: 3.8, amount: 300}, "宮地岳": {distance: 15.3, amount: 1020}, "志柿": {distance: 4.9, amount: 360}, "下浦": {distance: 6.4, amount: 500}, "牛深": {distance: 43.7, amount: 2340}, "魚貫": {distance: 41.0, amount: 2260}, "亀浦": {distance: 35.2, amount: 2000}, "久玉": {distance: 40.3, amount: 2220}, "山の浦": {distance: 41.1, amount: 2260}, "深海": {distance: 37.8, amount: 2080}, "魚貫崎": {distance: 43.2, amount: 2340}, "赤崎": {distance: 15.4, amount: 1020}, "大浦": {distance: 21.3, amount: 1340}, "楠甫": {distance: 24.7, amount: 1480}, "上津浦": {distance: 12.0, amount: 840}, "島子": {distance: 7.8, amount: 560}, "棚底": {distance: 18.8, amount: 1180}, "宮田": {distance: 14.7, amount: 960}, "浦": {distance: 21.7, amount: 1340}, "馬場": {distance: 10.5, amount: 740}, "河内": {distance: 15.3, amount: 1020}, "小宮地": {distance: 10.5, amount: 740}, "大多尾": {distance: 12.8, amount: 840}, "中田": {distance: 16.6, amount: 1060}, "立": {distance: 16.8, amount: 1060}, "御領": {distance: 9.1, amount: 680}, "鬼池": {distance: 13.6, amount: 900}, "二江": {distance: 16.1, amount: 1060}, "手野": {distance: 11.5, amount: 800}, "城河原": {distance: 9.1, amount: 680}, "高浜": {distance: 31.3, amount: 1820}, "大江": {distance: 37.5, amount: 2080}, "下田": {distance: 25.1, amount: 1540}, "福連木": {distance: 16.1, amount: 1060}, "向辺田": {distance: 40.0, amount: 2220}, "河浦": {distance: 28.3, amount: 1680}, "崎津": {distance: 35.0, amount: 2000}, "新合": {distance: 22.0, amount: 1380}, "板之河内": {distance: 23.3, amount: 1440}, "古江": {distance: 30.3, amount: 1780}, "宮野河内": {distance: 23.6, amount: 1440}},
+    
+    "枦宇土": {"本渡": {distance: 6.0, amount: 500}, "佐伊津": {distance: 10.5, amount: 740}, "本町": {distance: 12.5, amount: 840}, "亀場": {distance: 5.3, amount: 420}, "枦宇土": {distance: 0.0, amount: 0}, "楠浦": {distance: 6.7, amount: 500}, "宮地岳": {distance: 10.0, amount: 740}, "志柿": {distance: 9.3, amount: 680}, "下浦": {distance: 10.8, amount: 740}, "牛深": {distance: 38.4, amount: 2120}, "魚貫": {distance: 35.7, amount: 2000}, "亀浦": {distance: 29.9, amount: 1740}, "久玉": {distance: 35.0, amount: 2000}, "山の浦": {distance: 35.8, amount: 2000}, "深海": {distance: 32.5, amount: 1860}, "魚貫崎": {distance: 37.9, amount: 2080}, "赤崎": {distance: 19.9, amount: 1240}, "大浦": {distance: 25.8, amount: 1540}, "楠甫": {distance: 29.2, amount: 1740}, "上津浦": {distance: 16.5, amount: 1060}, "島子": {distance: 12.3, amount: 840}, "棚底": {distance: 23.3, amount: 1440}, "宮田": {distance: 19.2, amount: 1240}, "浦": {distance: 26.2, amount: 1580}, "馬場": {distance: 15.0, amount: 1020}, "河内": {distance: 19.8, amount: 1240}, "小宮地": {distance: 13.4, amount: 900}, "大多尾": {distance: 15.7, amount: 1020}, "中田": {distance: 19.5, amount: 1240}, "立": {distance: 19.7, amount: 1240}, "御領": {distance: 13.0, amount: 900}, "鬼池": {distance: 17.5, amount: 1120}, "二江": {distance: 20.0, amount: 1280}, "手野": {distance: 15.4, amount: 1020}, "城河原": {distance: 13.0, amount: 900}, "高浜": {distance: 25.9, amount: 1540}, "大江": {distance: 32.1, amount: 1860}, "下田": {distance: 19.7, amount: 1240}, "福連木": {distance: 10.7, amount: 740}, "向辺田": {distance: 34.7, amount: 1960}, "河浦": {distance: 23.0, amount: 1440}, "崎津": {distance: 29.7, amount: 1740}, "新合": {distance: 16.7, amount: 1060}, "板之河内": {distance: 18.0, amount: 1180}, "古江": {distance: 25.0, amount: 1540}, "宮野河内": {distance: 24.5, amount: 1480}},
+    
+    "楠浦": {"本渡": {distance: 5.8, amount: 420}, "佐伊津": {distance: 10.5, amount: 740}, "本町": {distance: 12.5, amount: 840}, "亀場": {distance: 3.8, amount: 300}, "枦宇土": {distance: 6.7, amount: 500}, "楠浦": {distance: 0.0, amount: 0}, "宮地岳": {distance: 16.7, amount: 1060}, "志柿": {distance: 8.7, amount: 620}, "下浦": {distance: 10.2, amount: 740}, "牛深": {distance: 45.1, amount: 2420}, "魚貫": {distance: 42.4, amount: 2300}, "亀浦": {distance: 36.6, amount: 2040}, "久玉": {distance: 41.7, amount: 2260}, "山の浦": {distance: 37.2, amount: 2080}, "深海": {distance: 29.8, amount: 1740}, "魚貫崎": {distance: 44.6, amount: 2380}, "赤崎": {distance: 19.2, amount: 1240}, "大浦": {distance: 25.1, amount: 1540}, "楠甫": {distance: 28.5, amount: 1680}, "上津浦": {distance: 15.8, amount: 1020}, "島子": {distance: 11.6, amount: 800}, "棚底": {distance: 22.6, amount: 1380}, "宮田": {distance: 18.5, amount: 1180}, "浦": {distance: 25.5, amount: 1540}, "馬場": {distance: 14.3, amount: 960}, "河内": {distance: 19.1, amount: 1240}, "小宮地": {distance: 7.9, amount: 560}, "大多尾": {distance: 10.2, amount: 740}, "中田": {distance: 14.0, amount: 960}, "立": {distance: 14.2, amount: 960}, "御領": {distance: 12.9, amount: 840}, "鬼池": {distance: 17.4, amount: 1120}, "二江": {distance: 19.9, amount: 1240}, "手野": {distance: 15.3, amount: 1020}, "城河原": {distance: 12.9, amount: 840}, "高浜": {distance: 32.6, amount: 1860}, "大江": {distance: 38.8, amount: 2120}, "下田": {distance: 26.4, amount: 1580}, "福連木": {distance: 17.4, amount: 1120}, "向辺田": {distance: 41.4, amount: 2260}, "河浦": {distance: 29.7, amount: 1740}, "崎津": {distance: 36.4, amount: 2040}, "新合": {distance: 23.4, amount: 1440}, "板之河内": {distance: 24.7, amount: 1480}, "古江": {distance: 31.7, amount: 1820}, "宮野河内": {distance: 21.0, amount: 1340}},
+    
+    "宮地岳": {"本渡": {distance: 16.0, amount: 1060}, "佐伊津": {distance: 20.5, amount: 1280}, "本町": {distance: 22.5, amount: 1380}, "亀場": {distance: 15.3, amount: 1020}, "枦宇土": {distance: 10.0, amount: 740}, "楠浦": {distance: 16.7, amount: 1060}, "宮地岳": {distance: 0.0, amount: 0}, "志柿": {distance: 19.4, amount: 1240}, "下浦": {distance: 20.9, amount: 1280}, "牛深": {distance: 28.4, amount: 1680}, "魚貫": {distance: 25.7, amount: 1540}, "亀浦": {distance: 19.9, amount: 1240}, "久玉": {distance: 25.0, amount: 1540}, "山の浦": {distance: 25.8, amount: 1540}, "深海": {distance: 22.5, amount: 1380}, "魚貫崎": {distance: 27.9, amount: 1640}, "赤崎": {distance: 29.9, amount: 1740}, "大浦": {distance: 35.8, amount: 2000}, "楠甫": {distance: 39.2, amount: 2160}, "上津浦": {distance: 26.5, amount: 1580}, "島子": {distance: 22.3, amount: 1380}, "棚底": {distance: 33.3, amount: 1900}, "宮田": {distance: 29.2, amount: 1740}, "浦": {distance: 36.2, amount: 2040}, "馬場": {distance: 25.0, amount: 1540}, "河内": {distance: 29.8, amount: 1740}, "小宮地": {distance: 8.5, amount: 620}, "大多尾": {distance: 12.6, amount: 840}, "中田": {distance: 9.8, amount: 680}, "立": {distance: 14.8, amount: 960}, "御領": {distance: 23.0, amount: 1440}, "鬼池": {distance: 27.5, amount: 1640}, "二江": {distance: 30.0, amount: 1780}, "手野": {distance: 25.4, amount: 1540}, "城河原": {distance: 23.0, amount: 1440}, "高浜": {distance: 25.9, amount: 1540}, "大江": {distance: 32.1, amount: 1860}, "下田": {distance: 19.7, amount: 1240}, "福連木": {distance: 10.7, amount: 740}, "向辺田": {distance: 24.7, amount: 1480}, "河浦": {distance: 13.0, amount: 900}, "崎津": {distance: 19.7, amount: 1240}, "新合": {distance: 6.7, amount: 500}, "板之河内": {distance: 10.3, amount: 740}, "古江": {distance: 15.0, amount: 1020}, "宮野河内": {distance: 14.5, amount: 960}},
+    
+    "志柿": {"本渡": {distance: 6.1, amount: 500}, "佐伊津": {distance: 10.8, amount: 740}, "本町": {distance: 12.8, amount: 840}, "亀場": {distance: 4.9, amount: 360}, "枦宇土": {distance: 9.3, amount: 680}, "楠浦": {distance: 8.7, amount: 620}, "宮地岳": {distance: 19.4, amount: 1240}, "志柿": {distance: 0.0, amount: 0}, "下浦": {distance: 8.3, amount: 620}, "牛深": {distance: 47.8, amount: 2520}, "魚貫": {distance: 45.1, amount: 2420}, "亀浦": {distance: 39.3, amount: 2160}, "久玉": {distance: 44.4, amount: 2380}, "山の浦": {distance: 45.2, amount: 2420}, "深海": {distance: 41.9, amount: 2260}, "魚貫崎": {distance: 47.3, amount: 2520}, "赤崎": {distance: 10.5, amount: 740}, "大浦": {distance: 16.4, amount: 1060}, "楠甫": {distance: 19.8, amount: 1240}, "上津浦": {distance: 7.1, amount: 560}, "島子": {distance: 2.9, amount: 260}, "棚底": {distance: 20.7, amount: 1280}, "宮田": {distance: 16.6, amount: 1060}, "浦": {distance: 23.6, amount: 1440}, "馬場": {distance: 12.4, amount: 840}, "河内": {distance: 17.2, amount: 1120}, "小宮地": {distance: 15.4, amount: 1020}, "大多尾": {distance: 17.7, amount: 1120}, "中田": {distance: 21.5, amount: 1340}, "立": {distance: 21.7, amount: 1340}, "御領": {distance: 13.2, amount: 900}, "鬼池": {distance: 17.7, amount: 1120}, "二江": {distance: 20.1, amount: 1280}, "手野": {distance: 15.6, amount: 1020}, "城河原": {distance: 13.2, amount: 900}, "高浜": {distance: 35.2, amount: 2000}, "大江": {distance: 41.4, amount: 2260}, "下田": {distance: 29.0, amount: 1740}, "福連木": {distance: 20.0, amount: 1280}, "向辺田": {distance: 44.1, amount: 2380}, "河浦": {distance: 32.4, amount: 1860}, "崎津": {distance: 39.1, amount: 2160}, "新合": {distance: 26.1, amount: 1580}, "板之河内": {distance: 28.8, amount: 1680}, "古江": {distance: 34.4, amount: 1960}, "宮野河内": {distance: 28.4, amount: 1680}},
+    
+    "下浦": {"本渡": {distance: 7.6, amount: 560}, "佐伊津": {distance: 12.3, amount: 840}, "本町": {distance: 14.3, amount: 960}, "亀場": {distance: 6.4, amount: 500}, "枦宇土": {distance: 10.8, amount: 740}, "楠浦": {distance: 10.2, amount: 740}, "宮地岳": {distance: 20.9, amount: 1280}, "志柿": {distance: 8.3, amount: 620}, "下浦": {distance: 0.0, amount: 0}, "牛深": {distance: 49.3, amount: 2600}, "魚貫": {distance: 46.6, amount: 2460}, "亀浦": {distance: 40.8, amount: 2220}, "久玉": {distance: 45.9, amount: 2420}, "山の浦": {distance: 46.7, amount: 2460}, "深海": {distance: 43.4, amount: 2340}, "魚貫崎": {distance: 48.8, amount: 2560}, "赤崎": {distance: 18.8, amount: 1180}, "大浦": {distance: 24.7, amount: 1480}, "楠甫": {distance: 28.1, amount: 1680}, "上津浦": {distance: 15.4, amount: 1020}, "島子": {distance: 11.2, amount: 800}, "棚底": {distance: 12.4, amount: 840}, "宮田": {distance: 8.3, amount: 620}, "浦": {distance: 15.3, amount: 1020}, "馬場": {distance: 4.1, amount: 360}, "河内": {distance: 8.9, amount: 620}, "小宮地": {distance: 16.9, amount: 1060}, "大多尾": {distance: 19.2, amount: 1240}, "中田": {distance: 22.9, amount: 1380}, "立": {distance: 23.2, amount: 1440}, "御領": {distance: 14.7, amount: 960}, "鬼池": {distance: 19.2, amount: 1240}, "二江": {distance: 21.6, amount: 1340}, "手野": {distance: 17.1, amount: 1120}, "城河原": {distance: 14.7, amount: 960}, "高浜": {distance: 36.7, amount: 2040}, "大江": {distance: 42.9, amount: 2300}, "下田": {distance: 30.5, amount: 1780}, "福連木": {distance: 21.5, amount: 1340}, "向辺田": {distance: 45.6, amount: 2420}, "河浦": {distance: 33.9, amount: 1900}, "崎津": {distance: 40.6, amount: 2220}, "新合": {distance: 27.6, amount: 1640}, "板之河内": {distance: 27.3, amount: 1640}, "古江": {distance: 35.9, amount: 2000}, "宮野河内": {distance: 29.9, amount: 1740}},
+    
+    "牛深": {"本渡": {distance: 44.4, amount: 2380}, "佐伊津": {distance: 48.9, amount: 2560}, "本町": {distance: 50.9, amount: 2640}, "亀場": {distance: 43.7, amount: 2340}, "枦宇土": {distance: 38.4, amount: 2120}, "楠浦": {distance: 45.1, amount: 2420}, "宮地岳": {distance: 28.4, amount: 1680}, "志柿": {distance: 47.8, amount: 2520}, "下浦": {distance: 49.3, amount: 2600}, "牛深": {distance: 0.0, amount: 0}, "魚貫": {distance: 6.6, amount: 500}, "亀浦": {distance: 12.4, amount: 840}, "久玉": {distance: 3.4, amount: 300}, "山の浦": {distance: 11.6, amount: 800}, "深海": {distance: 14.3, amount: 960}, "魚貫崎": {distance: 11.8, amount: 800}, "赤崎": {distance: 58.3, amount: 2980}, "大浦": {distance: 64.2, amount: 3240}, "楠甫": {distance: 67.6, amount: 3380}, "上津浦": {distance: 54.9, amount: 2820}, "島子": {distance: 50.6, amount: 2640}, "棚底": {distance: 61.7, amount: 3120}, "宮田": {distance: 57.6, amount: 2940}, "浦": {distance: 64.6, amount: 3240}, "馬場": {distance: 53.4, amount: 2760}, "河内": {distance: 58.2, amount: 2980}, "小宮地": {distance: 32.7, amount: 1860}, "大多尾": {distance: 36.8, amount: 2040}, "中田": {distance: 29.6, amount: 1740}, "立": {distance: 35.9, amount: 2000}, "御領": {distance: 51.4, amount: 2680}, "鬼池": {distance: 55.9, amount: 2860}, "二江": {distance: 58.4, amount: 2980}, "手野": {distance: 53.8, amount: 2760}, "城河原": {distance: 51.4, amount: 2680}, "高浜": {distance: 35.2, amount: 2000}, "大江": {distance: 29.0, amount: 1740}, "下田": {distance: 41.2, amount: 2260}, "福連木": {distance: 37.6, amount: 2080}, "向辺田": {distance: 16.2, amount: 1060}, "河浦": {distance: 20.4, amount: 1280}, "崎津": {distance: 25.5, amount: 1540}, "新合": {distance: 21.9, amount: 1340}, "板之河内": {distance: 29.7, amount: 1740}, "古江": {distance: 13.4, amount: 900}, "宮野河内": {distance: 22.7, amount: 1380}},
+    
+    "魚貫": {"本渡": {distance: 41.7, amount: 2260}, "佐伊津": {distance: 46.2, amount: 2460}, "本町": {distance: 48.2, amount: 2560}, "亀場": {distance: 41.0, amount: 2260}, "枦宇土": {distance: 35.7, amount: 2000}, "楠浦": {distance: 42.4, amount: 2300}, "宮地岳": {distance: 25.7, amount: 1540}, "志柿": {distance: 45.1, amount: 2420}, "下浦": {distance: 46.6, amount: 2460}, "牛深": {distance: 6.6, amount: 500}, "魚貫": {distance: 0.0, amount: 0}, "亀浦": {distance: 5.8, amount: 420}, "久玉": {distance: 4.6, amount: 360}, "山の浦": {distance: 11.4, amount: 800}, "深海": {distance: 14.1, amount: 960}, "魚貫崎": {distance: 5.2, amount: 420}, "赤崎": {distance: 55.6, amount: 2860}, "大浦": {distance: 61.5, amount: 3120}, "楠甫": {distance: 64.9, amount: 3240}, "上津浦": {distance: 52.2, amount: 2720}, "島子": {distance: 48.0, amount: 2560}, "棚底": {distance: 59.0, amount: 3020}, "宮田": {distance: 54.9, amount: 2820}, "浦": {distance: 61.9, amount: 3120}, "馬場": {distance: 50.7, amount: 2640}, "河内": {distance: 55.5, amount: 2860}, "小宮地": {distance: 30.0, amount: 1780}, "大多尾": {distance: 34.1, amount: 1960}, "中田": {distance: 26.9, amount: 1580}, "立": {distance: 33.2, amount: 1900}, "御領": {distance: 48.7, amount: 2560}, "鬼池": {distance: 53.2, amount: 2760}, "二江": {distance: 55.7, amount: 2860}, "手野": {distance: 51.1, amount: 2680}, "城河原": {distance: 48.7, amount: 2560}, "高浜": {distance: 32.5, amount: 1860}, "大江": {distance: 26.3, amount: 1580}, "下田": {distance: 38.5, amount: 2120}, "福連木": {distance: 34.9, amount: 1960}, "向辺田": {distance: 9.6, amount: 680}, "河浦": {distance: 17.7, amount: 1120}, "崎津": {distance: 22.8, amount: 1380}, "新合": {distance: 19.2, amount: 1240}, "板之河内": {distance: 27.0, amount: 1640}, "古江": {distance: 10.7, amount: 740}, "宮野河内": {distance: 22.5, amount: 1380}},
+    
+    "亀浦": {"本渡": {distance: 35.9, amount: 2000}, "佐伊津": {distance: 40.4, amount: 2220}, "本町": {distance: 42.4, amount: 2300}, "亀場": {distance: 35.2, amount: 2000}, "枦宇土": {distance: 29.9, amount: 1740}, "楠浦": {distance: 36.6, amount: 2040}, "宮地岳": {distance: 19.9, amount: 1240}, "志柿": {distance: 39.3, amount: 2160}, "下浦": {distance: 40.8, amount: 2220}, "牛深": {distance: 12.4, amount: 840}, "魚貫": {distance: 5.8, amount: 420}, "亀浦": {distance: 0.0, amount: 0}, "久玉": {distance: 10.4, amount: 740}, "山の浦": {distance: 11.6, amount: 800}, "深海": {distance: 9.8, amount: 680}, "魚貫崎": {distance: 8.0, amount: 620}, "赤崎": {distance: 49.8, amount: 2600}, "大浦": {distance: 55.7, amount: 2860}, "楠甫": {distance: 59.1, amount: 3020}, "上津浦": {distance: 46.4, amount: 2460}, "島子": {distance: 42.2, amount: 2300}, "棚底": {distance: 53.2, amount: 2760}, "宮田": {distance: 49.1, amount: 2600}, "浦": {distance: 56.1, amount: 2900}, "馬場": {distance: 44.9, amount: 2380}, "河内": {distance: 49.7, amount: 2600}, "小宮地": {distance: 24.2, amount: 1480}, "大多尾": {distance: 28.3, amount: 1680}, "中田": {distance: 21.1, amount: 1340}, "立": {distance: 27.4, amount: 1640}, "御領": {distance: 42.9, amount: 2300}, "鬼池": {distance: 47.4, amount: 2520}, "二江": {distance: 49.8, amount: 2600}, "手野": {distance: 45.3, amount: 2420}, "城河原": {distance: 42.9, amount: 2300}, "高浜": {distance: 26.7, amount: 1580}, "大江": {distance: 20.5, amount: 1280}, "下田": {distance: 32.7, amount: 1860}, "福連木": {distance: 29.1, amount: 1740}, "向辺田": {distance: 4.8, amount: 360}, "河浦": {distance: 11.9, amount: 800}, "崎津": {distance: 17.0, amount: 1120}, "新合": {distance: 13.4, amount: 900}, "板之河内": {distance: 21.2, amount: 1340}, "古江": {distance: 4.9, amount: 360}, "宮野河内": {distance: 18.2, amount: 1180}},
+    
+    "久玉": {"本渡": {distance: 41.0, amount: 2260}, "佐伊津": {distance: 45.5, amount: 2420}, "本町": {distance: 47.5, amount: 2520}, "亀場": {distance: 40.3, amount: 2220}, "枦宇土": {distance: 35.0, amount: 2000}, "楠浦": {distance: 41.7, amount: 2260}, "宮地岳": {distance: 25.0, amount: 1540}, "志柿": {distance: 44.4, amount: 2380}, "下浦": {distance: 45.9, amount: 2420}, "牛深": {distance: 3.4, amount: 300}, "魚貫": {distance: 4.6, amount: 360}, "亀浦": {distance: 10.4, amount: 740}, "久玉": {distance: 0.0, amount: 0}, "山の浦": {distance: 8.2, amount: 620}, "深海": {distance: 10.9, amount: 740}, "魚貫崎": {distance: 9.8, amount: 680}, "赤崎": {distance: 54.9, amount: 2820}, "大浦": {distance: 60.8, amount: 3080}, "楠甫": {distance: 64.2, amount: 3240}, "上津浦": {distance: 51.5, amount: 2680}, "島子": {distance: 47.3, amount: 2520}, "棚底": {distance: 58.3, amount: 2980}, "宮田": {distance: 54.2, amount: 2820}, "浦": {distance: 61.2, amount: 3120}, "馬場": {distance: 50.0, amount: 2640}, "河内": {distance: 54.8, amount: 2820}, "小宮地": {distance: 29.3, amount: 1740}, "大多尾": {distance: 33.4, amount: 1900}, "中田": {distance: 26.2, amount: 1580}, "立": {distance: 32.5, amount: 1860}, "御領": {distance: 48.0, amount: 2560}, "鬼池": {distance: 52.5, amount: 2720}, "二江": {distance: 54.9, amount: 2820}, "手野": {distance: 50.4, amount: 2640}, "城河原": {distance: 48.0, amount: 2560}, "高浜": {distance: 31.8, amount: 1820}, "大江": {distance: 25.6, amount: 1540}, "下田": {distance: 37.8, amount: 2080}, "福連木": {distance: 34.2, amount: 1960}, "向辺田": {distance: 14.2, amount: 960}, "河浦": {distance: 17.0, amount: 1120}, "崎津": {distance: 22.1, amount: 1380}, "新合": {distance: 18.5, amount: 1180}, "板之河内": {distance: 26.3, amount: 1580}, "古江": {distance: 10.0, amount: 740}, "宮野河内": {distance: 19.3, amount: 1240}},
+    
+    "山の浦": {"本渡": {distance: 41.8, amount: 2260}, "佐伊津": {distance: 46.3, amount: 2460}, "本町": {distance: 48.3, amount: 2560}, "亀場": {distance: 41.1, amount: 2260}, "枦宇土": {distance: 35.8, amount: 2000}, "楠浦": {distance: 37.2, amount: 2080}, "宮地岳": {distance: 25.8, amount: 1540}, "志柿": {distance: 45.2, amount: 2420}, "下浦": {distance: 46.7, amount: 2460}, "牛深": {distance: 11.6, amount: 800}, "魚貫": {distance: 11.4, amount: 800}, "亀浦": {distance: 11.6, amount: 800}, "久玉": {distance: 8.2, amount: 620}, "山の浦": {distance: 0.0, amount: 0}, "深海": {distance: 7.4, amount: 560}, "魚貫崎": {distance: 13.6, amount: 900}, "赤崎": {distance: 55.7, amount: 2860}, "大浦": {distance: 61.6, amount: 3120}, "楠甫": {distance: 65.0, amount: 3280}, "上津浦": {distance: 52.3, amount: 2720}, "島子": {distance: 48.1, amount: 2560}, "棚底": {distance: 59.1, amount: 3020}, "宮田": {distance: 55.0, amount: 2860}, "浦": {distance: 62.0, amount: 3160}, "馬場": {distance: 50.8, amount: 2640}, "河内": {distance: 55.6, amount: 2860}, "小宮地": {distance: 28.9, amount: 1680}, "大多尾": {distance: 33.0, amount: 1900}, "中田": {distance: 22.8, amount: 1380}, "立": {distance: 29.1, amount: 1740}, "御領": {distance: 48.9, amount: 2560}, "鬼池": {distance: 53.4, amount: 2760}, "二江": {distance: 55.9, amount: 2860}, "手野": {distance: 51.3, amount: 2680}, "城河原": {distance: 48.9, amount: 2560}, "高浜": {distance: 32.6, amount: 1860}, "大江": {distance: 26.4, amount: 1580}, "下田": {distance: 38.6, amount: 2120}, "福連木": {distance: 35.0, amount: 2000}, "向辺田": {distance: 15.4, amount: 1020}, "河浦": {distance: 17.8, amount: 1120}, "崎津": {distance: 22.9, amount: 1380}, "新合": {distance: 19.3, amount: 1240}, "板之河内": {distance: 27.1, amount: 1640}, "古江": {distance: 10.8, amount: 740}, "宮野河内": {distance: 15.8, amount: 1020}},
+    
+    "深海": {"本渡": {distance: 38.5, amount: 2120}, "佐伊津": {distance: 43.0, amount: 2340}, "本町": {distance: 45.0, amount: 2420}, "亀場": {distance: 37.8, amount: 2080}, "枦宇土": {distance: 32.5, amount: 1860}, "楠浦": {distance: 29.8, amount: 1740}, "宮地岳": {distance: 22.5, amount: 1380}, "志柿": {distance: 41.9, amount: 2260}, "下浦": {distance: 43.4, amount: 2340}, "牛深": {distance: 14.3, amount: 960}, "魚貫": {distance: 14.1, amount: 960}, "亀浦": {distance: 9.8, amount: 680}, "久玉": {distance: 10.9, amount: 740}, "山の浦": {distance: 7.4, amount: 560}, "深海": {distance: 0.0, amount: 0}, "魚貫崎": {distance: 16.3, amount: 1060}, "赤崎": {distance: 52.4, amount: 2720}, "大浦": {distance: 58.3, amount: 2980}, "楠甫": {distance: 61.7, amount: 3120}, "上津浦": {distance: 49.0, amount: 2600}, "島子": {distance: 44.8, amount: 2380}, "棚底": {distance: 55.8, amount: 2860}, "宮田": {distance: 51.7, amount: 2680}, "浦": {distance: 58.7, amount: 2980}, "馬場": {distance: 47.5, amount: 2520}, "河内": {distance: 52.3, amount: 2720}, "小宮地": {distance: 21.5, amount: 1340}, "大多尾": {distance: 25.6, amount: 1540}, "中田": {distance: 15.4, amount: 1020}, "立": {distance: 21.7, amount: 1340}, "御領": {distance: 45.6, amount: 2420}, "鬼池": {distance: 50.1, amount: 2640}, "二江": {distance: 52.5, amount: 2720}, "手野": {distance: 48.0, amount: 2560}, "城河原": {distance: 45.6, amount: 2420}, "高浜": {distance: 29.3, amount: 1740}, "大江": {distance: 23.1, amount: 1440}, "下田": {distance: 35.3, amount: 2000}, "福連木": {distance: 31.7, amount: 1820}, "向辺田": {distance: 14.6, amount: 960}, "河浦": {distance: 14.5, amount: 960}, "崎津": {distance: 19.6, amount: 1240}, "新合": {distance: 16.0, amount: 1060}, "板之河内": {distance: 23.8, amount: 1440}, "古江": {distance: 7.5, amount: 560}, "宮野河内": {distance: 8.4, amount: 620}},
+    
+    "魚貫崎": {"本渡": {distance: 43.9, amount: 2340}, "佐伊津": {distance: 48.4, amount: 2560}, "本町": {distance: 50.4, amount: 2640}, "亀場": {distance: 43.2, amount: 2340}, "枦宇土": {distance: 37.9, amount: 2080}, "楠浦": {distance: 44.6, amount: 2380}, "宮地岳": {distance: 27.9, amount: 1640}, "志柿": {distance: 47.3, amount: 2520}, "下浦": {distance: 48.8, amount: 2560}, "牛深": {distance: 11.8, amount: 800}, "魚貫": {distance: 5.2, amount: 420}, "亀浦": {distance: 8.0, amount: 620}, "久玉": {distance: 9.8, amount: 680}, "山の浦": {distance: 13.6, amount: 900}, "深海": {distance: 16.3, amount: 1060}, "魚貫崎": {distance: 0.0, amount: 0}, "赤崎": {distance: 57.8, amount: 2940}, "大浦": {distance: 63.7, amount: 3200}, "楠甫": {distance: 67.1, amount: 3380}, "上津浦": {distance: 54.4, amount: 2820}, "島子": {distance: 50.2, amount: 2640}, "棚底": {distance: 61.2, amount: 3120}, "宮田": {distance: 57.1, amount: 2940}, "浦": {distance: 64.1, amount: 3240}, "馬場": {distance: 52.9, amount: 2720}, "河内": {distance: 57.7, amount: 2940}, "小宮地": {distance: 32.2, amount: 1860}, "大多尾": {distance: 36.3, amount: 2040}, "中田": {distance: 29.1, amount: 1740}, "立": {distance: 35.4, amount: 2000}, "御領": {distance: 50.9, amount: 2640}, "鬼池": {distance: 55.4, amount: 2860}, "二江": {distance: 52.6, amount: 2720}, "手野": {distance: 53.3, amount: 2760}, "城河原": {distance: 50.9, amount: 2640}, "高浜": {distance: 34.7, amount: 1960}, "大江": {distance: 28.5, amount: 1680}, "下田": {distance: 40.7, amount: 2220}, "福連木": {distance: 37.1, amount: 2080}, "向辺田": {distance: 11.8, amount: 800}, "河浦": {distance: 19.9, amount: 1240}, "崎津": {distance: 25.0, amount: 1540}, "新合": {distance: 21.4, amount: 1340}, "板之河内": {distance: 29.2, amount: 1740}, "古江": {distance: 12.9, amount: 840}, "宮野河内": {distance: 24.7, amount: 1480}},
+    
+    "赤崎": {"本渡": {distance: 16.6, amount: 1060}, "佐伊津": {distance: 21.3, amount: 1340}, "本町": {distance: 23.3, amount: 1440}, "亀場": {distance: 15.4, amount: 1020}, "枦宇土": {distance: 19.9, amount: 1240}, "楠浦": {distance: 19.2, amount: 1240}, "宮地岳": {distance: 29.9, amount: 1740}, "志柿": {distance: 10.5, amount: 740}, "下浦": {distance: 18.8, amount: 1180}, "牛深": {distance: 58.3, amount: 2980}, "魚貫": {distance: 55.6, amount: 2860}, "亀浦": {distance: 49.8, amount: 2600}, "久玉": {distance: 54.9, amount: 2820}, "山の浦": {distance: 55.7, amount: 2860}, "深海": {distance: 52.4, amount: 2720}, "魚貫崎": {distance: 57.8, amount: 2940}, "赤崎": {distance: 0.0, amount: 0}, "大浦": {distance: 5.9, amount: 420}, "楠甫": {distance: 9.3, amount: 680}, "上津浦": {distance: 3.4, amount: 300}, "島子": {distance: 7.6, amount: 560}, "棚底": {distance: 22.2, amount: 1380}, "宮田": {distance: 21.9, amount: 1340}, "浦": {distance: 18.9, amount: 1180}, "馬場": {distance: 15.9, amount: 1020}, "河内": {distance: 11.7, amount: 800}, "小宮地": {distance: 25.9, amount: 1540}, "大多尾": {distance: 28.2, amount: 1680}, "中田": {distance: 32.0, amount: 1860}, "立": {distance: 32.0, amount: 1860}, "御領": {distance: 23.7, amount: 1440}, "鬼池": {distance: 28.2, amount: 1680}, "二江": {distance: 30.7, amount: 1780}, "手野": {distance: 26.1, amount: 1580}, "城河原": {distance: 23.7, amount: 1440}, "高浜": {distance: 45.8, amount: 2420}, "大江": {distance: 52.0, amount: 2720}, "下田": {distance: 39.6, amount: 2160}, "福連木": {distance: 30.6, amount: 1780}, "向辺田": {distance: 54.6, amount: 2820}, "河浦": {distance: 42.9, amount: 2300}, "崎津": {distance: 49.6, amount: 2600}, "新合": {distance: 36.6, amount: 2040}, "板之河内": {distance: 37.9, amount: 2080}, "古江": {distance: 44.9, amount: 2380}, "宮野河内": {distance: 39.0, amount: 2160}},
+    
+    "大浦": {"本渡": {distance: 22.5, amount: 1380}, "佐伊津": {distance: 27.2, amount: 1640}, "本町": {distance: 29.2, amount: 1740}, "亀場": {distance: 21.3, amount: 1340}, "枦宇土": {distance: 25.8, amount: 1540}, "楠浦": {distance: 25.1, amount: 1540}, "宮地岳": {distance: 35.8, amount: 2000}, "志柿": {distance: 16.4, amount: 1060}, "下浦": {distance: 24.7, amount: 1480}, "牛深": {distance: 64.2, amount: 3240}, "魚貫": {distance: 61.5, amount: 3120}, "亀浦": {distance: 55.7, amount: 2860}, "久玉": {distance: 60.8, amount: 3080}, "山の浦": {distance: 61.6, amount: 3120}, "深海": {distance: 58.3, amount: 2980}, "魚貫崎": {distance: 63.7, amount: 3200}, "赤崎": {distance: 5.9, amount: 420}, "大浦": {distance: 0.0, amount: 0}, "楠甫": {distance: 3.4, amount: 300}, "上津浦": {distance: 9.3, amount: 680}, "島子": {distance: 13.5, amount: 900}, "棚底": {distance: 19.6, amount: 1240}, "宮田": {distance: 23.3, amount: 1440}, "浦": {distance: 16.3, amount: 1060}, "馬場": {distance: 21.8, amount: 1340}, "河内": {distance: 17.6, amount: 1120}, "小宮地": {distance: 31.8, amount: 1820}, "大多尾": {distance: 34.1, amount: 1960}, "中田": {distance: 37.9, amount: 2080}, "立": {distance: 38.1, amount: 2120}, "御領": {distance: 29.6, amount: 1740}, "鬼池": {distance: 34.1, amount: 1960}, "二江": {distance: 36.6, amount: 2040}, "手野": {distance: 32.0, amount: 1860}, "城河原": {distance: 29.6, amount: 1740}, "高浜": {distance: 51.7, amount: 2680}, "大江": {distance: 57.9, amount: 2940}, "下田": {distance: 45.5, amount: 2420}, "福連木": {distance: 36.5, amount: 2040}, "向辺田": {distance: 60.5, amount: 3080}, "河浦": {distance: 48.8, amount: 2560}, "崎津": {distance: 55.5, amount: 2860}, "新合": {distance: 42.5, amount: 2300}, "板之河内": {distance: 43.8, amount: 2340}, "古江": {distance: 50.8, amount: 2640}, "宮野河内": {distance: 44.9, amount: 2380}},
+    
+    "楠甫": {"本渡": {distance: 25.9, amount: 1540}, "佐伊津": {distance: 30.6, amount: 1780}, "本町": {distance: 32.6, amount: 1860}, "亀場": {distance: 24.7, amount: 1480}, "枦宇土": {distance: 29.2, amount: 1740}, "楠浦": {distance: 28.5, amount: 1680}, "宮地岳": {distance: 39.2, amount: 2160}, "志柿": {distance: 19.8, amount: 1240}, "下浦": {distance: 28.1, amount: 1680}, "牛深": {distance: 67.6, amount: 3380}, "魚貫": {distance: 64.9, amount: 3240}, "亀浦": {distance: 59.1, amount: 3020}, "久玉": {distance: 64.2, amount: 3240}, "山の浦": {distance: 65.0, amount: 3280}, "深海": {distance: 61.7, amount: 3120}, "魚貫崎": {distance: 67.1, amount: 3380}, "赤崎": {distance: 9.3, amount: 680}, "大浦": {distance: 3.4, amount: 300}, "楠甫": {distance: 0.0, amount: 0}, "上津浦": {distance: 12.7, amount: 840}, "島子": {distance: 16.9, amount: 1060}, "棚底": {distance: 16.2, amount: 1060}, "宮田": {distance: 19.9, amount: 1240}, "浦": {distance: 12.9, amount: 840}, "馬場": {distance: 20.2, amount: 1280}, "河内": {distance: 15.4, amount: 1020}, "小宮地": {distance: 35.2, amount: 2000}, "大多尾": {distance: 37.5, amount: 2080}, "中田": {distance: 41.3, amount: 2260}, "立": {distance: 41.5, amount: 2260}, "御領": {distance: 33.0, amount: 1900}, "鬼池": {distance: 37.5, amount: 2080}, "二江": {distance: 40.0, amount: 2220}, "手野": {distance: 35.4, amount: 2000}, "城河原": {distance: 33.0, amount: 1900}, "高浜": {distance: 55.1, amount: 2860}, "大江": {distance: 61.3, amount: 3120}, "下田": {distance: 48.9, amount: 2560}, "福連木": {distance: 39.9, amount: 2160}, "向辺田": {distance: 63.9, amount: 3200}, "河浦": {distance: 52.2, amount: 2720}, "崎津": {distance: 58.9, amount: 2980}, "新合": {distance: 45.9, amount: 2420}, "板之河内": {distance: 47.2, amount: 2520}, "古江": {distance: 54.2, amount: 2820}, "宮野河内": {distance: 48.3, amount: 2560}},
+    
+    "上津浦": {"本渡": {distance: 13.2, amount: 900}, "佐伊津": {distance: 17.9, amount: 1120}, "本町": {distance: 19.9, amount: 1240}, "亀場": {distance: 12.0, amount: 840}, "枦宇土": {distance: 16.5, amount: 1060}, "楠浦": {distance: 15.8, amount: 1020}, "宮地岳": {distance: 26.5, amount: 1580}, "志柿": {distance: 7.1, amount: 560}, "下浦": {distance: 15.4, amount: 1020}, "牛深": {distance: 54.9, amount: 2820}, "魚貫": {distance: 52.2, amount: 2720}, "亀浦": {distance: 46.4, amount: 2460}, "久玉": {distance: 51.5, amount: 2680}, "山の浦": {distance: 52.3, amount: 2720}, "深海": {distance: 49.0, amount: 2600}, "魚貫崎": {distance: 54.4, amount: 2820}, "赤崎": {distance: 3.4, amount: 300}, "大浦": {distance: 9.3, amount: 680}, "楠甫": {distance: 12.7, amount: 840}, "上津浦": {distance: 0.0, amount: 0}, "島子": {distance: 4.2, amount: 360}, "棚底": {distance: 18.8, amount: 1180}, "宮田": {distance: 18.5, amount: 1180}, "浦": {distance: 15.5, amount: 1020}, "馬場": {distance: 12.5, amount: 840}, "河内": {distance: 8.3, amount: 620}, "小宮地": {distance: 22.5, amount: 1380}, "大多尾": {distance: 24.8, amount: 1480}, "中田": {distance: 28.6, amount: 1680}, "立": {distance: 28.8, amount: 1680}, "御領": {distance: 20.3, amount: 1280}, "鬼池": {distance: 24.8, amount: 1480}, "二江": {distance: 27.3, amount: 1640}, "手野": {distance: 22.7, amount: 1380}, "城河原": {distance: 20.3, amount: 1280}, "高浜": {distance: 42.4, amount: 2300}, "大江": {distance: 48.6, amount: 2560}, "下田": {distance: 36.2, amount: 2040}, "福連木": {distance: 27.2, amount: 1640}, "向辺田": {distance: 51.2, amount: 2680}, "河浦": {distance: 39.5, amount: 2160}, "崎津": {distance: 46.2, amount: 2460}, "新合": {distance: 33.2, amount: 1900}, "板之河内": {distance: 34.5, amount: 1960}, "古江": {distance: 41.5, amount: 2260}, "宮野河内": {distance: 35.6, amount: 2000}},
+    
+    "島子": {"本渡": {distance: 9.0, amount: 680}, "佐伊津": {distance: 13.7, amount: 900}, "本町": {distance: 15.7, amount: 1020}, "亀場": {distance: 7.8, amount: 560}, "枦宇土": {distance: 12.3, amount: 840}, "楠浦": {distance: 11.6, amount: 800}, "宮地岳": {distance: 22.3, amount: 1380}, "志柿": {distance: 2.9, amount: 260}, "下浦": {distance: 11.2, amount: 800}, "牛深": {distance: 50.6, amount: 2640}, "魚貫": {distance: 48.0, amount: 2560}, "亀浦": {distance: 42.2, amount: 2300}, "久玉": {distance: 47.3, amount: 2520}, "山の浦": {distance: 48.1, amount: 2560}, "深海": {distance: 44.8, amount: 2380}, "魚貫崎": {distance: 50.2, amount: 2640}, "赤崎": {distance: 7.6, amount: 560}, "大浦": {distance: 13.5, amount: 900}, "楠甫": {distance: 16.9, amount: 1060}, "上津浦": {distance: 4.2, amount: 360}, "島子": {distance: 0.0, amount: 0}, "棚底": {distance: 21.6, amount: 1340}, "宮田": {distance: 19.5, amount: 1240}, "浦": {distance: 18.3, amount: 1180}, "馬場": {distance: 15.3, amount: 1020}, "河内": {distance: 11.0, amount: 800}, "小宮地": {distance: 18.3, amount: 1180}, "大多尾": {distance: 20.6, amount: 1280}, "中田": {distance: 24.4, amount: 1480}, "立": {distance: 24.6, amount: 1480}, "御領": {distance: 16.1, amount: 1060}, "鬼池": {distance: 20.6, amount: 1280}, "二江": {distance: 23.1, amount: 1440}, "手野": {distance: 18.5, amount: 1180}, "城河原": {distance: 16.1, amount: 1060}, "高浜": {distance: 38.2, amount: 2120}, "大江": {distance: 44.4, amount: 2380}, "下田": {distance: 32.0, amount: 1860}, "福連木": {distance: 23.0, amount: 1440}, "向辺田": {distance: 47.0, amount: 2520}, "河浦": {distance: 35.3, amount: 2000}, "崎津": {distance: 42.0, amount: 2300}, "新合": {distance: 29.0, amount: 1740}, "板之河内": {distance: 30.3, amount: 1780}, "古江": {distance: 37.3, amount: 2080}, "宮野河内": {distance: 31.4, amount: 1820}},
+    
+    "棚底": {"本渡": {distance: 20.0, amount: 1280}, "佐伊津": {distance: 24.7, amount: 1480}, "本町": {distance: 26.7, amount: 1580}, "亀場": {distance: 18.8, amount: 1180}, "枦宇土": {distance: 23.3, amount: 1440}, "楠浦": {distance: 22.6, amount: 1380}, "宮地岳": {distance: 33.3, amount: 1900}, "志柿": {distance: 20.7, amount: 1280}, "下浦": {distance: 12.4, amount: 840}, "牛深": {distance: 61.7, amount: 3120}, "魚貫": {distance: 59.0, amount: 3020}, "亀浦": {distance: 53.2, amount: 2760}, "久玉": {distance: 58.3, amount: 2980}, "山の浦": {distance: 59.1, amount: 3020}, "深海": {distance: 55.8, amount: 2860}, "魚貫崎": {distance: 61.2, amount: 3120}, "赤崎": {distance: 22.2, amount: 1380}, "大浦": {distance: 19.6, amount: 1240}, "楠甫": {distance: 16.2, amount: 1060}, "上津浦": {distance: 18.8, amount: 1180}, "島子": {distance: 21.6, amount: 1340}, "棚底": {distance: 0.0, amount: 0}, "宮田": {distance: 4.1, amount: 360}, "浦": {distance: 3.3, amount: 300}, "馬場": {distance: 10.1, amount: 740}, "河内": {distance: 10.5, amount: 740}, "小宮地": {distance: 29.3, amount: 1740}, "大多尾": {distance: 31.6, amount: 1820}, "中田": {distance: 35.4, amount: 2000}, "立": {distance: 35.6, amount: 2000}, "御領": {distance: 27.1, amount: 1640}, "鬼池": {distance: 31.6, amount: 1820}, "二江": {distance: 34.1, amount: 1960}, "手野": {distance: 29.5, amount: 1740}, "城河原": {distance: 27.1, amount: 1640}, "高浜": {distance: 49.2, amount: 2600}, "大江": {distance: 55.4, amount: 2860}, "下田": {distance: 43.0, amount: 2340}, "福連木": {distance: 34.0, amount: 1960}, "向辺田": {distance: 58.0, amount: 2980}, "河浦": {distance: 46.3, amount: 2460}, "崎津": {distance: 53.0, amount: 2760}, "新合": {distance: 40.0, amount: 2220}, "板之河内": {distance: 41.3, amount: 2260}, "古江": {distance: 48.3, amount: 2560}, "宮野河内": {distance: 42.4, amount: 2300}},
+    
+    "宮田": {"本渡": {distance: 15.9, amount: 1020}, "佐伊津": {distance: 20.6, amount: 1280}, "本町": {distance: 22.6, amount: 1380}, "亀場": {distance: 14.7, amount: 960}, "枦宇土": {distance: 19.2, amount: 1240}, "楠浦": {distance: 18.5, amount: 1180}, "宮地岳": {distance: 29.2, amount: 1740}, "志柿": {distance: 16.6, amount: 1060}, "下浦": {distance: 8.3, amount: 620}, "牛深": {distance: 57.6, amount: 2940}, "魚貫": {distance: 54.9, amount: 2820}, "亀浦": {distance: 49.1, amount: 2600}, "久玉": {distance: 54.2, amount: 2820}, "山の浦": {distance: 55.0, amount: 2860}, "深海": {distance: 51.7, amount: 2680}, "魚貫崎": {distance: 57.1, amount: 2940}, "赤崎": {distance: 21.9, amount: 1340}, "大浦": {distance: 23.3, amount: 1440}, "楠甫": {distance: 19.9, amount: 1240}, "上津浦": {distance: 18.5, amount: 1180}, "島子": {distance: 19.5, amount: 1240}, "棚底": {distance: 4.1, amount: 360}, "宮田": {distance: 0.0, amount: 0}, "浦": {distance: 7.0, amount: 560}, "馬場": {distance: 6.0, amount: 500}, "河内": {distance: 10.8, amount: 740}, "小宮地": {distance: 25.2, amount: 1540}, "大多尾": {distance: 27.5, amount: 1640}, "中田": {distance: 31.3, amount: 1820}, "立": {distance: 31.5, amount: 1820}, "御領": {distance: 23.0, amount: 1440}, "鬼池": {distance: 27.5, amount: 1640}, "二江": {distance: 30.0, amount: 1780}, "手野": {distance: 25.4, amount: 1540}, "城河原": {distance: 23.0, amount: 1440}, "高浜": {distance: 45.1, amount: 2420}, "大江": {distance: 51.3, amount: 2680}, "下田": {distance: 38.9, amount: 2120}, "福連木": {distance: 29.9, amount: 1740}, "向辺田": {distance: 53.9, amount: 2760}, "河浦": {distance: 42.2, amount: 2300}, "崎津": {distance: 48.9, amount: 2560}, "新合": {distance: 35.9, amount: 2000}, "板之河内": {distance: 37.2, amount: 2080}, "古江": {distance: 44.2, amount: 2380}, "宮野河内": {distance: 38.3, amount: 2120}},
+    
+    "浦": {"本渡": {distance: 22.9, amount: 1380}, "佐伊津": {distance: 27.6, amount: 1640}, "本町": {distance: 29.6, amount: 1740}, "亀場": {distance: 21.7, amount: 1340}, "枦宇土": {distance: 26.2, amount: 1580}, "楠浦": {distance: 25.5, amount: 1540}, "宮地岳": {distance: 36.2, amount: 2040}, "志柿": {distance: 23.6, amount: 1440}, "下浦": {distance: 15.3, amount: 1020}, "牛深": {distance: 64.6, amount: 3240}, "魚貫": {distance: 61.9, amount: 3120}, "亀浦": {distance: 56.1, amount: 2900}, "久玉": {distance: 61.2, amount: 3120}, "山の浦": {distance: 62.0, amount: 3160}, "深海": {distance: 58.7, amount: 2980}, "魚貫崎": {distance: 64.1, amount: 3240}, "赤崎": {distance: 18.9, amount: 1180}, "大浦": {distance: 16.3, amount: 1060}, "楠甫": {distance: 12.9, amount: 840}, "上津浦": {distance: 15.5, amount: 1020}, "島子": {distance: 18.3, amount: 1180}, "棚底": {distance: 3.3, amount: 300}, "宮田": {distance: 7.0, amount: 560}, "浦": {distance: 0.0, amount: 0}, "馬場": {distance: 12.0, amount: 840}, "河内": {distance: 7.2, amount: 560}, "小宮地": {distance: 32.2, amount: 1860}, "大多尾": {distance: 34.5, amount: 1960}, "中田": {distance: 38.3, amount: 2120}, "立": {distance: 38.5, amount: 2120}, "御領": {distance: 30.0, amount: 1780}, "鬼池": {distance: 34.5, amount: 1960}, "二江": {distance: 37.0, amount: 2080}, "手野": {distance: 32.4, amount: 1860}, "城河原": {distance: 30.0, amount: 1780}, "高浜": {distance: 52.1, amount: 2720}, "大江": {distance: 58.3, amount: 2980}, "下田": {distance: 45.9, amount: 2420}, "福連木": {distance: 36.9, amount: 2040}, "向辺田": {distance: 60.9, amount: 3080}, "河浦": {distance: 49.2, amount: 2600}, "崎津": {distance: 55.9, amount: 2860}, "新合": {distance: 42.9, amount: 2300}, "板之河内": {distance: 44.2, amount: 2380}, "古江": {distance: 51.2, amount: 2680}, "宮野河内": {distance: 45.3, amount: 2420}},
+    
+    "馬場": {"本渡": {distance: 11.7, amount: 800}, "佐伊津": {distance: 16.4, amount: 1060}, "本町": {distance: 18.4, amount: 1180}, "亀場": {distance: 10.5, amount: 740}, "枦宇土": {distance: 15.0, amount: 1020}, "楠浦": {distance: 14.3, amount: 960}, "宮地岳": {distance: 25.0, amount: 1540}, "志柿": {distance: 12.4, amount: 840}, "下浦": {distance: 4.1, amount: 360}, "牛深": {distance:
