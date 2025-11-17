@@ -37,3 +37,411 @@ function parseToNumeric(houseNumberStr) {
     const result = parseFloat(cleanStr.trim());
     return isNaN(result) ? 0 : result;
 }
+
+/**
+ * 完全な住所文字列から町名と地番を抽出する
+ */
+function parseAddress(fullAddress) {
+    const parts = fullAddress.split('天草市');
+    if (parts.length < 2) return { townName: "", houseNumber: "" };
+    
+    const address = parts[1].trim();
+    
+    // 数字（半角/全角）が最初に出現する位置を探す
+    const match = address.match(/^(.+?)([0-9０-９]+.*)$/);
+    
+    if (match && match[1] && match[2]) {
+        return { 
+            townName: match[1].trim(), 
+            houseNumber: match[2].trim() 
+        };
+    } else {
+        return { 
+            townName: address.trim(), 
+            houseNumber: "" 
+        };
+    }
+}
+
+// --- 旅費地点検索ロジック (コアロジック) ---
+
+/**
+ * 町名と地番から旅費地点を特定する
+ */
+function getTravelPoint(townName, numericHouseNumber) {
+    try {
+        console.log(`[検索] 町名: "${townName}", 地番: ${numericHouseNumber}`);
+        
+        // 町名の正規化
+        const normalizedTownName = townName.trim();
+        
+        // 1. データ内で町名を探す (厳格な町名照合ロジック)
+        let targetEntry = null;
+        
+        // 優先度1: 完全一致
+        targetEntry = TRAVEL_POINTS_DATA.find(entry => entry.town === normalizedTownName);
+        
+        // 優先度2: 町を除いた完全一致（例: 五和町御領 vs 御領）
+        if (!targetEntry) {
+            const cleanInputTown = normalizedTownName.replace(/町$/, '').trim();
+            targetEntry = TRAVEL_POINTS_DATA.find(entry => 
+                entry.town.replace(/町$/, '').trim() === cleanInputTown
+            );
+        }
+        
+        // 優先度3: 入力町名がデータキーに含まれる（部分一致）- より慎重に
+        if (!targetEntry) {
+            const cleanInputTown = normalizedTownName.replace(/町$/, '').trim();
+            // 最低3文字以上で部分一致を試みる
+            if (cleanInputTown.length >= 3) {
+                targetEntry = TRAVEL_POINTS_DATA.find(entry => 
+                    entry.town.includes(cleanInputTown)
+                );
+            }
+        }
+
+        // 2. 東浜町などの「東・浄南・太田町以外は本渡」ルールを適用
+        if (!targetEntry) {
+            const specialTowns = ['東町', '浄南町', '太田町'];
+            const isSpecialTown = specialTowns.some(ex => 
+                normalizedTownName.includes(ex) || normalizedTownName === ex
+            );
+            
+            if (!isSpecialTown) {
+                targetEntry = TRAVEL_POINTS_DATA.find(entry => 
+                    entry.town === '東・浄南・太田町以外'
+                );
+                console.log('[検索] 特例ルール「東・浄南・太田町以外」を適用');
+            }
+        }
+        
+        if (!targetEntry) {
+            console.error(`[エラー] 町名「${normalizedTownName}」に該当するデータが見つかりません`);
+            return `エラー: 入力された町名「${normalizedTownName}」に該当する旅費データが見つかりません。`;
+        }
+
+        console.log(`[検索] マッチした町名: "${targetEntry.town}"`);
+
+        // 3. 範囲を順番にチェック
+        for (let i = 0; i < targetEntry.ranges.length; i++) {
+            const range = targetEntry.ranges[i];
+            const rangeStart = range.start;
+            const rangeEnd = range.end;
+            
+            console.log(`[範囲チェック] ${rangeStart} <= ${numericHouseNumber} < ${rangeEnd} → ${range.location}`);
+            
+            // 基本の範囲判定: start以上、end未満
+            // ただし、endが99999の場合は事実上の上限なしとして扱う
+            const inRange = (numericHouseNumber >= rangeStart) && 
+                           (rangeEnd >= 99999 || numericHouseNumber < rangeEnd);
+            
+            if (inRange) {
+                console.log(`[結果] 地点: ${range.location}`);
+                return range.location;
+            }
+        }
+        
+        console.error(`[エラー] 地番 ${numericHouseNumber} がどの範囲にも該当しませんでした`);
+        return `エラー: 入力された地番「${numericHouseNumber}」の範囲を特定できませんでした。データ範囲: ${targetEntry.ranges.map(r => `${r.start}-${r.end}`).join(', ')}`;
+        
+    } catch (e) {
+        console.error("検索処理中に致命的なエラーが発生しました:", e);
+        return `エラー: 検索ロジック処理中に例外が発生しました。(${e.message})`;
+    }
+}
+
+/**
+ * 2つの地点間の旅費を計算する
+ */
+function calculateTravelCost(startPoint, endPoint) {
+    console.log(`[旅費計算] ${startPoint} → ${endPoint}`);
+    
+    // エラーチェック
+    if (startPoint.startsWith("エラー:") || endPoint.startsWith("エラー:")) {
+        return {
+            error: true,
+            message: "起点または終点の特定に失敗しました。"
+        };
+    }
+    
+    // ORやorを含む場合の処理
+    const startPoints = startPoint.split(/\s+or\s+|OR/).map(p => p.trim());
+    const endPoints = endPoint.split(/\s+or\s+|OR/).map(p => p.trim());
+    
+    // 複数の組み合わせがある場合は最初の組み合わせを使用
+    const actualStart = startPoints[0];
+    const actualEnd = endPoints[0];
+    
+    console.log(`[実際の計算] ${actualStart} → ${actualEnd}`);
+    
+    // TRAVEL_MATRIXから距離と金額を取得
+    if (TRAVEL_MATRIX[actualStart] && TRAVEL_MATRIX[actualStart][actualEnd]) {
+        const data = TRAVEL_MATRIX[actualStart][actualEnd];
+        return {
+            error: false,
+            distance: data.distance,
+            amount: data.amount,
+            isAmbiguous: startPoints.length > 1 || endPoints.length > 1,
+            actualStart: actualStart,
+            actualEnd: actualEnd
+        };
+    } else {
+        console.error(`[エラー] ${actualStart} → ${actualEnd} の旅費データが見つかりません`);
+        return {
+            error: true,
+            message: `地点「${actualStart}」から「${actualEnd}」への旅費データが見つかりません。データが未登録の可能性があります。`
+        };
+    }
+}
+
+// --- UI操作関数 ---
+
+function displayResult(startInput, endInput, startPoint, endPoint, costData) {
+    const resultArea = document.getElementById('result-area');
+    const segmentDisplay = document.getElementById('travel-segment-display');
+    const inputDisplay = document.getElementById('search-input-display');
+    const pointDisplay = document.getElementById('travel-point-display');
+    const costDisplay = document.getElementById('travel-cost-display');
+    const noteDisplay = document.getElementById('note-display');
+
+    // 起点/終点の表示
+    segmentDisplay.textContent = `${startPoint} → ${endPoint}`;
+    
+    // 入力元の表示
+    inputDisplay.innerHTML = `<strong>起点:</strong> ${startInput}<br><strong>終点:</strong> ${endInput}`;
+    
+    // 終点地点の表示（互換性のため残す）
+    pointDisplay.textContent = endPoint;
+    
+    // エラー処理
+    if (costData.error) {
+        resultArea.style.borderColor = '#dc3545';
+        resultArea.style.backgroundColor = '#f8d7da';
+        costDisplay.textContent = 'エラー';
+        costDisplay.style.color = '#dc3545';
+        noteDisplay.textContent = `※ ${costData.message}`;
+        return;
+    }
+
+    // 旅費の表示
+    costDisplay.textContent = `${costData.amount}円 / ${costData.distance}km`;
+    costDisplay.style.color = '#28a745';
+    
+    // 境界の色設定
+    if (costData.isAmbiguous) {
+        resultArea.style.borderColor = '#ffc107';
+        resultArea.style.backgroundColor = '#fff3cd';
+        noteDisplay.textContent = `※ 「or」または「OR」を含む結果は、旅費規定の運用に基づき、いずれかの地点を適用してください。実際の計算: ${costData.actualStart} → ${costData.actualEnd}`;
+    } else {
+        resultArea.style.borderColor = '#28a745';
+        resultArea.style.backgroundColor = '#d4edda';
+        noteDisplay.textContent = '※ 特定された地点間の旅費が算定されました。往復金額は片道金額の2倍です。';
+    }
+}
+
+function searchTravelCost() {
+    console.log('[検索開始] 旅費計算を開始します');
+    
+    // 起点の取得
+    let startTown = '', startHouseNum = '', startInput = '', startPoint = '';
+    const startMode = document.getElementById('start-mode-address').classList.contains('active') ? 'address' : 'facility';
+    
+    if (startMode === 'address') {
+        startTown = document.getElementById('start-town-name').value.trim();
+        startHouseNum = document.getElementById('start-house-number').value.trim();
+        
+        if (!startTown || !startHouseNum) {
+            alert('起点の町名と地番を入力してください。');
+            return;
+        }
+        
+        const numericStart = parseToNumeric(startHouseNum);
+        console.log(`[起点・住所] 町名: "${startTown}", 地番: "${startHouseNum}" (${numericStart})`);
+        
+        if (numericStart === 0) {
+            alert('起点の地番の形式が正しくありません。');
+            return;
+        }
+        
+        startPoint = getTravelPoint(startTown, numericStart);
+        startInput = `住所: ${startTown} ${startHouseNum} (${numericStart})`;
+        
+    } else {
+        const facilityName = document.getElementById('start-facility-select').value;
+        if (!facilityName) {
+            alert('起点の施設を選択してください。');
+            return;
+        }
+        
+        const facility = FACILITY_DATA.find(f => f.name === facilityName);
+        if (!facility) {
+            alert('起点の施設データが見つかりません。');
+            return;
+        }
+        
+        const addressParts = parseAddress(facility.address);
+        console.log(`[起点・施設] ${facilityName}: 町名="${addressParts.townName}", 地番="${addressParts.houseNumber}"`);
+        
+        const numericStart = parseToNumeric(addressParts.houseNumber);
+        startPoint = getTravelPoint(addressParts.townName, numericStart);
+        startInput = `施設: ${facilityName}<br>住所: ${facility.address}`;
+    }
+    
+    // 終点の取得
+    let endTown = '', endHouseNum = '', endInput = '', endPoint = '';
+    const endMode = document.getElementById('end-mode-address').classList.contains('active') ? 'address' : 'facility';
+    
+    if (endMode === 'address') {
+        endTown = document.getElementById('end-town-name').value.trim();
+        endHouseNum = document.getElementById('end-house-number').value.trim();
+        
+        if (!endTown || !endHouseNum) {
+            alert('終点の町名と地番を入力してください。');
+            return;
+        }
+        
+        const numericEnd = parseToNumeric(endHouseNum);
+        console.log(`[終点・住所] 町名: "${endTown}", 地番: "${endHouseNum}" (${numericEnd})`);
+        
+        if (numericEnd === 0) {
+            alert('終点の地番の形式が正しくありません。');
+            return;
+        }
+        
+        endPoint = getTravelPoint(endTown, numericEnd);
+        endInput = `住所: ${endTown} ${endHouseNum} (${numericEnd})`;
+        
+    } else {
+        const facilityName = document.getElementById('end-facility-select').value;
+        if (!facilityName) {
+            alert('終点の施設を選択してください。');
+            return;
+        }
+        
+        const facility = FACILITY_DATA.find(f => f.name === facilityName);
+        if (!facility) {
+            alert('終点の施設データが見つかりません。');
+            return;
+        }
+        
+        const addressParts = parseAddress(facility.address);
+        console.log(`[終点・施設] ${facilityName}: 町名="${addressParts.townName}", 地番="${addressParts.houseNumber}"`);
+        
+        const numericEnd = parseToNumeric(addressParts.houseNumber);
+        endPoint = getTravelPoint(addressParts.townName, numericEnd);
+        endInput = `施設: ${facilityName}<br>住所: ${facility.address}`;
+    }
+    
+    // 旅費計算
+    const costData = calculateTravelCost(startPoint, endPoint);
+    console.log('[旅費計算結果]', costData);
+    
+    // 結果表示
+    displayResult(startInput, endInput, startPoint, endPoint, costData);
+}
+
+// --- 初期化 ---
+
+function getFacilityType(name) {
+    if (name.includes('市役所') || name.includes('支所')) return 1; 
+    if (name.includes('公民館') || name.includes('コミュニティセンター') || name.includes('交流センター')) return 2; 
+    if (name.includes('中学校')) return 3; 
+    if (name.includes('小学校')) return 4; 
+    if (name.includes('幼稚園')) return 5; 
+    if (name.includes('体育館') || name.includes('グラウンド') || name.includes('運動広場') || name.includes('テニスコート') || name.includes('相撲場')) return 6; 
+    if (name.includes('図書館') || name.includes('博物館') || name.includes('資料館') || name.includes('アーカイブズ') || name.includes('生涯学習センター') || name.includes('市民センター')) return 7; 
+    if (name.includes('給食センター')) return 8; 
+    return 9; 
+}
+
+function populateFacilitySelect(selectId) {
+    const select = document.getElementById(selectId);
+    
+    // 重複を排除
+    const uniqueFacilities = [];
+    const seen = new Set();
+
+    FACILITY_DATA.forEach(facility => {
+        const key = facility.name + '|' + facility.address;
+        if (!seen.has(key)) {
+            seen.add(key);
+            uniqueFacilities.push(facility);
+        }
+    });
+
+    // ソート
+    const sortedFacilities = uniqueFacilities.sort((a, b) => {
+        const typeA = getFacilityType(a.name);
+        const typeB = getFacilityType(b.name);
+
+        if (typeA !== typeB) {
+            return typeA - typeB; 
+        }
+        return a.name.localeCompare(b.name, 'ja'); 
+    });
+
+    // オプション追加
+    sortedFacilities.forEach(facility => {
+        const option = document.createElement('option');
+        option.value = facility.name;
+        option.textContent = facility.name;
+        select.appendChild(option);
+    });
+}
+
+function setupModeSwitchers() {
+    // 起点のモード切替
+    const startAddressBtn = document.getElementById('start-mode-address');
+    const startFacilityBtn = document.getElementById('start-mode-facility');
+    const startAddressForm = document.getElementById('start-address-form');
+    const startFacilityForm = document.getElementById('start-facility-form');
+    
+    startAddressBtn.addEventListener('click', () => {
+        startAddressBtn.classList.add('active');
+        startFacilityBtn.classList.remove('active');
+        startAddressForm.classList.remove('hidden');
+        startFacilityForm.classList.add('hidden');
+    });
+    
+    startFacilityBtn.addEventListener('click', () => {
+        startFacilityBtn.classList.add('active');
+        startAddressBtn.classList.remove('active');
+        startFacilityForm.classList.remove('hidden');
+        startAddressForm.classList.add('hidden');
+    });
+    
+    // 終点のモード切替
+    const endAddressBtn = document.getElementById('end-mode-address');
+    const endFacilityBtn = document.getElementById('end-mode-facility');
+    const endAddressForm = document.getElementById('end-address-form');
+    const endFacilityForm = document.getElementById('end-facility-form');
+    
+    endAddressBtn.addEventListener('click', () => {
+        endAddressBtn.classList.add('active');
+        endFacilityBtn.classList.remove('active');
+        endAddressForm.classList.remove('hidden');
+        endFacilityForm.classList.add('hidden');
+    });
+    
+    endFacilityBtn.addEventListener('click', () => {
+        endFacilityBtn.classList.add('active');
+        endAddressBtn.classList.remove('active');
+        endFacilityForm.classList.remove('hidden');
+        endAddressForm.classList.add('hidden');
+    });
+}
+
+function initializeApp() {
+    console.log('[初期化] アプリケーションを初期化します');
+    
+    // 施設セレクトボックスの設定
+    populateFacilitySelect('start-facility-select');
+    populateFacilitySelect('end-facility-select');
+    
+    // モード切替の設定
+    setupModeSwitchers();
+    
+    console.log('[初期化完了] アプリケーションの準備ができました');
+}
+
+window.onload = initializeApp;
