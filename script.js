@@ -12,7 +12,7 @@ function parseToNumeric(houseNumberStr) {
     // 全角ハイフンを半角に変換
     cleanStr = cleanStr.replace(/[ー－]/g, '-');
     
-    // 「番地」「番」「号」を統一的にピリオドに変換（順序重要）
+    // 「番地」「番」「号」「の」を統一的にピリオドに変換（順序重要）
     cleanStr = cleanStr.replace(/番地/g, '.');
     cleanStr = cleanStr.replace(/番/g, '.');
     cleanStr = cleanStr.replace(/号/g, '.');
@@ -24,7 +24,7 @@ function parseToNumeric(houseNumberStr) {
     // 余分な文字を削除（数字とピリオドのみ残す）
     cleanStr = cleanStr.replace(/[^0-9.]/g, '');
     
-    // 複数のピリオドを整理（最初の1つまたは2つまで残す）
+    // 複数のピリオドを整理（最初の1つまたは2つまで残す: 地番の第1・第2要素のみを考慮）
     const parts = cleanStr.split('.').filter(p => p.length > 0 && !isNaN(p));
     if (parts.length >= 2) {
         cleanStr = parts[0] + '.' + parts[1];
@@ -89,17 +89,8 @@ function getTravelPoint(townName, numericHouseNumber) {
             );
         }
         
-        // 優先度3: 入力町名がデータキーに含まれる（部分一致）- より慎重に
-        if (!targetEntry) {
-            const cleanInputTown = normalizedTownName.replace(/町$/, '').trim();
-            // 最低3文字以上で部分一致を試みる
-            if (cleanInputTown.length >= 3) {
-                targetEntry = TRAVEL_POINTS_DATA.find(entry => 
-                    entry.town.includes(cleanInputTown)
-                );
-            }
-        }
-
+        // 修正点: 潜在的な誤判定の原因となる「優先度3：部分一致」のロジックを削除しました。
+        
         // 2. 東浜町などの「東・浄南・太田町以外は本渡」ルールを適用
         if (!targetEntry) {
             const specialTowns = ['東町', '浄南町', '太田町'];
@@ -200,9 +191,15 @@ function displayResult(startInput, endInput, startPoint, endPoint, costData) {
     const resultArea = document.getElementById('result-area');
     const segmentDisplay = document.getElementById('travel-segment-display');
     const inputDisplay = document.getElementById('search-input-display');
-    const pointDisplay = document.getElementById('travel-point-display');
     const costDisplay = document.getElementById('travel-cost-display');
     const noteDisplay = document.getElementById('note-display');
+    
+    // 境界の色と背景色をリセット/初期設定
+    resultArea.style.borderColor = '#28a745';
+    resultArea.style.backgroundColor = '#d4edda';
+    costDisplay.style.color = '#28a745';
+    noteDisplay.textContent = '※ 特定された地点間の旅費が算定されました。往復金額は片道金額の2倍です。';
+
 
     // 起点/終点の表示
     segmentDisplay.textContent = `${startPoint} → ${endPoint}`;
@@ -210,8 +207,7 @@ function displayResult(startInput, endInput, startPoint, endPoint, costData) {
     // 入力元の表示
     inputDisplay.innerHTML = `<strong>起点:</strong> ${startInput}<br><strong>終点:</strong> ${endInput}`;
     
-    // 終点地点の表示（互換性のため残す）
-    pointDisplay.textContent = endPoint;
+    // 修正点: 終点地点の表示（#travel-point-display）はindex.htmlから削除したため、ここでの処理は不要
     
     // エラー処理
     if (costData.error) {
@@ -225,17 +221,13 @@ function displayResult(startInput, endInput, startPoint, endPoint, costData) {
 
     // 旅費の表示
     costDisplay.textContent = `${costData.amount}円 / ${costData.distance}km`;
-    costDisplay.style.color = '#28a745';
     
     // 境界の色設定
     if (costData.isAmbiguous) {
         resultArea.style.borderColor = '#ffc107';
         resultArea.style.backgroundColor = '#fff3cd';
+        costDisplay.style.color = '#d9534f'; // 曖昧な場合は警告色
         noteDisplay.textContent = `※ 「or」または「OR」を含む結果は、旅費規定の運用に基づき、いずれかの地点を適用してください。実際の計算: ${costData.actualStart} → ${costData.actualEnd}`;
-    } else {
-        resultArea.style.borderColor = '#28a745';
-        resultArea.style.backgroundColor = '#d4edda';
-        noteDisplay.textContent = '※ 特定された地点間の旅費が算定されました。往復金額は片道金額の2倍です。';
     }
 }
 
@@ -258,7 +250,7 @@ function searchTravelCost() {
         const numericStart = parseToNumeric(startHouseNum);
         console.log(`[起点・住所] 町名: "${startTown}", 地番: "${startHouseNum}" (${numericStart})`);
         
-        if (numericStart === 0) {
+        if (numericStart === 0 && startHouseNum !== '0') { // 0番地でない場合
             alert('起点の地番の形式が正しくありません。');
             return;
         }
@@ -303,7 +295,7 @@ function searchTravelCost() {
         const numericEnd = parseToNumeric(endHouseNum);
         console.log(`[終点・住所] 町名: "${endTown}", 地番: "${endHouseNum}" (${numericEnd})`);
         
-        if (numericEnd === 0) {
+        if (numericEnd === 0 && endHouseNum !== '0') { // 0番地でない場合
             alert('終点の地番の形式が正しくありません。');
             return;
         }
@@ -390,6 +382,19 @@ function populateFacilitySelect(selectId) {
 }
 
 function setupModeSwitchers() {
+    // 修正点: モード切替時のリセット処理を追加
+    const resetStartForms = () => {
+        document.getElementById('start-town-name').value = '';
+        document.getElementById('start-house-number').value = '';
+        document.getElementById('start-facility-select').value = '';
+    };
+
+    const resetEndForms = () => {
+        document.getElementById('end-town-name').value = '';
+        document.getElementById('end-house-number').value = '';
+        document.getElementById('end-facility-select').value = '';
+    };
+
     // 起点のモード切替
     const startAddressBtn = document.getElementById('start-mode-address');
     const startFacilityBtn = document.getElementById('start-mode-facility');
@@ -401,6 +406,7 @@ function setupModeSwitchers() {
         startFacilityBtn.classList.remove('active');
         startAddressForm.classList.remove('hidden');
         startFacilityForm.classList.add('hidden');
+        resetStartForms();
     });
     
     startFacilityBtn.addEventListener('click', () => {
@@ -408,6 +414,7 @@ function setupModeSwitchers() {
         startAddressBtn.classList.remove('active');
         startFacilityForm.classList.remove('hidden');
         startAddressForm.classList.add('hidden');
+        resetStartForms();
     });
     
     // 終点のモード切替
@@ -421,6 +428,7 @@ function setupModeSwitchers() {
         endFacilityBtn.classList.remove('active');
         endAddressForm.classList.remove('hidden');
         endFacilityForm.classList.add('hidden');
+        resetEndForms();
     });
     
     endFacilityBtn.addEventListener('click', () => {
@@ -428,6 +436,7 @@ function setupModeSwitchers() {
         endAddressBtn.classList.remove('active');
         endFacilityForm.classList.remove('hidden');
         endAddressForm.classList.add('hidden');
+        resetEndForms();
     });
 }
 
