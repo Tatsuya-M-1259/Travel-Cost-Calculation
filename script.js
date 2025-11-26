@@ -40,15 +40,21 @@ function parseToNumeric(houseNumberStr) {
 
 /**
  * 完全な住所文字列から町名と地番を抽出する
+ * 改善: 「天草市」が含まれていない場合や表記揺れに対応
  */
 function parseAddress(fullAddress) {
-    const parts = fullAddress.split('天草市');
-    if (parts.length < 2) return { townName: "", houseNumber: "" };
+    let addressBody = fullAddress;
     
-    const address = parts[1].trim();
+    // "天草市"があればそこで分割、なければ全体を対象
+    if (fullAddress.includes('天草市')) {
+        addressBody = fullAddress.split('天草市')[1];
+    }
+    
+    addressBody = addressBody.trim();
     
     // 数字（半角/全角）が最初に出現する位置を探す
-    const match = address.match(/^(.+?)([0-9０-９]+.*)$/);
+    // パターン: (数字以外の文字列)(数字+任意の文字)
+    const match = addressBody.match(/^([^0-9０-９]+)([\d０-９]+.*)$/);
     
     if (match && match[1] && match[2]) {
         return { 
@@ -56,8 +62,9 @@ function parseAddress(fullAddress) {
             houseNumber: match[2].trim() 
         };
     } else {
+        // 数字が見つからない場合は全体を町名とする
         return { 
-            townName: address.trim(), 
+            townName: addressBody, 
             houseNumber: "" 
         };
     }
@@ -72,28 +79,46 @@ function getTravelPoint(townName, numericHouseNumber) {
     try {
         console.log(`[検索] 町名: "${townName}", 地番: ${numericHouseNumber}`);
         
-        // 町名の正規化
         const normalizedTownName = townName.trim();
         
-        // 1. データ内で町名を探す (厳格な町名照合ロジック)
+        // 1. データ内で町名を探す (検索ロジック強化版)
         let targetEntry = null;
         
-        // 優先度1: 完全一致
-        targetEntry = TRAVEL_POINTS_DATA.find(entry => entry.town === normalizedTownName);
-        
-        // 優先度2: 町を除いた完全一致（例: 五和町御領 vs 御領）
-        if (!targetEntry) {
-            const cleanInputTown = normalizedTownName.replace(/町$/, '').trim();
-            targetEntry = TRAVEL_POINTS_DATA.find(entry => 
-                entry.town.replace(/町$/, '').trim() === cleanInputTown
-            );
-        }
+        // 正規化: 全角英数字を半角に、余分なスペースを削除
+        const cleanTownName = normalizedTownName.replace(/[Ａ-Ｚａ-ｚ０-９]/g, s => String.fromCharCode(s.charCodeAt(0) - 0xFEE0)).replace(/\s+/g, '');
+
+        // 判定ロジック関数
+        const isMatch = (dataTown) => {
+            const cleanData = dataTown.replace(/\s+/g, '');
+            
+            // A. 完全一致
+            if (cleanData === cleanTownName) return true;
+            
+            // B. 末尾の"町"を除いた一致 (例: "東町" vs "東")
+            if (cleanData.replace(/町$/, '') === cleanTownName) return true;
+            
+            // C. 旧町名(五和町など)を含んだデータに対し、字名のみでの入力に対応
+            // 例: data="五和町御領" vs input="御領"
+            const oldTowns = ['本渡町', '牛深町', '有明町', '御所浦町', '倉岳町', '栖本町', '新和町', '五和町', '天草町', '河浦町'];
+            for (const old of oldTowns) {
+                if (cleanData.startsWith(old)) {
+                    // "五和町御領" から "五和町" を削除 -> "御領"
+                    const subName = cleanData.replace(old, '');
+                    if (subName === cleanTownName) return true;
+                }
+            }
+            return false;
+        };
+
+        // マッチするエントリを検索
+        targetEntry = TRAVEL_POINTS_DATA.find(entry => isMatch(entry.town));
         
         // 2. 東浜町などの「東・浄南・太田町以外は本渡」ルールを適用
         if (!targetEntry) {
             const specialTowns = ['東町', '浄南町', '太田町'];
+            // 入力された町名が特殊な町名を含んでいるかチェック
             const isSpecialTown = specialTowns.some(ex => 
-                normalizedTownName.includes(ex) || normalizedTownName === ex
+                normalizedTownName.includes(ex) || normalizedTownName === ex || normalizedTownName + "町" === ex
             );
             
             if (!isSpecialTown) {
@@ -106,7 +131,7 @@ function getTravelPoint(townName, numericHouseNumber) {
         
         if (!targetEntry) {
             console.error(`[エラー] 町名「${normalizedTownName}」に該当するデータが見つかりません`);
-            return `エラー: 入力された町名「${normalizedTownName}」に該当する旅費データが見つかりません。`;
+            return `エラー: 入力された町名「${normalizedTownName}」に該当する旅費データが見つかりません。正しい町名を入力してください（例：${townName.includes('御領') ? '五和町御領' : '五和町○○'}）。`;
         }
 
         console.log(`[検索] マッチした町名: "${targetEntry.town}"`);
