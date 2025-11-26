@@ -89,8 +89,6 @@ function getTravelPoint(townName, numericHouseNumber) {
             );
         }
         
-        // 修正点: 潜在的な誤判定の原因となる「優先度3：部分一致」のロジックを削除しました。
-        
         // 2. 東浜町などの「東・浄南・太田町以外は本渡」ルールを適用
         if (!targetEntry) {
             const specialTowns = ['東町', '浄南町', '太田町'];
@@ -147,25 +145,32 @@ function getTravelPoint(townName, numericHouseNumber) {
 function calculateTravelCost(startPoint, endPoint) {
     console.log(`[旅費計算] ${startPoint} → ${endPoint}`);
     
-    // エラーチェック
+    // 1. エラーチェック（地点特定失敗）
     if (startPoint.startsWith("エラー:") || endPoint.startsWith("エラー:")) {
         return {
             error: true,
             message: "起点または終点の特定に失敗しました。"
         };
     }
-    
-    // ORやorを含む場合の処理
+
+    // ORやorを含む場合の処理（複数の組み合わせがある場合は最初の組み合わせを使用）
     const startPoints = startPoint.split(/\s+or\s+|OR/).map(p => p.trim());
     const endPoints = endPoint.split(/\s+or\s+|OR/).map(p => p.trim());
-    
-    // 複数の組み合わせがある場合は最初の組み合わせを使用
     const actualStart = startPoints[0];
     const actualEnd = endPoints[0];
+
+    // 2. 計算対象外地点のチェック（横浦など船のみの場所）
+    const isShipOnly = (point) => point.includes("船のみ");
+    if (isShipOnly(actualStart) || isShipOnly(actualEnd)) {
+        return {
+            error: true,
+            message: `地点「${isShipOnly(actualStart) ? actualStart : actualEnd}」は船移動が必要なため、このアプリでは旅費算定の対象外です。別途船賃等の確認が必要です。`
+        };
+    }
     
     console.log(`[実際の計算] ${actualStart} → ${actualEnd}`);
     
-    // TRAVEL_MATRIXから距離と金額を取得
+    // 3. 旅費データの取得とエラーハンドリング
     if (TRAVEL_MATRIX[actualStart] && TRAVEL_MATRIX[actualStart][actualEnd]) {
         const data = TRAVEL_MATRIX[actualStart][actualEnd];
         return {
@@ -178,9 +183,24 @@ function calculateTravelCost(startPoint, endPoint) {
         };
     } else {
         console.error(`[エラー] ${actualStart} → ${actualEnd} の旅費データが見つかりません`);
+        
+        // エリア跨ぎの判定
+        const isStartMain = MAIN_AREA_POINTS.includes(actualStart);
+        const isEndMain = MAIN_AREA_POINTS.includes(actualEnd);
+        const isStartGoshoura = GOSHOURA_POINTS.includes(actualStart);
+        const isEndGoshoura = GOSHOURA_POINTS.includes(actualEnd);
+
+        let errorMsg = `地点「${actualStart}」から「${actualEnd}」への旅費データが見つかりません。`;
+
+        if ((isStartMain && isEndGoshoura) || (isStartGoshoura && isEndMain)) {
+            errorMsg += "\n（本土側と御所浦島内を跨ぐ移動の旅費データは登録されていません。船移動が含まれるため、別途規定を確認してください。）";
+        } else {
+            errorMsg += "データが未登録の可能性があります。";
+        }
+
         return {
             error: true,
-            message: `地点「${actualStart}」から「${actualEnd}」への旅費データが見つかりません。データが未登録の可能性があります。`
+            message: errorMsg
         };
     }
 }
@@ -200,20 +220,17 @@ function displayResult(startInput, endInput, startPoint, endPoint, costData) {
     costDisplay.style.color = '#28a745';
     noteDisplay.textContent = '※ 特定された地点間の旅費が算定されました。往復金額は片道金額の2倍です。';
 
-
     // 起点/終点の表示
     segmentDisplay.textContent = `${startPoint} → ${endPoint}`;
     
     // 入力元の表示
     inputDisplay.innerHTML = `<strong>起点:</strong> ${startInput}<br><strong>終点:</strong> ${endInput}`;
     
-    // 修正点: 終点地点の表示（#travel-point-display）はindex.htmlから削除したため、ここでの処理は不要
-    
     // エラー処理
     if (costData.error) {
         resultArea.style.borderColor = '#dc3545';
         resultArea.style.backgroundColor = '#f8d7da';
-        costDisplay.textContent = 'エラー';
+        costDisplay.textContent = '算出不可';
         costDisplay.style.color = '#dc3545';
         noteDisplay.textContent = `※ ${costData.message}`;
         return;
@@ -222,7 +239,7 @@ function displayResult(startInput, endInput, startPoint, endPoint, costData) {
     // 旅費の表示
     costDisplay.textContent = `${costData.amount}円 / ${costData.distance}km`;
     
-    // 境界の色設定
+    // 境界の色設定（曖昧な場合）
     if (costData.isAmbiguous) {
         resultArea.style.borderColor = '#ffc107';
         resultArea.style.backgroundColor = '#fff3cd';
@@ -332,7 +349,7 @@ function searchTravelCost() {
     displayResult(startInput, endInput, startPoint, endPoint, costData);
 }
 
-// --- 初期化 ---
+// --- 初期化・セットアップ ---
 
 function getFacilityType(name) {
     if (name.includes('市役所') || name.includes('支所')) return 1; 
@@ -349,12 +366,12 @@ function getFacilityType(name) {
 function populateFacilitySelect(selectId) {
     const select = document.getElementById(selectId);
     
-    // 重複を排除
     const uniqueFacilities = [];
     const seen = new Set();
 
     FACILITY_DATA.forEach(facility => {
-        const key = facility.name + '|' + facility.address;
+        // 修正: 施設名のみで重複排除を行う
+        const key = facility.name;
         if (!seen.has(key)) {
             seen.add(key);
             uniqueFacilities.push(facility);
@@ -381,8 +398,56 @@ function populateFacilitySelect(selectId) {
     });
 }
 
+/**
+ * 町名オートコンプリート用のDatalistを設定
+ */
+function setupDatalist() {
+    const townList = document.getElementById('town-list');
+    if (!townList) return;
+
+    TRAVEL_POINTS_DATA.forEach(entry => {
+        // "東・浄南・太田町以外" などの特殊エントリを除外してリスト化
+        if (!entry.town.includes('以外')) {
+            const option = document.createElement('option');
+            option.value = entry.town;
+            townList.appendChild(option);
+        }
+    });
+}
+
+/**
+ * UIイベントリスナーの設定（リセット機能、Enterキー検索）
+ */
+function setupInputListeners() {
+    const inputs = document.querySelectorAll('input, select');
+    const resultArea = document.getElementById('result-area');
+    const segmentDisplay = document.getElementById('travel-segment-display');
+    
+    inputs.forEach(input => {
+        // 入力変更時のリセット処理
+        input.addEventListener('input', () => {
+            segmentDisplay.textContent = '---';
+            document.getElementById('search-input-display').textContent = '---';
+            document.getElementById('travel-cost-display').textContent = '---';
+            // スタイルをデフォルトに戻す
+            resultArea.style.backgroundColor = '#e9f7ff'; 
+            resultArea.style.borderColor = '#28a745'; 
+            document.getElementById('note-display').textContent = '※ 条件を変更した場合は再度「旅費を検索」ボタンを押してください。';
+        });
+
+        // Enterキーでの検索実行
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                // フォーカスを外してモバイルキーボードを閉じる等の挙動も考慮
+                input.blur();
+                searchTravelCost();
+            }
+        });
+    });
+}
+
 function setupModeSwitchers() {
-    // 修正点: モード切替時のリセット処理を追加
+    // モード切替時のリセット処理
     const resetStartForms = () => {
         document.getElementById('start-town-name').value = '';
         document.getElementById('start-house-number').value = '';
@@ -446,6 +511,12 @@ function initializeApp() {
     // 施設セレクトボックスの設定
     populateFacilitySelect('start-facility-select');
     populateFacilitySelect('end-facility-select');
+    
+    // オートコンプリートのセットアップ
+    setupDatalist();
+
+    // イベントリスナーのセットアップ（Enterキー、リセット）
+    setupInputListeners();
     
     // モード切替の設定
     setupModeSwitchers();
