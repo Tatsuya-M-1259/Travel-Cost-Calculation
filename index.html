@@ -21,7 +21,7 @@
             <div id="start-address-form" class="search-form point-form">
                 <div class="input-group">
                     <label for="start-town-name">町名 (例: 東浜町)</label>
-                    <input type="text" id="start-town-name" placeholder="町名を入力してください">
+                    <input type="text" id="start-town-name" list="town-list" placeholder="町名を入力してください">
                 </div>
                 <div class="input-group">
                     <label for="start-house-number">地番 (例: 8-1)</label>
@@ -51,7 +51,7 @@
             <div id="end-address-form" class="search-form point-form">
                 <div class="input-group">
                     <label for="end-town-name">町名 (例: 五和町御領)</label>
-                    <input type="text" id="end-town-name" placeholder="町名を入力してください">
+                    <input type="text" id="end-town-name" list="town-list" placeholder="町名を入力してください">
                 </div>
                 <div class="input-group">
                     <label for="end-house-number">地番 (例: 2943)</label>
@@ -84,6 +84,8 @@
             <p id="travel-cost-display" class="result-cost">---</p>
             <p id="note-display" class="result-note">※ 特定された地点が旅費算定の基準となります。</p>
         </div>
+
+        <datalist id="town-list"></datalist>
 
     </div>
 
