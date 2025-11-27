@@ -102,8 +102,13 @@ function getTravelPoint(townName, numericHouseNumber) {
             if (cleanData.replace(/町$/, '') === cleanTownName) return true;
             
             // C. 旧町名(五和町など)を含んだデータに対し、字名のみでの入力に対応
-            // 例: data="五和町御領" vs input="御領"
-            const oldTowns = ['本渡町', '牛深町', '有明町', '御所浦町', '倉岳町', '栖本町', '新和町', '五和町', '天草町', '河浦町'];
+            // 例: data="五和町御領" vs input="御領", data="亀場町亀川" vs input="亀川"
+            // 修正: 天草市内のすべての町名プレフィックスを網羅
+            const oldTowns = [
+                '本渡町', '牛深町', '有明町', '御所浦町', '倉岳町', '栖本町', '新和町', '五和町', '天草町', '河浦町',
+                '亀場町', '枦宇土町', '楠浦町', '佐伊津町', '本町', '志柿町', '下浦町', '宮地岳町', '二浦町', '深海町', '魚貫町', '久玉町'
+            ];
+            
             for (const old of oldTowns) {
                 if (cleanData.startsWith(old)) {
                     // "五和町御領" から "五和町" を削除 -> "御領"
@@ -236,6 +241,28 @@ function calculateTravelCost(startPoint, endPoint) {
 
 // --- UI操作関数 ---
 
+// エラーメッセージを結果エリアに表示する（alertの代替）
+function showValidationError(message) {
+    const resultArea = document.getElementById('result-area');
+    const costDisplay = document.getElementById('travel-cost-display');
+    const noteDisplay = document.getElementById('note-display');
+    const segmentDisplay = document.getElementById('travel-segment-display');
+    const inputDisplay = document.getElementById('search-input-display');
+
+    segmentDisplay.textContent = '---';
+    inputDisplay.textContent = '---';
+    
+    // エラー表示スタイル
+    resultArea.style.borderColor = '#dc3545'; // 赤色
+    resultArea.style.backgroundColor = '#f8d7da';
+    costDisplay.textContent = '入力エラー';
+    costDisplay.style.color = '#dc3545';
+    noteDisplay.textContent = `※ ${message}`;
+    
+    // エラー箇所までスクロール
+    resultArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
 function displayResult(startInput, endInput, startPoint, endPoint, costData) {
     const resultArea = document.getElementById('result-area');
     const segmentDisplay = document.getElementById('travel-segment-display');
@@ -255,7 +282,7 @@ function displayResult(startInput, endInput, startPoint, endPoint, costData) {
     // 入力元の表示
     inputDisplay.innerHTML = `<strong>起点:</strong> ${startInput}<br><strong>終点:</strong> ${endInput}`;
     
-    // エラー処理
+    // エラー処理 (ロジック内でのエラー)
     if (costData.error) {
         resultArea.style.borderColor = '#dc3545';
         resultArea.style.backgroundColor = '#f8d7da';
@@ -289,15 +316,15 @@ function searchTravelCost() {
         startHouseNum = document.getElementById('start-house-number').value.trim();
         
         if (!startTown || !startHouseNum) {
-            alert('起点の町名と地番を入力してください。');
+            showValidationError('起点の町名と地番を入力してください。');
             return;
         }
         
         const numericStart = parseToNumeric(startHouseNum);
         console.log(`[起点・住所] 町名: "${startTown}", 地番: "${startHouseNum}" (${numericStart})`);
         
-        if (numericStart === 0 && startHouseNum !== '0') { // 0番地でない場合
-            alert('起点の地番の形式が正しくありません。');
+        if (numericStart === 0 && startHouseNum !== '0') {
+            showValidationError('起点の地番の形式が正しくありません。');
             return;
         }
         
@@ -307,13 +334,13 @@ function searchTravelCost() {
     } else {
         const facilityName = document.getElementById('start-facility-select').value;
         if (!facilityName) {
-            alert('起点の施設を選択してください。');
+            showValidationError('起点の施設を選択してください。');
             return;
         }
         
         const facility = FACILITY_DATA.find(f => f.name === facilityName);
         if (!facility) {
-            alert('起点の施設データが見つかりません。');
+            showValidationError('起点の施設データが見つかりません。');
             return;
         }
         
@@ -334,15 +361,15 @@ function searchTravelCost() {
         endHouseNum = document.getElementById('end-house-number').value.trim();
         
         if (!endTown || !endHouseNum) {
-            alert('終点の町名と地番を入力してください。');
+            showValidationError('終点の町名と地番を入力してください。');
             return;
         }
         
         const numericEnd = parseToNumeric(endHouseNum);
         console.log(`[終点・住所] 町名: "${endTown}", 地番: "${endHouseNum}" (${numericEnd})`);
         
-        if (numericEnd === 0 && endHouseNum !== '0') { // 0番地でない場合
-            alert('終点の地番の形式が正しくありません。');
+        if (numericEnd === 0 && endHouseNum !== '0') {
+            showValidationError('終点の地番の形式が正しくありません。');
             return;
         }
         
@@ -352,13 +379,13 @@ function searchTravelCost() {
     } else {
         const facilityName = document.getElementById('end-facility-select').value;
         if (!facilityName) {
-            alert('終点の施設を選択してください。');
+            showValidationError('終点の施設を選択してください。');
             return;
         }
         
         const facility = FACILITY_DATA.find(f => f.name === facilityName);
         if (!facility) {
-            alert('終点の施設データが見つかりません。');
+            showValidationError('終点の施設データが見つかりません。');
             return;
         }
         
@@ -504,6 +531,8 @@ function setupModeSwitchers() {
         startAddressForm.classList.remove('hidden');
         startFacilityForm.classList.add('hidden');
         resetStartForms();
+        // 改善: フォーム切り替え時にフォーカスを移動
+        document.getElementById('start-town-name').focus();
     });
     
     startFacilityBtn.addEventListener('click', () => {
@@ -512,6 +541,7 @@ function setupModeSwitchers() {
         startFacilityForm.classList.remove('hidden');
         startAddressForm.classList.add('hidden');
         resetStartForms();
+        document.getElementById('start-facility-select').focus();
     });
     
     // 終点のモード切替
@@ -526,6 +556,7 @@ function setupModeSwitchers() {
         endAddressForm.classList.remove('hidden');
         endFacilityForm.classList.add('hidden');
         resetEndForms();
+        document.getElementById('end-town-name').focus();
     });
     
     endFacilityBtn.addEventListener('click', () => {
@@ -534,6 +565,7 @@ function setupModeSwitchers() {
         endFacilityForm.classList.remove('hidden');
         endAddressForm.classList.add('hidden');
         resetEndForms();
+        document.getElementById('end-facility-select').focus();
     });
 }
 
