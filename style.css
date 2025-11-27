@@ -85,6 +85,13 @@ h2 {
     border-radius: 5px;
     box-sizing: border-box;
     font-size: 1em;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+/* エラー時のハイライト用クラス */
+.input-error {
+    border-color: #dc3545 !important;
+    background-color: #fff8f8 !important;
 }
 
 button {
