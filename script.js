@@ -377,7 +377,7 @@ function searchTravelCost() {
     // 結果表示
     displayResult(startInput, endInput, startPoint, endPoint, costData);
 
-    // 【追加】結果エリアまでスムーズにスクロールする（スマホ対策）
+    // 結果エリアまでスムーズにスクロール（スマホ対策）
     document.getElementById('result-area').scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
