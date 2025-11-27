@@ -1,6 +1,6 @@
 // sw.js
 
-const CACHE_NAME = 'travel-cost-v3'; // バージョン更新
+const CACHE_NAME = 'travel-cost-v4'; // バージョン更新
 const CACHE_ASSETS = [
     './',
     './index.html',
