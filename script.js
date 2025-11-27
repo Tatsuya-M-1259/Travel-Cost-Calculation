@@ -84,8 +84,12 @@ function getTravelPoint(townName, numericHouseNumber) {
         // 1. データ内で町名を探す (検索ロジック強化版)
         let targetEntry = null;
         
-        // 正規化: 全角英数字を半角に、余分なスペースを削除
-        const cleanTownName = normalizedTownName.replace(/[Ａ-Ｚａ-ｚ０-９]/g, s => String.fromCharCode(s.charCodeAt(0) - 0xFEE0)).replace(/\s+/g, '');
+        // 正規化: 全角英数字を半角に、熊本県・天草市・余分なスペースを削除
+        const cleanTownName = normalizedTownName
+            .replace(/[Ａ-Ｚａ-ｚ０-９]/g, s => String.fromCharCode(s.charCodeAt(0) - 0xFEE0))
+            .replace(/熊本県/g, '')
+            .replace(/天草市/g, '')
+            .replace(/\s+/g, '');
 
         // 判定ロジック関数
         const isMatch = (dataTown) => {
@@ -118,7 +122,7 @@ function getTravelPoint(townName, numericHouseNumber) {
             const specialTowns = ['東町', '浄南町', '太田町'];
             // 入力された町名が特殊な町名を含んでいるかチェック
             const isSpecialTown = specialTowns.some(ex => 
-                normalizedTownName.includes(ex) || normalizedTownName === ex || normalizedTownName + "町" === ex
+                cleanTownName.includes(ex) || cleanTownName === ex || cleanTownName + "町" === ex
             );
             
             if (!isSpecialTown) {
@@ -372,6 +376,9 @@ function searchTravelCost() {
     
     // 結果表示
     displayResult(startInput, endInput, startPoint, endPoint, costData);
+
+    // 【追加】結果エリアまでスムーズにスクロールする（スマホ対策）
+    document.getElementById('result-area').scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 // --- 初期化・セットアップ ---
