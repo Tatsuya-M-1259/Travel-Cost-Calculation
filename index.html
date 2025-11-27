@@ -15,7 +15,7 @@
 <body>
     <div class="container">
         <h1>天草市 旅費算定地点・金額検索アプリ</h1>
-        <p>旅費の起点と終点の両方を、住所または施設名から地番情報に基づいて特定し、地点間の距離と金額を検索します。</p>
+        <p>旅費の起点と終点を特定し、距離と金額を検索します。</p>
 
         <div class="search-section">
             <h2>1. 旅費の起点地点を特定</h2>
@@ -26,12 +26,12 @@
 
             <div id="start-address-form" class="search-form point-form">
                 <div class="input-group">
-                    <label for="start-town-name">町名 (例: 東浜町)</label>
-                    <input type="text" id="start-town-name" list="town-list" placeholder="町名を入力してください" enterkeyhint="search">
+                    <label for="start-town-name">町名 <small>(※数字が含まれる場合は漢数字で入力)</small></label>
+                    <input type="text" id="start-town-name" list="town-list" placeholder="例: 五和町御領" enterkeyhint="search">
                 </div>
                 <div class="input-group">
-                    <label for="start-house-number">地番 (例: 8-1)</label>
-                    <input type="text" id="start-house-number" placeholder="地番を入力してください" enterkeyhint="search">
+                    <label for="start-house-number">地番</label>
+                    <input type="text" id="start-house-number" placeholder="例: 2943 (半角数字)" enterkeyhint="search">
                 </div>
             </div>
 
@@ -56,12 +56,12 @@
 
             <div id="end-address-form" class="search-form point-form">
                 <div class="input-group">
-                    <label for="end-town-name">町名 (例: 五和町御領)</label>
-                    <input type="text" id="end-town-name" list="town-list" placeholder="町名を入力してください" enterkeyhint="search">
+                    <label for="end-town-name">町名 <small>(※数字が含まれる場合は漢数字で入力)</small></label>
+                    <input type="text" id="end-town-name" list="town-list" placeholder="例: 本渡町広瀬" enterkeyhint="search">
                 </div>
                 <div class="input-group">
-                    <label for="end-house-number">地番 (例: 2943)</label>
-                    <input type="text" id="end-house-number" placeholder="地番を入力してください" enterkeyhint="search">
+                    <label for="end-house-number">地番</label>
+                    <input type="text" id="end-house-number" placeholder="例: 5-110 (半角数字)" enterkeyhint="search">
                 </div>
             </div>
 
