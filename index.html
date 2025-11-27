@@ -11,6 +11,9 @@
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="icon-192x192.png">
     <meta name="theme-color" content="#0056b3">
+
+    <script src="data.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -27,11 +30,11 @@
             <div id="start-address-form" class="search-form point-form">
                 <div class="input-group">
                     <label for="start-town-name">町名 <small>(※数字が含まれる場合は漢数字で入力)</small></label>
-                    <input type="text" id="start-town-name" list="town-list" placeholder="例: 五和町御領" enterkeyhint="search">
+                    <input type="text" id="start-town-name" list="town-list" placeholder="例: 五和町御領" enterkeyhint="search" autocomplete="off">
                 </div>
                 <div class="input-group">
                     <label for="start-house-number">地番</label>
-                    <input type="text" id="start-house-number" placeholder="例: 2943 (半角数字)" enterkeyhint="search">
+                    <input type="text" id="start-house-number" placeholder="例: 2943 (半角数字)" enterkeyhint="search" inputmode="decimal" autocomplete="off">
                 </div>
             </div>
 
@@ -57,11 +60,11 @@
             <div id="end-address-form" class="search-form point-form">
                 <div class="input-group">
                     <label for="end-town-name">町名 <small>(※数字が含まれる場合は漢数字で入力)</small></label>
-                    <input type="text" id="end-town-name" list="town-list" placeholder="例: 本渡町広瀬" enterkeyhint="search">
+                    <input type="text" id="end-town-name" list="town-list" placeholder="例: 本渡町広瀬" enterkeyhint="search" autocomplete="off">
                 </div>
                 <div class="input-group">
                     <label for="end-house-number">地番</label>
-                    <input type="text" id="end-house-number" placeholder="例: 5-110 (半角数字)" enterkeyhint="search">
+                    <input type="text" id="end-house-number" placeholder="例: 5-110 (半角数字)" enterkeyhint="search" inputmode="decimal" autocomplete="off">
                 </div>
             </div>
 
@@ -94,8 +97,5 @@
         <datalist id="town-list"></datalist>
 
     </div>
-
-    <script src="data.js"></script>
-    <script src="script.js"></script>
-</body>
+    </body>
 </html>
