@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:;">
+    
     <title>天草市 旅費算定地点・金額検索アプリ</title>
     <link rel="stylesheet" href="style.css">
     
@@ -74,7 +76,7 @@
         </div>
 
         <div class="search-execute-area">
-            <button onclick="searchTravelCost()">旅費を検索</button>
+            <button id="search-execute-btn">旅費を検索</button>
         </div>
         
         <div id="result-area" class="result-box">
@@ -95,19 +97,5 @@
 
     <script src="data.js"></script>
     <script src="script.js"></script>
-    
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js')
-                    .then(registration => {
-                        console.log('ServiceWorker registration successful');
-                    })
-                    .catch(err => {
-                        console.log('ServiceWorker registration failed: ', err);
-                    });
-            });
-        }
-    </script>
 </body>
 </html>
