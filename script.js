@@ -100,7 +100,6 @@ function getTravelPoint(townName, numericHouseNumber) {
             if (cleanData.replace(/町$/, '') === cleanTownName) return true;
             
             // C. 旧町名を含んだデータに対し、字名のみでの入力に対応
-            // 修正: データセットに含まれるすべての「～町」を網羅
             const oldTowns = [
                 '本渡町', '牛深町', '有明町', '御所浦町', '倉岳町', '栖本町', '新和町', '五和町', '天草町', '河浦町',
                 '亀場町', '枦宇土町', '楠浦町', '佐伊津町', '本町', '志柿町', '下浦町', '宮地岳町', '二浦町', '深海町', '久玉町', '魚貫町'
@@ -234,7 +233,7 @@ function calculateTravelCost(startPoint, endPoint) {
 
 // --- UI操作関数 ---
 
-// エラーメッセージを結果エリアに表示する（alertの代替）
+// エラーメッセージを結果エリアに表示する
 function showValidationError(message, focusElementId) {
     const resultArea = document.getElementById('result-area');
     const costDisplay = document.getElementById('travel-cost-display');
@@ -255,7 +254,7 @@ function showValidationError(message, focusElementId) {
     // エラー箇所までスクロール
     resultArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-    // 未入力項目へのフォーカス移動（改善点）
+    // 未入力項目へのフォーカス移動
     if (focusElementId) {
         setTimeout(() => {
             const element = document.getElementById(focusElementId);
@@ -264,6 +263,7 @@ function showValidationError(message, focusElementId) {
     }
 }
 
+// セキュリティ修正: DOMベースXSS対策のためinnerHTMLを使用せず安全にDOMを構築する
 function displayResult(startInput, endInput, startPoint, endPoint, costData) {
     const resultArea = document.getElementById('result-area');
     const segmentDisplay = document.getElementById('travel-segment-display');
@@ -278,7 +278,32 @@ function displayResult(startInput, endInput, startPoint, endPoint, costData) {
     noteDisplay.textContent = '※ 特定された地点間の旅費が算定されました。往復金額は片道金額の2倍です。';
 
     segmentDisplay.textContent = `${startPoint} → ${endPoint}`;
-    inputDisplay.innerHTML = `<strong>起点:</strong> ${startInput}<br><strong>終点:</strong> ${endInput}`;
+    
+    // inputDisplayの内容をリセット
+    inputDisplay.textContent = '';
+
+    // 安全なテキスト挿入ヘルパー（改行対応）
+    const appendTextWithBreaks = (container, text) => {
+        const lines = text.split('\n');
+        lines.forEach((line, index) => {
+            if (index > 0) container.appendChild(document.createElement('br'));
+            container.appendChild(document.createTextNode(line));
+        });
+    };
+
+    // 起点の表示
+    const startStrong = document.createElement('strong');
+    startStrong.textContent = '起点: ';
+    inputDisplay.appendChild(startStrong);
+    appendTextWithBreaks(inputDisplay, startInput);
+
+    inputDisplay.appendChild(document.createElement('br'));
+
+    // 終点の表示
+    const endStrong = document.createElement('strong');
+    endStrong.textContent = '終点: ';
+    inputDisplay.appendChild(endStrong);
+    appendTextWithBreaks(inputDisplay, endInput);
     
     // エラー処理 (ロジック内でのエラー)
     if (costData.error) {
@@ -346,7 +371,8 @@ function searchTravelCost() {
         const addressParts = parseAddress(facility.address);
         const numericStart = parseToNumeric(addressParts.houseNumber);
         startPoint = getTravelPoint(addressParts.townName, numericStart);
-        startInput = `施設: ${facilityName}<br>住所: ${facility.address}`;
+        // セキュリティ修正: <br>タグの代わりに改行コードを使用
+        startInput = `施設: ${facilityName}\n住所: ${facility.address}`;
     }
     
     // 終点の取得
@@ -390,7 +416,8 @@ function searchTravelCost() {
         const addressParts = parseAddress(facility.address);
         const numericEnd = parseToNumeric(addressParts.houseNumber);
         endPoint = getTravelPoint(addressParts.townName, numericEnd);
-        endInput = `施設: ${facilityName}<br>住所: ${facility.address}`;
+        // セキュリティ修正: <br>タグの代わりに改行コードを使用
+        endInput = `施設: ${facilityName}\n住所: ${facility.address}`;
     }
     
     const costData = calculateTravelCost(startPoint, endPoint);
@@ -480,6 +507,12 @@ function setupInputListeners() {
             }
         });
     });
+
+    // セキュリティ修正: 検索ボタンのイベントリスナーを追加
+    const searchBtn = document.getElementById('search-execute-btn');
+    if (searchBtn) {
+        searchBtn.addEventListener('click', searchTravelCost);
+    }
 }
 
 function setupModeSwitchers() {
@@ -507,7 +540,6 @@ function setupModeSwitchers() {
         startAddressForm.classList.remove('hidden');
         startFacilityForm.classList.add('hidden');
         resetStartForms();
-        // 改善: フォーム切り替え時にフォーカスを移動
         document.getElementById('start-town-name').focus();
     });
     
@@ -556,3 +588,16 @@ function initializeApp() {
 }
 
 window.onload = initializeApp;
+
+// セキュリティ修正: CSP準拠のためHTMLから移動したServiceWorker登録処理
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+            .then(registration => {
+                console.log('ServiceWorker registration successful');
+            })
+            .catch(err => {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+    });
+}
