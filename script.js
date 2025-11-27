@@ -52,8 +52,6 @@ function parseAddress(fullAddress) {
     addressBody = addressBody.trim();
     
     // 数字（半角/全角）が最初に出現する位置を探す
-    // ※町名に数字が含まれる場合（例：1丁目）は誤判定する可能性があるため、
-    //   UI側で漢数字入力を促すか、より高度な解析が必要。今回は既存ロジックを維持。
     const match = addressBody.match(/^([^0-9０-９]+)([\d０-９]+.*)$/);
     
     if (match && match[1] && match[2]) {
@@ -73,7 +71,6 @@ function parseAddress(fullAddress) {
 
 /**
  * 町名と地番から旅費地点を特定する
- * 改善: 戻り値をオブジェクト形式に統一 { error: boolean, point: string|null, message: string|null }
  */
 function getTravelPoint(townName, numericHouseNumber) {
     try {
@@ -84,7 +81,7 @@ function getTravelPoint(townName, numericHouseNumber) {
         // 1. データ内で町名を探す
         let targetEntry = null;
         
-        // 正規化: 全角英数字を半角に、熊本県・天草市・余分なスペースを削除
+        // 正規化
         const cleanTownName = normalizedTownName
             .replace(/[Ａ-Ｚａ-ｚ０-９]/g, s => String.fromCharCode(s.charCodeAt(0) - 0xFEE0))
             .replace(/熊本県/g, '')
@@ -95,7 +92,7 @@ function getTravelPoint(townName, numericHouseNumber) {
             const cleanData = dataTown.replace(/\s+/g, '');
             // A. 完全一致
             if (cleanData === cleanTownName) return true;
-            // B. 末尾の"町"を除いた一致 (例: "東町" vs "東")
+            // B. 末尾の"町"を除いた一致
             if (cleanData.replace(/町$/, '') === cleanTownName) return true;
             // C. 旧町名を含んだデータに対し、字名のみでの入力に対応
             const oldTowns = [
@@ -175,7 +172,7 @@ function calculateTravelCost(startRes, endRes) {
 
     console.log(`[旅費計算] ${startPoint} → ${endPoint}`);
 
-    // ORを含む場合の処理（先頭を採用）
+    // ORを含む場合の処理
     const startPoints = startPoint.split(/\s+or\s+|OR/).map(p => p.trim());
     const endPoints = endPoint.split(/\s+or\s+|OR/).map(p => p.trim());
     const actualStart = startPoints[0];
@@ -204,7 +201,7 @@ function calculateTravelCost(startRes, endRes) {
             actualEnd: actualEnd
         };
     } else {
-        // エリア跨ぎなどのエラーメッセージ生成
+        // エラーメッセージ生成
         const isStartMain = MAIN_AREA_POINTS.includes(actualStart);
         const isEndMain = MAIN_AREA_POINTS.includes(actualEnd);
         const isStartGoshoura = GOSHOURA_POINTS.includes(actualStart);
@@ -224,7 +221,7 @@ function calculateTravelCost(startRes, endRes) {
 
 // --- UI操作関数 ---
 
-// バリデーションエラーの表示（UI/UX改善: 入力枠ハイライト機能追加）
+// バリデーションエラーの表示
 function showValidationError(message, focusElementId) {
     const resultArea = document.getElementById('result-area');
     const costDisplay = document.getElementById('travel-cost-display');
@@ -246,11 +243,8 @@ function showValidationError(message, focusElementId) {
     if (focusElementId) {
         const element = document.getElementById(focusElementId);
         if(element) {
-            // エラークラスを付与して赤枠表示
             element.classList.add('input-error');
             element.focus();
-            
-            // フォーカスが外れたらエラー表示を消すイベントを一度だけ登録
             element.addEventListener('blur', function removeError() {
                 element.classList.remove('input-error');
                 element.removeEventListener('blur', removeError);
@@ -259,7 +253,7 @@ function showValidationError(message, focusElementId) {
     }
 }
 
-// セキュリティ修正: XSS対策（textContent使用）
+// 結果表示（XSS対策済み）
 function displayResult(startInput, endInput, costData) {
     const resultArea = document.getElementById('result-area');
     const segmentDisplay = document.getElementById('travel-segment-display');
@@ -278,7 +272,7 @@ function displayResult(startInput, endInput, costData) {
         resultArea.style.borderColor = '#dc3545';
         resultArea.style.backgroundColor = '#f8d7da';
         segmentDisplay.textContent = '---';
-        inputDisplay.textContent = '---'; // 安全にクリア
+        inputDisplay.textContent = '---';
         costDisplay.textContent = '算出不可';
         costDisplay.style.color = '#dc3545';
         noteDisplay.textContent = `※ ${costData.message}`;
@@ -295,7 +289,6 @@ function displayResult(startInput, endInput, costData) {
         strong.textContent = label;
         inputDisplay.appendChild(strong);
         
-        // 改行コードで分割してテキストノードとして追加
         const lines = text.split('\n');
         lines.forEach((line, idx) => {
             if (idx > 0) inputDisplay.appendChild(document.createElement('br'));
@@ -320,8 +313,6 @@ function displayResult(startInput, endInput, costData) {
 
 function searchTravelCost() {
     console.log('[検索開始]');
-    
-    // 全ての入力エラー表示をリセット
     document.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
 
     // 起点の取得
@@ -451,7 +442,6 @@ function setupInputListeners() {
     
     inputs.forEach(input => {
         input.addEventListener('input', () => {
-            // 結果表示のリセット（見た目のみ）
             document.getElementById('travel-segment-display').textContent = '---';
             document.getElementById('search-input-display').textContent = '---';
             document.getElementById('travel-cost-display').textContent = '---';
@@ -459,7 +449,6 @@ function setupInputListeners() {
             resultArea.style.borderColor = '#28a745'; 
             document.getElementById('note-display').textContent = '※ 条件を変更した場合は再度「旅費を検索」ボタンを押してください。';
             
-            // エラーハイライト解除
             input.classList.remove('input-error');
         });
 
@@ -471,7 +460,6 @@ function setupInputListeners() {
         });
     });
 
-    // セキュリティ修正: イベントリスナーの登録
     const searchBtn = document.getElementById('search-execute-btn');
     if (searchBtn) {
         searchBtn.addEventListener('click', searchTravelCost);
@@ -526,7 +514,7 @@ function initializeApp() {
 
 window.onload = initializeApp;
 
-// ServiceWorker登録（CSP対応のためHTMLから移動）
+// ServiceWorker登録
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js')
