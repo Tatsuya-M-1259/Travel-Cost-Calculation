@@ -99,10 +99,16 @@ function getTravelPoint(townName, numericHouseNumber) {
             // B. 末尾の"町"を除いた一致 (例: "東町" vs "東")
             if (cleanData.replace(/町$/, '') === cleanTownName) return true;
             
-            // C. 旧町名(五和町など)を含んだデータに対し、字名のみでの入力に対応
-            const oldTowns = ['本渡町', '牛深町', '有明町', '御所浦町', '倉岳町', '栖本町', '新和町', '五和町', '天草町', '河浦町'];
+            // C. 旧町名を含んだデータに対し、字名のみでの入力に対応
+            // 修正: データセットに含まれるすべての「～町」を網羅
+            const oldTowns = [
+                '本渡町', '牛深町', '有明町', '御所浦町', '倉岳町', '栖本町', '新和町', '五和町', '天草町', '河浦町',
+                '亀場町', '枦宇土町', '楠浦町', '佐伊津町', '本町', '志柿町', '下浦町', '宮地岳町', '二浦町', '深海町', '久玉町', '魚貫町'
+            ];
+            
             for (const old of oldTowns) {
                 if (cleanData.startsWith(old)) {
+                    // 例: "亀場町亀川" から "亀場町" を削除 -> "亀川"
                     const subName = cleanData.replace(old, '');
                     if (subName === cleanTownName) return true;
                 }
@@ -116,6 +122,7 @@ function getTravelPoint(townName, numericHouseNumber) {
         // 2. 東浜町などの「東・浄南・太田町以外は本渡」ルールを適用
         if (!targetEntry) {
             const specialTowns = ['東町', '浄南町', '太田町'];
+            // 入力された町名が特殊な町名を含んでいるかチェック
             const isSpecialTown = specialTowns.some(ex => 
                 cleanTownName.includes(ex) || cleanTownName === ex || cleanTownName + "町" === ex
             );
@@ -204,6 +211,7 @@ function calculateTravelCost(startPoint, endPoint) {
     } else {
         console.error(`[エラー] ${actualStart} → ${actualEnd} の旅費データが見つかりません`);
         
+        // エリア跨ぎの判定
         const isStartMain = MAIN_AREA_POINTS.includes(actualStart);
         const isEndMain = MAIN_AREA_POINTS.includes(actualEnd);
         const isStartGoshoura = GOSHOURA_POINTS.includes(actualStart);
@@ -226,7 +234,7 @@ function calculateTravelCost(startPoint, endPoint) {
 
 // --- UI操作関数 ---
 
-// エラーメッセージを表示し、該当箇所へフォーカス・スクロール
+// エラーメッセージを結果エリアに表示する（alertの代替）
 function showValidationError(message, focusElementId) {
     const resultArea = document.getElementById('result-area');
     const costDisplay = document.getElementById('travel-cost-display');
@@ -237,7 +245,8 @@ function showValidationError(message, focusElementId) {
     segmentDisplay.textContent = '---';
     inputDisplay.textContent = '---';
     
-    resultArea.style.borderColor = '#dc3545';
+    // エラー表示スタイル
+    resultArea.style.borderColor = '#dc3545'; // 赤色
     resultArea.style.backgroundColor = '#f8d7da';
     costDisplay.textContent = '入力エラー';
     costDisplay.style.color = '#dc3545';
@@ -262,6 +271,7 @@ function displayResult(startInput, endInput, startPoint, endPoint, costData) {
     const costDisplay = document.getElementById('travel-cost-display');
     const noteDisplay = document.getElementById('note-display');
     
+    // 境界の色と背景色をリセット/初期設定
     resultArea.style.borderColor = '#28a745';
     resultArea.style.backgroundColor = '#d4edda';
     costDisplay.style.color = '#28a745';
@@ -270,6 +280,7 @@ function displayResult(startInput, endInput, startPoint, endPoint, costData) {
     segmentDisplay.textContent = `${startPoint} → ${endPoint}`;
     inputDisplay.innerHTML = `<strong>起点:</strong> ${startInput}<br><strong>終点:</strong> ${endInput}`;
     
+    // エラー処理 (ロジック内でのエラー)
     if (costData.error) {
         resultArea.style.borderColor = '#dc3545';
         resultArea.style.backgroundColor = '#f8d7da';
@@ -279,12 +290,14 @@ function displayResult(startInput, endInput, startPoint, endPoint, costData) {
         return;
     }
 
+    // 旅費の表示
     costDisplay.textContent = `${costData.amount}円 / ${costData.distance}km`;
     
+    // 境界の色設定（曖昧な場合）
     if (costData.isAmbiguous) {
         resultArea.style.borderColor = '#ffc107';
         resultArea.style.backgroundColor = '#fff3cd';
-        costDisplay.style.color = '#d9534f'; 
+        costDisplay.style.color = '#d9534f'; // 曖昧な場合は警告色
         noteDisplay.textContent = `※ 「or」または「OR」を含む結果は、旅費規定の運用に基づき、いずれかの地点を適用してください。実際の計算: ${costData.actualStart} → ${costData.actualEnd}`;
     }
 }
@@ -448,15 +461,18 @@ function setupInputListeners() {
     const segmentDisplay = document.getElementById('travel-segment-display');
     
     inputs.forEach(input => {
+        // 入力変更時のリセット処理
         input.addEventListener('input', () => {
             segmentDisplay.textContent = '---';
             document.getElementById('search-input-display').textContent = '---';
             document.getElementById('travel-cost-display').textContent = '---';
+            // スタイルをデフォルトに戻す
             resultArea.style.backgroundColor = '#e9f7ff'; 
             resultArea.style.borderColor = '#28a745'; 
             document.getElementById('note-display').textContent = '※ 条件を変更した場合は再度「旅費を検索」ボタンを押してください。';
         });
 
+        // Enterキーでの検索実行
         input.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 input.blur();
@@ -467,6 +483,7 @@ function setupInputListeners() {
 }
 
 function setupModeSwitchers() {
+    // モード切替時のリセット処理
     const resetStartForms = () => {
         document.getElementById('start-town-name').value = '';
         document.getElementById('start-house-number').value = '';
@@ -490,6 +507,7 @@ function setupModeSwitchers() {
         startAddressForm.classList.remove('hidden');
         startFacilityForm.classList.add('hidden');
         resetStartForms();
+        // 改善: フォーム切り替え時にフォーカスを移動
         document.getElementById('start-town-name').focus();
     });
     
